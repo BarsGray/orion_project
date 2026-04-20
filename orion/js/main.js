@@ -86,16 +86,9 @@ jQuery(function ($) {
 		svgMenuButton.classList.toggle('active');
 		headerMenu.classList.toggle('row_menu--visible');
 		overlay.classList.toggle('overlay--visible');
-
-		// if (menuButton.closest('.burger_menu_btn--active')) {
-		// 	overlay.addEventListener('click', openMenu, true);
-		// } else {
-		// 	overlay.removeEventListener('click', openMenu);
-		// }
 	}
 
 	function openPopap() {
-		// document.querySelector('body').classList.toggle('scroll-nane');
 		overlay.classList.toggle('overlay--visible');
 		popupBox.classList.toggle('popup_box--active');
 		menuButton.classList.toggle('burger_menu_btn--disable');
@@ -105,10 +98,8 @@ jQuery(function ($) {
 		}
 
 		if (popupBox.closest('.popup_box--active')) {
-			// overlay.addEventListener('click', openPopap, true);
 			closeKonsultacia.addEventListener('click', openPopap, true);
 		} else {
-			// overlay.removeEventListener('click', openPopap);
 			closeKonsultacia.removeEventListener('click', openPopap);
 		}
 	}
