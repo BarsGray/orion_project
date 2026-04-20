@@ -659,6 +659,14 @@
 			</div>
 		</footer>
 		<div class="popup_box">
+			<button type="button" class="popup_btn_close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M21.0002 21L11.0002 11.0001M11.0002 11.0001L1.00031 1M11.0002 11.0001L21.0002 1.00019M11.0002 11.0001L1.00015 21"
+						stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+
+			</button>
 			<div class="popup_title">Оставить заявку</div>
 			<p class="popup_text">Оставьте свои контакты и наш специалист перезвонит вам в ближайшее время.</p>
 
@@ -669,55 +677,7 @@
 				<input type="tel" id="tel" name="tel" placeholder="Телефон" required>
 				<button type="submit">Отправить</button>
 			</form>
-			<script>
-				const phoneInput = document.getElementById('tel');
 
-				phoneInput.addEventListener('input', (e) => {
-					let input = e.target.value.replace(/\D/g, ''); // Удаляем все нецифры
-					let formatted = '';
-
-					// Если первая цифра 7 или 8, убираем её, чтобы начать заново с +7
-					if (['7', '8', '9'].includes(input[0])) {
-						if (input[0] === '9') input = '7' + input;
-						input = input.substring(1);
-					}
-
-					formatted = '+7 ';
-
-					if (input.length > 0) {
-						formatted += '(' + input.substring(0, 3);
-					}
-					if (input.length >= 4) {
-						formatted += ') ' + input.substring(3, 6);
-					}
-					if (input.length >= 7) {
-						formatted += '-' + input.substring(6, 8);
-					}
-					if (input.length >= 9) {
-						formatted += '-' + input.substring(8, 10);
-					}
-
-					e.target.value = formatted;
-				});
-
-				// Запрещаем удалять +7 вручную и ставим его при фокусе
-				phoneInput.addEventListener('keydown', (e) => {
-					if (e.target.value.length <= 4 && e.keyCode === 8) {
-						e.preventDefault();
-					}
-				});
-
-
-				const form = document.querySelector('form');
-
-				form.addEventListener('submit', (e) => {
-					if (phoneInput.value.length < 18) {
-						alert('Пожалуйста, введите номер телефона полностью');
-						e.preventDefault(); // Останавливает отправку формы
-					}
-				});
-				
-			</script>
 		</div>
 	</div>
 </body>

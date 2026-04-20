@@ -131,7 +131,7 @@ body {
 
 .overlay {
 	position: fixed;
-	z-index: 9;
+	z-index: 99;
 	background: rgba(0, 0, 0, 0.3);
 	opacity: 0;
 	top: 0;
@@ -141,8 +141,7 @@ body {
 	visibility: hidden;
 	transition: all .3s;
 	backdrop-filter: blur(5px);
-	opacity: 1;
-	visibility: visible;
+	transition: opacity .2s ease-in-out;
 }
 
 .overlay--visible {
@@ -530,8 +529,7 @@ section.catalog .catalog_tubs_box::before {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 9;
-
+	/* z-index: 9; */
 }
 
 section.catalog .catalog_tubs_box::before {
@@ -600,7 +598,7 @@ section.catalog .catalog_tubs_btn {
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 99;
+	z-index: 9;
 	transition: all .1s ease-in-out;
 }
 
@@ -871,7 +869,7 @@ section.carusel .carusel__slider_main_wrapper::before {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 999;
+	z-index: 9;
 }
 
 .carusel__slider_main_wrapper .container {
@@ -1055,6 +1053,28 @@ footer .map_info_list {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	visibility: hidden;
+	transition: all .2s ease-in-out;
+	opacity: 0;
+}
+
+.popup_box--active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup_btn_close {
+	position: absolute;
+	top: -52px;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 16px;
+	background-color: #fff;
+	opacity: 0.7;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .popup_title {
@@ -1074,7 +1094,7 @@ footer .map_info_list {
 	gap: 20px;
 }
 
-.popup_box input {
+.popup_box form input {
 	color: #8C8C8C;
 	padding: 16px;
 	font-size: 20px;
@@ -1082,14 +1102,30 @@ footer .map_info_list {
 	border-radius: 16px;
 }
 
-.popup_box button {
+.popup_box form button {
 	font-size: 20px;
 	padding: 16px 52px 16px 32px;
 	border-radius: 16px;
 	color: #868686;
 	width: fit-content;
+	position: relative;
+	transition: background .2s ease-in-out;
 }
 
+.popup_box form button::before {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	right: 24px;
+	transform: translateY(-50%);
+	background: url('../img/submit_chevron.svg') no-repeat center center / cover;
+}
+
+header .burger_menu_btn.burger_menu_btn--disable {
+	z-index: 9;
+}
 
 @media (max-width: 1264px) {
 	section.carusel .carusel__prev {

@@ -1,4 +1,4 @@
-$(function () {
+jQuery(function ($) {
 
 	const tubs_row = document.querySelector('.catalog_tubs_row');
 	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
@@ -68,12 +68,16 @@ $(function () {
 
 
 
+
 	const menuButton = document.querySelector('.burger_menu_btn');
 	const svgMenuButton = document.querySelector('.burger_menu_btn .ham');
 	const headerMenu = document.querySelector('.row_menu');
 	const overlay = document.querySelector('.overlay');
 
-	menuButton.addEventListener('click', openMenu);
+	const popupBox = document.querySelector('.popup_box');
+	const getKonsultacia = document.querySelector('.row_menu .header_btn');
+	const closeKonsultacia = document.querySelector('.popup_btn_close');
+
 
 	function openMenu() {
 		document.querySelector('body').classList.toggle('scroll-nane');
@@ -83,10 +87,95 @@ $(function () {
 		headerMenu.classList.toggle('row_menu--visible');
 		overlay.classList.toggle('overlay--visible');
 
+		// if (menuButton.closest('.burger_menu_btn--active')) {
+		// 	overlay.addEventListener('click', openMenu, true);
+		// } else {
+		// 	overlay.removeEventListener('click', openMenu);
+		// }
+	}
+
+	function openPopap() {
+		// document.querySelector('body').classList.toggle('scroll-nane');
+		overlay.classList.toggle('overlay--visible');
+		popupBox.classList.toggle('popup_box--active');
+		menuButton.classList.toggle('burger_menu_btn--disable');
+
 		if (menuButton.closest('.burger_menu_btn--active')) {
-			overlay.addEventListener('click', openMenu, true)
+			openMenu();
+		}
+
+		if (popupBox.closest('.popup_box--active')) {
+			// overlay.addEventListener('click', openPopap, true);
+			closeKonsultacia.addEventListener('click', openPopap, true);
 		} else {
-			overlay.removeEventListener('click', openMenu)
+			// overlay.removeEventListener('click', openPopap);
+			closeKonsultacia.removeEventListener('click', openPopap);
 		}
 	}
+
+	function overlayReset() {
+		document.querySelector('body').classList.remove('scroll-nane');
+		menuButton.classList.remove('burger_menu_btn--active');
+		svgMenuButton.classList.remove('active');
+		headerMenu.classList.remove('row_menu--visible');
+		overlay.classList.remove('overlay--visible');
+		overlay.classList.remove('overlay--visible');
+		popupBox.classList.remove('popup_box--active');
+		menuButton.classList.remove('burger_menu_btn--disable');
+	}
+
+	overlay.addEventListener('click', overlayReset);
+
+	menuButton.addEventListener('click', openMenu);
+	getKonsultacia.addEventListener('click', openPopap);
+
+
+
+
+	const phoneInput = document.getElementById('tel');
+
+	phoneInput.addEventListener('input', (e) => {
+		let input = e.target.value.replace(/\D/g, ''); // Удаляем все нецифры
+		let formatted = '';
+
+		// Если первая цифра 7 или 8, убираем её, чтобы начать заново с +7
+		if (['7', '8', '9'].includes(input[0])) {
+			if (input[0] === '9') input = '7' + input;
+			input = input.substring(1);
+		}
+
+		formatted = '+7 ';
+
+		if (input.length > 0) {
+			formatted += '(' + input.substring(0, 3);
+		}
+		if (input.length >= 4) {
+			formatted += ') ' + input.substring(3, 6);
+		}
+		if (input.length >= 7) {
+			formatted += '-' + input.substring(6, 8);
+		}
+		if (input.length >= 9) {
+			formatted += '-' + input.substring(8, 10);
+		}
+
+		e.target.value = formatted;
+	});
+
+	// Запрещаем удалять +7 вручную и ставим его при фокусе
+	phoneInput.addEventListener('keydown', (e) => {
+		if (e.target.value.length <= 4 && e.keyCode === 8) {
+			e.preventDefault();
+		}
+	});
+
+
+	const form = document.querySelector('form');
+
+	form.addEventListener('submit', (e) => {
+		if (phoneInput.value.length < 18) {
+			alert('Пожалуйста, введите номер телефона полностью');
+			e.preventDefault(); // Останавливает отправку формы
+		}
+	});
 });
