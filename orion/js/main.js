@@ -1,5 +1,6 @@
 jQuery(function ($) {
 
+// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 	const tubs_row = document.querySelector('.catalog_tubs_row');
 	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
 	const btn_next = document.querySelector('.catalog_tubs_btn_next');
@@ -28,10 +29,12 @@ jQuery(function ($) {
 	tubs_row.addEventListener('scroll', updadteBtn);
 
 	updadteBtn();
+// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 
+// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 
 	const swiper = new Swiper('.swiper', {
 		loop: true,
@@ -64,10 +67,11 @@ jQuery(function ($) {
 			},
 		},
 	});
+// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-
+// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 	const menuButton = document.querySelector('.burger_menu_btn');
 	const svgMenuButton = document.querySelector('.burger_menu_btn .ham');
@@ -119,9 +123,11 @@ jQuery(function ($) {
 
 	menuButton.addEventListener('click', openMenu);
 	getKonsultacia.addEventListener('click', openPopap);
+// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
+// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
 
 	const phoneInput = document.getElementById('tel');
 
@@ -170,3 +176,13 @@ jQuery(function ($) {
 		}
 	});
 });
+// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
