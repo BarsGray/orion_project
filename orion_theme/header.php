@@ -21,9 +21,6 @@
 	<title><?php bloginfo('name'); ?></title>
 
 	<link rel="shortcut icon" href="img/sizesmall.svg" type="image/x-icon">
-	<link rel="stylesheet" href="css/swiper-bundle.min.css">
-	<link rel="stylesheet" href="css/fancybox.css">
-	<link rel="stylesheet" href="css/styles.css">
 
 	<?php wp_head(); ?>
 </head>
@@ -127,9 +124,7 @@
 					<div class="container">
 						<div class="row_content">
 							<div class="row_logo">
-								<a class="" href="/">
-									<img src="img/logo.svg" alt="">
-								</a>
+								<?php the_custom_logo(); ?>
 							</div>
 							<div class="row_menu">
 								<nav class="nav_menu">
@@ -288,7 +283,7 @@
 
 
 
-<!-- 
+		<!-- 
 				<header id="masthead" class="site-header">
 					<div class="site-branding">
 						<?php
@@ -312,9 +307,9 @@
 							</p>
 						<?php endif; ?>
 					</div> -->
-					<!-- .site-branding -->
+		<!-- .site-branding -->
 
-					<!-- <nav id="site-navigation" class="main-navigation">
+		<!-- <nav id="site-navigation" class="main-navigation">
 						<button class="menu-toggle" aria-controls="primary-menu"
 							aria-expanded="false"><?php esc_html_e('Primary Menu', 'orion_theme'); ?></button>
 						<?php
@@ -326,5 +321,5 @@
 						);
 						?>
 					</nav> -->
-					<!-- #site-navigation -->
-				<!-- </header>#masthead -->
+		<!-- #site-navigation -->
+		<!-- </header>#masthead -->
