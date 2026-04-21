@@ -12,8 +12,6 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -136,6 +134,20 @@ function orion_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'orion_theme_widgets_init' );
 
+/**
+ * Enqueue scripts and styles.
+ */
+function orion_theme_scripts() {
+	wp_enqueue_style( 'orion_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'orion_theme-style', 'rtl', 'replace' );
+
+	wp_enqueue_script( 'orion_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'orion_theme_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -164,6 +176,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-
-require get_template_directory() . '/inc/enqueue_script_style.php';
