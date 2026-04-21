@@ -134,6 +134,20 @@ jQuery(function ($) {
 
 	const phoneInput = document.getElementById('tel');
 
+	// При фокусе, если поле пустое, подставляем префикс
+	phoneInput.addEventListener('focus', () => {
+		if (!phoneInput.value) {
+			phoneInput.value = '+7 ';
+		}
+	});
+
+	// При потере фокуса, если в поле только префикс, очищаем его для показа плейсхолдера
+	phoneInput.addEventListener('blur', () => {
+		if (phoneInput.value === '+7 ') {
+			phoneInput.value = '';
+		}
+	});
+
 	phoneInput.addEventListener('input', (e) => {
 		let input = e.target.value.replace(/\D/g, ''); // Удаляем все нецифры
 		let formatted = '';

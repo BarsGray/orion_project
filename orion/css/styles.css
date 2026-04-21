@@ -144,10 +144,14 @@ body {
 	transition: opacity .2s ease-in-out;
 }
 
-.contacts_tel:hover,
+.contacts_tel,
+.map_info_list_link {
+	transition: color .2s ease-in-out;
+}
+
 .contacts_tel:hover,
 .map_info_list_link:hover {
-	text-decoration: underline;
+	color: #C37437;
 }
 
 .overlay--visible {
@@ -1063,7 +1067,7 @@ footer .map_info_list {
 	/* visibility: hidden; */
 	/* transition: all .2s ease-in-out; */
 	/* opacity: 0; */
-	/* display: none; */
+	display: none;
 }
 
 .fancybox__backdrop {
@@ -1130,11 +1134,14 @@ footer .map_info_list {
 }
 
 .popup_box form input {
-	color: #8C8C8C;
+	/* color: #8C8C8C; */
 	padding: 16px;
 	font-size: 20px;
 	border: 1px solid #D8D8D8;
 	border-radius: 16px;
+}
+.popup_box form input::placeholder {
+	color: #8C8C8C;
 }
 
 .popup_box form button {
