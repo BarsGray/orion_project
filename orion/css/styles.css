@@ -784,7 +784,7 @@ section.about .about_content_description {
 }
 
 section.about .about_content_img img {
-	white: 100%;
+	width: 100%;
 }
 
 section.about .about_advantages_item {
