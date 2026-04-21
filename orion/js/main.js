@@ -1,6 +1,10 @@
 jQuery(function ($) {
 
-// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
+	Fancybox.bind("[data-fancybox]", {
+		zoomEffect: false,
+		dragToClose: false,
+	});
+	// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 	const tubs_row = document.querySelector('.catalog_tubs_row');
 	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
 	const btn_next = document.querySelector('.catalog_tubs_btn_next');
@@ -29,12 +33,12 @@ jQuery(function ($) {
 	tubs_row.addEventListener('scroll', updadteBtn);
 
 	updadteBtn();
-// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 
-// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 
 	const swiper = new Swiper('.swiper', {
 		loop: true,
@@ -67,11 +71,11 @@ jQuery(function ($) {
 			},
 		},
 	});
-// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 	const menuButton = document.querySelector('.burger_menu_btn');
 	const svgMenuButton = document.querySelector('.burger_menu_btn .ham');
@@ -92,21 +96,21 @@ jQuery(function ($) {
 		overlay.classList.toggle('overlay--visible');
 	}
 
-	function openPopap() {
-		overlay.classList.toggle('overlay--visible');
-		popupBox.classList.toggle('popup_box--active');
-		menuButton.classList.toggle('burger_menu_btn--disable');
+	// function openPopap() {
+	// 	overlay.classList.toggle('overlay--visible');
+	// 	popupBox.classList.toggle('popup_box--active');
+	// 	menuButton.classList.toggle('burger_menu_btn--disable');
 
-		if (menuButton.closest('.burger_menu_btn--active')) {
-			openMenu();
-		}
+	// 	if (menuButton.closest('.burger_menu_btn--active')) {
+	// 		openMenu();
+	// 	}
 
-		if (popupBox.closest('.popup_box--active')) {
-			closeKonsultacia.addEventListener('click', openPopap, true);
-		} else {
-			closeKonsultacia.removeEventListener('click', openPopap);
-		}
-	}
+	// 	if (popupBox.closest('.popup_box--active')) {
+	// 		closeKonsultacia.addEventListener('click', openPopap, true);
+	// 	} else {
+	// 		closeKonsultacia.removeEventListener('click', openPopap);
+	// 	}
+	// }
 
 	function overlayReset() {
 		document.querySelector('body').classList.remove('scroll-nane');
@@ -114,20 +118,19 @@ jQuery(function ($) {
 		svgMenuButton.classList.remove('active');
 		headerMenu.classList.remove('row_menu--visible');
 		overlay.classList.remove('overlay--visible');
-		overlay.classList.remove('overlay--visible');
-		popupBox.classList.remove('popup_box--active');
-		menuButton.classList.remove('burger_menu_btn--disable');
+		// popupBox.classList.remove('popup_box--active');
+		// menuButton.classList.remove('burger_menu_btn--disable');
 	}
 
 	overlay.addEventListener('click', overlayReset);
 
 	menuButton.addEventListener('click', openMenu);
-	getKonsultacia.addEventListener('click', openPopap);
-// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
+	// getKonsultacia.addEventListener('click', openPopap);
+	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
 
 	const phoneInput = document.getElementById('tel');
 
