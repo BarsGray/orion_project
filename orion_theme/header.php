@@ -20,7 +20,7 @@
 
 	<title><?php bloginfo('name'); ?></title>
 
-	<link rel="shortcut icon" href="img/sizesmall.svg" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php bloginfo('template_url') ?>/assets/img/sizesmall.svg" type="image/x-icon">
 
 	<?php wp_head(); ?>
 </head>
@@ -57,9 +57,9 @@
 											</clipPath>
 										</defs>
 									</svg>
-									<div class="top_row_text">
-										ул. Героев Сибиряков, д. 12(А)
-									</div>
+									<?php if (get_field('adres_1')): ?>
+										<p class="top_row_text"><?php the_field('adres_1') ?></p>
+									<?php endif; ?>
 								</div>
 								<div class="top_row_adress_2">
 									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,9 +77,9 @@
 											</clipPath>
 										</defs>
 									</svg>
-									<div class="top_row_text">
-										ул. Дорожная, д. 36(Б)
-									</div>
+									<?php if (get_field('adres_2')): ?>
+										<p class="top_row_text"><?php the_field('adres_2') ?></p>
+									<?php endif; ?>
 								</div>
 							</div>
 							<div class="top_row_contacts">
@@ -110,10 +110,10 @@
 								</div>
 								<div class="contacts_socials">
 									<a href="/" class="contacts_socials_link">
-										<img class="" src="img/frame4382vk.svg" alt="">
+										<img class="" src="<?php bloginfo('template_url') ?>/assets/img/frame4382vk.svg" alt="">
 									</a>
 									<a href="/" class="contacts_socials_link">
-										<img class="" src="img/logo_MAX2.svg" alt="">
+										<img class="" src="<?php bloginfo('template_url') ?>/assets/img/logo_MAX2.svg" alt="">
 									</a>
 								</div>
 							</div>
@@ -124,7 +124,9 @@
 					<div class="container">
 						<div class="row_content">
 							<div class="row_logo">
-								<?php the_custom_logo(); ?>
+								<a class="" href="/">
+									<img src="<?php the_field('logotipe'); ?>" alt="">
+								</a>
 							</div>
 							<div class="row_menu">
 								<nav class="nav_menu">
@@ -206,10 +208,10 @@
 									</div>
 									<div class="contacts_socials">
 										<a href="/" class="contacts_socials_link">
-											<img class="" src="img/mobile_vk.svg" alt="">
+											<img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt="">
 										</a>
 										<a href="/" class="contacts_socials_link">
-											<img class="" src="img/mobile_max.svg" alt="">
+											<img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt="">
 										</a>
 									</div>
 								</div>
@@ -248,21 +250,21 @@
 								<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 								<div class="header_advantages_row">
 									<div class="header_advantages_item">
-										<img src="img/shield.svg" alt="">
+										<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
 										<p class="header_advantages_item_text">
 											<span>Гарантия</span>
 											на памятник и установку
 										</p>
 									</div>
 									<div class="header_advantages_item">
-										<img src="img/coins.svg" alt="">
+										<img src="<?php bloginfo('template_url') ?>/assets/img/coins.svg" alt="">
 										<p class="header_advantages_item_text">
 											<span>Рассрочка</span>
 											на выгодных условиях
 										</p>
 									</div>
 									<div class="header_advantages_item">
-										<img src="img/money.svg" alt="">
+										<img src="<?php bloginfo('template_url') ?>/assets/img/money.svg" alt="">
 										<p class="header_advantages_item_text">
 											<span>Подбор</span>
 											под ваш бюджет
@@ -275,51 +277,3 @@
 				</div>
 			</div>
 		</header>
-
-
-
-
-
-
-
-
-		<!-- 
-				<header id="masthead" class="site-header">
-					<div class="site-branding">
-						<?php
-						the_custom_logo();
-						if (is_front_page() && is_home()):
-							?>
-							<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-									rel="home"><?php bloginfo('name'); ?></a></h1>
-							<?php
-						else:
-							?>
-							<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-									rel="home"><?php bloginfo('name'); ?></a></p>
-							<?php
-						endif;
-						$orion_theme_description = get_bloginfo('description', 'display');
-						if ($orion_theme_description || is_customize_preview()):
-							?>
-							<p class="site-description">
-								<?php echo $orion_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							</p>
-						<?php endif; ?>
-					</div> -->
-		<!-- .site-branding -->
-
-		<!-- <nav id="site-navigation" class="main-navigation">
-						<button class="menu-toggle" aria-controls="primary-menu"
-							aria-expanded="false"><?php esc_html_e('Primary Menu', 'orion_theme'); ?></button>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_id' => 'primary-menu',
-							)
-						);
-						?>
-					</nav> -->
-		<!-- #site-navigation -->
-		<!-- </header>#masthead -->
