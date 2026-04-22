@@ -78,19 +78,23 @@ Template Name: home
 									stroke="#C37437" stroke-width="2" />
 							</svg>
 						</button>
+
+						<?php
+						$categories = get_categories(array(
+							'taxonomy' => 'product_cat',
+							'orderby' => 'name',
+							'order' => 'ASC',
+							'hide_empty' => false // true — скрыть пустые, false — показать все
+						));
+						?>
+
 						<ul class="catalog_tubs_row">
-							<li class="catalog_tub_item active"><a href="">Ангелы</a></li>
-							<li class="catalog_tub_item"><a href="">Ветви</a></li>
-							<li class="catalog_tub_item"><a href="">Военные</a></li>
-							<li class="catalog_tub_item"><a href="">Деревья</a></li>
-							<li class="catalog_tub_item"><a href="">Детские</a></li>
-							<li class="catalog_tub_item"><a href="">Иконы</a></li>
-							<li class="catalog_tub_item"><a href="">Колосья</a></li>
-							<li class="catalog_tub_item"><a href="">Кресты</a></li>
-							<li class="catalog_tub_item"><a href="">Лоза</a></li>
-							<li class="catalog_tub_item"><a href="">Пламя</a></li>
-							<li class="catalog_tub_item"><a href="">Кресты</a></li>
+							<?php foreach ($categories as $category): ?>
+								<li class="catalog_tub_item"><a
+										href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></li>
+							<?php endforeach; ?>
 						</ul>
+
 						<button class="catalog_tubs_btn catalog_tubs_btn_next">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9 5L15.4929 11.4929C15.8834 11.8834 15.8834 12.5166 15.4929 12.9071L9 19.4" stroke="#C37437"
@@ -101,178 +105,78 @@ Template Name: home
 						</button>
 					</div>
 					<div class="catalog_box">
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
-								<span class="catalog_item_name">
-									Label-001
-								</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-					</div>
-					<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
-				</div>
-			</div>
-		</section>
 
-		<?php if (have_rows('slides', 'option')): ?>
-			<section class="carusel">
-				<div class="container carusel_container_top">
-					<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
-					<div class="carusel__arrow carusel__prev">
-						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
-								stroke-width="3" />
-						</svg>
-					</div>
-					<div class="carusel__arrow carusel__next">
-						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M13 6L24.2929 17.2929C24.6834 17.6834 24.6834 18.3166 24.2929 18.7071L13 30" stroke="#C37437"
-								stroke-width="3" />
-						</svg>
-					</div>
-				</div>
-				<div class="carusel__slider_main_wrapper">
-					<div class="container">
-						<div class="swiper carusel__slider-wrapper">
-							<div class="swiper-wrapper carusel__slider">
-								<?php while (have_rows('slides', 'option')):
-									the_row();
-									?>
-									<div class="swiper-slide carusel__slide"><img data-fancybox="gallery"
-											src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>"></div>
-								<?php endwhile; ?>
+
+						<?php
+						$args = array(
+							'post_type' => 'product',
+							'posts_per_page' => -1,
+						);
+
+						$loop = new WP_Query($args);
+
+						while ($loop->have_posts()):
+							$loop->the_post();
+							global $product;
+							?>
+
+							<div class="catalog_item">
+								<a href="<?php the_permalink(); ?>" class="catalog_item_link">
+									<span class="catalog_item_img">
+										<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+									</span>
+									<span class="catalog_item_name">
+										<?php the_title(); ?>
+									</span>
+								</a>
+								<a href="" class="catalog_item_btn">Заказать</a>
 							</div>
 						</div>
+
+					<?php endwhile;
+						wp_reset_postdata(); ?>
+
+
+				</div>
+				<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
+			</div>
+	</div>
+	</section>
+
+	<?php if (have_rows('slides', 'option')): ?>
+		<section class="carusel">
+			<div class="container carusel_container_top">
+				<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
+				<div class="carusel__arrow carusel__prev">
+					<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
+							stroke-width="3" />
+					</svg>
+				</div>
+				<div class="carusel__arrow carusel__next">
+					<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M13 6L24.2929 17.2929C24.6834 17.6834 24.6834 18.3166 24.2929 18.7071L13 30" stroke="#C37437"
+							stroke-width="3" />
+					</svg>
+				</div>
+			</div>
+			<div class="carusel__slider_main_wrapper">
+				<div class="container">
+					<div class="swiper carusel__slider-wrapper">
+						<div class="swiper-wrapper carusel__slider">
+							<?php while (have_rows('slides', 'option')):
+								the_row();
+								?>
+								<div class="swiper-slide carusel__slide"><img data-fancybox="gallery" src="<?php the_sub_field('foto'); ?>"
+										alt="<?php the_sub_field('description'); ?>"></div>
+							<?php endwhile; ?>
+						</div>
 					</div>
 				</div>
-				<div class="swiper-pagination carusel__pagination"></div>
-			</section>
-		<?php endif; ?>
+			</div>
+			<div class="swiper-pagination carusel__pagination"></div>
+		</section>
+	<?php endif; ?>
 
 	</div>
 </main>
