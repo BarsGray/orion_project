@@ -54,7 +54,8 @@
 										fill="#C37437" />
 								</svg>
 								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>">
+									<a class="map_info_list_link"
+										href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>">
 										<?php the_field('city_number', 'option') ?>
 									</a>
 								</p>
@@ -71,7 +72,8 @@
 										fill="#C37437" />
 								</svg>
 								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>">
+									<a class="map_info_list_link"
+										href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>">
 										<?php the_field('mobile_number', 'option') ?>
 									</a>
 								</p>
@@ -126,15 +128,15 @@
 					<?php endif; ?>
 				</div>
 				<div class="row_menu">
-					<nav class="nav_menu">
-						<ul>
-							<li><a href="#">Каталог</a></li>
-							<li><a href="#">Наши услуги</a></li>
-							<li><a href="#">Наши работы</a></li>
-							<li><a href="#">О нас</a></li>
-							<li><a href="#">Контакты</a></li>
-						</ul>
-					</nav>
+
+					<?php
+					wp_nav_menu([
+						'theme_location' => 'footer_menu', // Идентификатор
+						'container' => 'nav',         // Тег-обертка (по умолчанию div)
+						'container_class' => 'nav_menu',     // CSS-класс обертки
+						'menu_class' => 'main-menu',    // CSS-класс самого списка ul
+					]);
+					?>
 					<a href="#" data-fancybox data-src="#popup_box" class="footer_btn top_btn">Получить консультацию</a>
 				</div>
 			</div>
@@ -162,7 +164,8 @@
 						d="M18.4712 14.7814C18.8098 15.121 19 15.5809 19 16.0604C19 16.54 18.8098 16.9999 18.4712 17.3395L17.9395 17.9524C13.1538 22.5338 1.50797 10.8918 6.01904 6.09122L6.69102 5.50693C7.03097 5.17779 7.48684 4.9957 7.96002 5.00008C8.4332 5.00445 8.88563 5.19493 9.21944 5.5303C9.23755 5.54842 10.3203 6.95481 10.3203 6.95481C10.6416 7.29231 10.8205 7.74064 10.8197 8.2066C10.8189 8.67256 10.6386 9.1203 10.3162 9.45675L9.63957 10.3075C10.014 11.2173 10.5646 12.0441 11.2596 12.7405C11.9547 13.4369 12.7805 13.9891 13.6896 14.3654L14.5456 13.6847C14.8822 13.3626 15.3299 13.1825 15.7957 13.1818C16.2616 13.1812 16.7098 13.36 17.0472 13.6812C17.0472 13.6812 18.4531 14.7633 18.4712 14.7814ZM17.6672 15.631C17.6672 15.631 16.2689 14.5553 16.2507 14.5372C16.1304 14.4178 15.9677 14.3509 15.7982 14.3509C15.6286 14.3509 15.466 14.4178 15.3456 14.5372C15.3298 14.5535 14.1512 15.4925 14.1512 15.4925C14.0718 15.5557 13.9773 15.5972 13.877 15.6127C13.7767 15.6283 13.674 15.6175 13.5792 15.5813C12.4014 15.1428 11.3317 14.4564 10.4424 13.5685C9.55305 12.6805 8.86498 11.6119 8.42474 10.4349C8.38571 10.3387 8.37298 10.2339 8.38787 10.1312C8.40276 10.0285 8.44473 9.93166 8.50947 9.85057C8.50947 9.85057 9.4485 8.67146 9.46427 8.65627C9.58363 8.5359 9.65061 8.37325 9.65061 8.20374C9.65061 8.03422 9.58363 7.87157 9.46427 7.7512C9.44616 7.73367 8.3704 6.33429 8.3704 6.33429C8.24821 6.22474 8.08875 6.16607 7.9247 6.17031C7.76064 6.17454 7.60442 6.24137 7.48805 6.35708L6.81607 6.94137C3.51925 10.9052 13.6113 20.4368 17.0852 17.1542L17.6175 16.5407C17.7422 16.4252 17.8172 16.2657 17.8264 16.0959C17.8357 15.9261 17.7786 15.7594 17.6672 15.631Z"
 						fill="white" />
 				</svg>
-				<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel">
+				<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>"
+					class="contacts_tel">
 					<?php the_field('city_number', 'option') ?>
 				</a>
 			</div>
@@ -178,13 +181,14 @@
 						d="M13 16.3791C13 16.9314 12.5523 17.3791 12 17.3791C11.4477 17.3791 11 16.9314 11 16.3791C11 15.8268 11.4477 15.3791 12 15.3791C12.5523 15.3791 13 15.8268 13 16.3791Z"
 						fill="white" />
 				</svg>
-				<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="contacts_tel">
+				<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>"
+					class="contacts_tel">
 					<?php the_field('mobile_number', 'option') ?>
 				</a>
 			</div>
 		<?php endif; ?>
 	</div>
-	<?php endif; ?>
+<?php endif; ?>
 
 </div>
 <?php wp_footer(); ?>
