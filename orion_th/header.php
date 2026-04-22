@@ -277,10 +277,16 @@
 					<div class="bottom_row_content_box">
 						<div class="container">
 							<div class="bottom_row_content">
-								<div class="bottom_row_content_title main_title">Изготовление памятников любой сложности</div>
+								<div class="bottom_row_content_title main_title"><?php the_field('title'); ?></div>
 								<p class="bottom_row_content_text">
-									Мемориальные комплексы, художественная гравировка, благоустройство захоронений. Более 15 лет опыта в
-									Воронеже и области.
+									<?php
+									if (have_posts()):
+										while (have_posts()):
+											the_post();
+											echo get_the_content();
+										endwhile;
+									endif;
+									?>
 								</p>
 								<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 								<div class="header_advantages_row">
