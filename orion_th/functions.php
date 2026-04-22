@@ -208,3 +208,65 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 	}
 	return $data;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_action('wp_ajax_filter_products', 'ajax_product_filter_handler');
+add_action('wp_ajax_nopriv_filter_products', 'ajax_product_filter_handler');
+
+function ajax_product_filter_handler()
+{
+	$category = $_POST['category'];
+
+	$args = [
+		'post_type' => 'product',
+		'posts_per_page' => 8,
+	];
+
+	if (!empty($category)) {
+		$args['tax_query'] = [
+			[
+				'taxonomy' => 'product_cat',
+				'field' => 'slug',
+				'terms' => $category,
+			]
+		];
+	}
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()):
+		while ($query->have_posts()):
+			$query->the_post();
+			// Вывод карточки товара (можно использовать стандартный шаблон Woo)
+			wc_get_template_part('content', 'product');
+		endwhile;
+	else:
+		echo 'Товаров не найдено.';
+	endif;
+
+	wp_reset_postdata();
+	die(); // Обязательно для завершения AJAX-запроса
+}

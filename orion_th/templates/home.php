@@ -137,6 +137,29 @@ Template Name: home
 						wp_reset_postdata(); ?>
 
 
+
+
+
+					<div class="product-tabs-container">
+						<!-- Список табов-категорий -->
+						<ul class="product-category-tabs">
+							<li><a href="#" class="cat-tab active" data-slug="">Все</a></li>
+							<?php
+							$terms = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => true]);
+							foreach ($terms as $term): ?>
+								<li><a href="#" class="cat-tab" data-slug="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+
+						<!-- Блок для вывода товаров -->
+						<div id="ajax-products-container" class="products-grid">
+							<!-- Здесь появятся товары после клика -->
+							<p>Выберите категорию...</p>
+						</div>
+					</div>
+
+
+
 				</div>
 				<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>

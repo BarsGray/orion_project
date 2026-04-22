@@ -221,3 +221,30 @@ jQuery(function ($) {
 
 
 
+
+
+
+jQuery(document).ready(function ($) {
+	$('.cat-tab').on('click', function (e) {
+		e.preventDefault();
+
+		var category = $(this).data('slug'); // Получаем слаг категории
+		$('.cat-tab').removeClass('active');
+		$(this).addClass('active');
+
+		$.ajax({
+			url: '/wp-admin/admin-ajax.php', // Системный файл для AJAX
+			type: 'POST',
+			data: {
+				action: 'filter_products', // Имя функции в functions.php
+				category: category
+			},
+			beforeSend: function () {
+				$('#ajax-products-container').html('<p>Загрузка...</p>');
+			},
+			success: function (data) {
+				$('#ajax-products-container').html(data);
+			}
+		});
+	});
+});
