@@ -1140,6 +1140,7 @@ footer .map_info_list {
 	border: 1px solid #D8D8D8;
 	border-radius: 16px;
 }
+
 .popup_box form input::placeholder {
 	color: #8C8C8C;
 }
@@ -1163,6 +1164,47 @@ footer .map_info_list {
 	right: 24px;
 	transform: translateY(-50%);
 	background: url('../img/submit_chevron.svg') no-repeat center center / cover;
+}
+
+.popup_phone {
+	background-color: #282828;
+	color: #fff;
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	display: none;
+}
+
+.popup_phone .top_row_contacts_tel_1,
+.popup_phone .top_row_contacts_tel_2 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: center;
+}
+
+.popup_phone .is-close-button {
+	top: -45px;
+	padding: 0;
+	width: 35px;
+	height: 35px;
+	background-color: #282828;
+	opacity: 0.7;
+	border-radius: 12px;
+	background-image: url('../img/close_phone.svg');
+	background-size: 55%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.popup_phone .is-close-button svg {
+	display: none;
+}
+
+.popup_phone .is-close-button:hover {
+	background-color: #282828;
+	opacity: 0.7;
 }
 
 header .burger_menu_btn.burger_menu_btn--disable {

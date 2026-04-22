@@ -16,7 +16,7 @@ function orion_th_scripts() {
   wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-4.0.0.min.js', array(), null, true);
   wp_enqueue_script('jquery');
 	wp_enqueue_script( 'orion_th-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), null, true );
-	wp_enqueue_script( 'orion_th-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array(), null, true );
+	wp_enqueue_script( 'orion_th-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array('customize-preview'), null, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/fancybox.umd.js', array('jquery'), null, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), _S_VERSION, true );
