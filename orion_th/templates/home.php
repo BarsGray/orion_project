@@ -131,10 +131,10 @@ Template Name: home
 								</a>
 								<a href="" class="catalog_item_btn">Заказать</a>
 							</div>
-						</div>
 
-					<?php endwhile;
+						<?php endwhile;
 						wp_reset_postdata(); ?>
+					</div>
 
 
 
