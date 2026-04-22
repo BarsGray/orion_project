@@ -239,20 +239,10 @@ Template Name: home
 			</div>
 		</section>
 
-
-
-
-
-
-
-
-		<?php if (!have_rows('slides', 'option')): ?>
-
-
-
+		<?php if (have_rows('slides', 'option')): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
-					<div class="main_title carusel_title">Более 5000 памятников и мемориальных комплексов</div>
+					<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
 					<div class="carusel__arrow carusel__prev">
 						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
@@ -270,100 +260,12 @@ Template Name: home
 					<div class="container">
 						<div class="swiper carusel__slider-wrapper">
 							<div class="swiper-wrapper carusel__slider">
-
 								<?php while (have_rows('slides', 'option')):
 									the_row();
 									?>
-
 									<div class="swiper-slide carusel__slide"><img data-fancybox="gallery"
 											src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>"></div>
-
 								<?php endwhile; ?>
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-pagination carusel__pagination"></div>
-			</section>
-
-
-		<?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<?php
-		$args = array(
-			'post_type' => 'foto_pamytnicov',      // Тип записей (записи)
-			'posts_per_page' => -1,           // Сколько вывести
-			// 'category_name' => 'news',      // Слаг (ярлык) категории
-			'orderby' => 'date',      // Сортировка по дате
-			'order' => 'DESC'       // От новых к старым
-		);
-
-		$query = new WP_Query($args);
-		?>
-
-		<!-- <? //if ($query->have_posts()): ?> -->
-		<? if ($query->have_posts()): ?>
-
-			<section class="carusel">
-				<div class="container carusel_container_top">
-					<div class="main_title carusel_title">Более 5000 памятников и мемориальных комплексов</div>
-					<div class="carusel__arrow carusel__prev">
-						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
-								stroke-width="3" />
-						</svg>
-					</div>
-					<div class="carusel__arrow carusel__next">
-						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M13 6L24.2929 17.2929C24.6834 17.6834 24.6834 18.3166 24.2929 18.7071L13 30" stroke="#C37437"
-								stroke-width="3" />
-						</svg>
-					</div>
-				</div>
-				<div class="carusel__slider_main_wrapper">
-					<div class="container">
-						<div class="swiper carusel__slider-wrapper">
-							<div class="swiper-wrapper carusel__slider">
-
-								<?php
-								while ($query->have_posts()) {
-									$query->the_post(); ?>
-
-									<div class="swiper-slide carusel__slide"><img data-fancybox="gallery" src="<?php the_field('foto'); ?>"
-											alt="<?php the_title(); ?>"></div>
-
-								<?php }
-								wp_reset_postdata(); // ОБЯЗАТЕЛЬНО сбросить глобальные данные после WP_Query
-								?>
-
 							</div>
 						</div>
 					</div>
@@ -371,6 +273,7 @@ Template Name: home
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
 		<?php endif; ?>
+
 	</div>
 </main>
 
