@@ -1,46 +1,9 @@
 <?php
-/**
- * orion_theme functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package orion_theme
- */
 
-if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.0.1');
-}
-
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
 function orion_th_setup()
 {
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support('automatic-feed-links');
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support('title-tag');
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
 	add_theme_support('post-thumbnails');
 
-	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
 			'header_menu' => esc_html__('Primary', 'orion_th'),
@@ -48,70 +11,31 @@ function orion_th_setup()
 			'footer_menu' => 'Меню в подвале',
 		)
 	);
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
 }
 add_action('after_setup_theme', 'orion_th_setup');
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function orion_th_content_width()
-{
-	$GLOBALS['content_width'] = apply_filters('orion_th_content_width', 640);
-}
-add_action('after_setup_theme', 'orion_th_content_width', 0);
 
 
 
-
-
-function orion_th_scripts() {
+function orion_th_scripts_style() {
 
   wp_deregister_script('jquery');
   wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-4.0.0.min.js', array(), null, true);
   wp_enqueue_script('jquery');
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/fancybox.umd.js', array('jquery'), null, true );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), _S_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true );
 
+	wp_enqueue_style( 'orion_th-style', get_stylesheet_uri(), array(), null );
+  wp_enqueue_style('swiper-bundle', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array('orion_th-style'), null, 'all');
+  wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/css/fancybox.css', array('orion_th-style'), null, 'all');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'orion_th_scripts' );
 
-
-function orion_th_style()
-{
-	wp_enqueue_style( 'orion_th-style', get_stylesheet_uri(), array(), _S_VERSION );
-  wp_enqueue_style('swiper-bundle', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array('orion_th-style'), null, 'all');
-  wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/css/fancybox.css', array('orion_th-style'), null, 'all');
-  wp_enqueue_style('styles', get_template_directory_uri() . '/assets/css/styles.css', array('orion_th-style'), _S_VERSION, 'all');
-
-}
-
-add_action('wp_enqueue_scripts', 'orion_th_style');
+add_action( 'wp_enqueue_scripts', 'orion_th_scripts_style' );
 
 
 // ======================================================================================================================
@@ -178,8 +102,6 @@ function ajax_product_filter_handler()
 	if ($query->have_posts()):
 		while ($query->have_posts()):
 			$query->the_post();
-			// Вывод карточки товара
-			// (стандартный шаблон Woo) wc_get_template_part('content', 'product');
 			?>
 			<div class="catalog_item">
 				<a href="<?php the_permalink(); ?>" class="catalog_item_link">

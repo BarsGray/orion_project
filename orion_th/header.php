@@ -277,16 +277,9 @@
 					<div class="bottom_row_content_box">
 						<div class="container">
 							<div class="bottom_row_content">
-								<div class="bottom_row_content_title main_title"><?php the_field('title'); ?></div>
+								<div class="bottom_row_content_title main_title"><?php the_field('zagolovok_na_glavnoy', 'options'); ?></div>
 								<p class="bottom_row_content_text">
-									<?php
-									if (have_posts()):
-										while (have_posts()):
-											the_post();
-											echo get_the_content();
-										endwhile;
-									endif;
-									?>
+									<?php the_field('description_on_glavnoy', 'options'); ?>
 								</p>
 								<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 								<div class="header_advantages_row">
