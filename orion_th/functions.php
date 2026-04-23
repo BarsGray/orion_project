@@ -17,25 +17,28 @@ add_action('after_setup_theme', 'orion_th_setup');
 
 
 
-function orion_th_scripts_style() {
+function orion_th_scripts_style()
+{
 
-  wp_deregister_script('jquery');
-  wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-4.0.0.min.js', array(), null, true);
-  wp_enqueue_script('jquery');
-	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true );
-	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/fancybox.umd.js', array('jquery'), null, true );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true );
+	// wp_deregister_script('jquery');
+	// wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-4.0.0.min.js', array(), null, true);
+	// wp_enqueue_script('jquery');
+	wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true);
+	// wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/assets/js/fancybox.umd.js', array('jquery'), null, true );
+	wp_enqueue_script('fancybox', get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js', array('jquery'), null, true);
+	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true);
 
-  wp_enqueue_style('swiper-bundle', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), null, 'all');
-  wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/css/fancybox.css', array(), null, 'all');
-	wp_enqueue_style( 'orion_th-style', get_stylesheet_uri(), array(), null );
+	wp_enqueue_style('swiper-bundle', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), null, 'all');
+	// wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/css/fancybox.css', array('orion_th-style'), null, 'all');
+	wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/css/jquery.fancybox.min.css', array(), null, 'all');
+	wp_enqueue_style('orion_th-style', get_stylesheet_uri(), array(), null);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'orion_th_scripts_style' );
+add_action('wp_enqueue_scripts', 'orion_th_scripts_style');
 
 
 // ======================================================================================================================

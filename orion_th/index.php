@@ -21,7 +21,7 @@ get_header();
 
 		<section class="services">
 			<div class="container">
-				<div class="services_title main_title">Наши услуги</div>
+				<p class="services_title main_title">Наши услуги</p>
 				<div class="services_box">
 					<div class="services_item">
 						<div class="services_img">
@@ -79,9 +79,9 @@ get_header();
 		<section class="catalog">
 			<div class="catalog_wrapper">
 				<div class="container">
-					<div class="catalog_title main_title">
+					<p class="catalog_title main_title">
 						Каталог
-					</div>
+					</p>
 					<div class="catalog_tubs_box">
 						<button class="catalog_tubs_btn catalog_tubs_btn_prev">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +129,7 @@ get_header();
 		<?php if (have_rows('slides', 'option')): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
-					<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
+					<p class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></p>
 					<div class="carusel__arrow carusel__prev">
 						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
@@ -168,9 +168,9 @@ get_header();
 		<section class="section_map">
 			<div class="map">
 				<div class="map_info_content_box">
-					<div class="map_info_title main_title">
+					<p class="map_info_title main_title">
 						Как нас найти
-					</div>
+					</p>
 					<ul class="map_info_list">
 						<?php if (get_field('adres_1', 'option')): ?>
 							<li class="map_info_list_item map_info_list_item_place">

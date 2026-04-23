@@ -4,17 +4,17 @@ jQuery(function ($) {
 
 	// ++++++++++++++++++++++++++++ fancybox gallery ++++++++++++++++++++++++++++++++++++++++++++
 	// ++++++++++++++++++++++++++++ popup ++++++++++++++++++++++++++++++++++++++++++++ 
-	Fancybox.bind('[data-fancybox="gallery"]', {
-		Galleries: {
-			ignoreDuplicates: true,
-		},
-		placeFocusBack: false,
-	});
+	// Fancybox.bind('[data-fancybox="gallery"]', {
+	// 	Galleries: {
+	// 		ignoreDuplicates: true,
+	// 	},
+	// 	placeFocusBack: false,
+	// });
 
-	Fancybox.bind("[data-fancybox]", {
-		zoomEffect: false,
-		dragToClose: false,
-	});
+	// Fancybox.bind("[data-fancybox]", {
+	// 	zoomEffect: false,
+	// 	dragToClose: false,
+	// });
 
 	// ++++++++++++++++++++++++++++ fancybox gallery ++++++++++++++++++++++++++++++++++++++++++++
 	// ++++++++++++++++++++++++++++ popup ++++++++++++++++++++++++++++++++++++++++++++
