@@ -21,13 +21,6 @@ if (!defined('_S_VERSION')) {
  */
 function orion_th_setup()
 {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on orion_theme, use a find and replace
-	 * to change 'orion_th' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain('orion_th', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
@@ -72,36 +65,6 @@ function orion_th_setup()
 			'script',
 		)
 	);
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'orion_th_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support('customize-selective-refresh-widgets');
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height' => 250,
-			'width' => 250,
-			'flex-width' => true,
-			'flex-height' => true,
-		)
-	);
 }
 add_action('after_setup_theme', 'orion_th_setup');
 
@@ -117,61 +80,6 @@ function orion_th_content_width()
 	$GLOBALS['content_width'] = apply_filters('orion_th_content_width', 640);
 }
 add_action('after_setup_theme', 'orion_th_content_width', 0);
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function orion_th_widgets_init()
-{
-	register_sidebar(
-		array(
-			'name' => esc_html__('Sidebar', 'orion_th'),
-			'id' => 'sidebar-1',
-			'description' => esc_html__('Add widgets here.', 'orion_th'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
-		)
-	);
-}
-add_action('widgets_init', 'orion_th_widgets_init');
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce compatibility file.
- */
-if (class_exists('WooCommerce')) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
 
 
 
