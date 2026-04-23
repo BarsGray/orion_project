@@ -210,21 +210,12 @@ jQuery(function ($) {
 			e.preventDefault(); // Останавливает отправку формы
 		}
 	});
-});
-// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
+	// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
 
-
-
-
-
-
-
-
-
-jQuery(document).ready(function ($) {
 	$('.cat-tab').on('click', function (e) {
 		e.preventDefault();
 
@@ -240,11 +231,14 @@ jQuery(document).ready(function ($) {
 				category: category
 			},
 			beforeSend: function () {
-				$('#ajax-products-container').html('<p>Загрузка...</p>');
+				// $('#ajax-products-container').html('<p>Загрузка...</p>');
 			},
 			success: function (data) {
 				$('#ajax-products-container').html(data);
 			}
 		});
 	});
+
+	// ++++++++++++++++++++++++++++ ajax product on home  ++++++++++++++++++++++++++++++++++++++++++++
+
 });

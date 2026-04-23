@@ -212,26 +212,7 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
 
 add_action('wp_ajax_filter_products', 'ajax_product_filter_handler');
 add_action('wp_ajax_nopriv_filter_products', 'ajax_product_filter_handler');
@@ -260,8 +241,21 @@ function ajax_product_filter_handler()
 	if ($query->have_posts()):
 		while ($query->have_posts()):
 			$query->the_post();
-			// Вывод карточки товара (можно использовать стандартный шаблон Woo)
-			wc_get_template_part('content', 'product');
+			// Вывод карточки товара
+			// (стандартный шаблон Woo) wc_get_template_part('content', 'product');
+			?>
+			<div class="catalog_item">
+				<a href="<?php the_permalink(); ?>" class="catalog_item_link">
+					<span class="catalog_item_img">
+						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+					</span>
+					<span class="catalog_item_name">
+						<?php the_title(); ?>
+					</span>
+				</a>
+				<a href="" class="catalog_item_btn">Заказать</a>
+			</div>
+			<?php
 		endwhile;
 	else:
 		echo 'Товаров не найдено.';
@@ -270,3 +264,25 @@ function ajax_product_filter_handler()
 	wp_reset_postdata();
 	die(); // Обязательно для завершения AJAX-запроса
 }
+
+// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

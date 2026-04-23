@@ -79,19 +79,18 @@ Template Name: home
 							</svg>
 						</button>
 
-						<?php
-						$categories = get_categories(array(
-							'taxonomy' => 'product_cat',
-							'orderby' => 'name',
-							'order' => 'ASC',
-							'hide_empty' => false // true — скрыть пустые, false — показать все
-						));
-						?>
+
+
+
+						<!-- ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++ -->
 
 						<ul class="catalog_tubs_row">
-							<?php foreach ($categories as $category): ?>
-								<li class="catalog_tub_item"><a
-										href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></li>
+							<?php
+							$terms = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => true]);
+							foreach ($terms as $term):
+								?>
+								<li class="catalog_tub_item"><a href="#" class="cat-tab"
+										data-slug="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
 							<?php endforeach; ?>
 						</ul>
 
@@ -104,59 +103,9 @@ Template Name: home
 							</svg>
 						</button>
 					</div>
-					<div class="catalog_box">
+					<div id="ajax-products-container" class="catalog_box"></div>
 
-
-						<?php
-						$args = array(
-							'post_type' => 'product',
-							'posts_per_page' => -1,
-						);
-
-						$loop = new WP_Query($args);
-
-						while ($loop->have_posts()):
-							$loop->the_post();
-							global $product;
-							?>
-
-							<div class="catalog_item">
-								<a href="<?php the_permalink(); ?>" class="catalog_item_link">
-									<span class="catalog_item_img">
-										<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-									</span>
-									<span class="catalog_item_name">
-										<?php the_title(); ?>
-									</span>
-								</a>
-								<a href="" class="catalog_item_btn">Заказать</a>
-							</div>
-
-						<?php endwhile;
-						wp_reset_postdata(); ?>
-					</div>
-
-
-
-
-
-					<div class="product-tabs-container">
-						<!-- Список табов-категорий -->
-						<ul class="product-category-tabs">
-							<li><a href="#" class="cat-tab active" data-slug="">Все</a></li>
-							<?php
-							$terms = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => true]);
-							foreach ($terms as $term): ?>
-								<li><a href="#" class="cat-tab" data-slug="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
-							<?php endforeach; ?>
-						</ul>
-
-						<!-- Блок для вывода товаров -->
-						<div id="ajax-products-container" class="products-grid">
-							<!-- Здесь появятся товары после клика -->
-							<p>Выберите категорию...</p>
-						</div>
-					</div>
+					<!-- ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
 
