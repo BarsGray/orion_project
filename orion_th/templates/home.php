@@ -112,43 +112,42 @@ Template Name: home
 				</div>
 				<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
-	</div>
-	</section>
+		</section>
 
-	<?php if (have_rows('slides', 'option')): ?>
-		<section class="carusel">
-			<div class="container carusel_container_top">
-				<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
-				<div class="carusel__arrow carusel__prev">
-					<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
-							stroke-width="3" />
-					</svg>
+		<?php if (have_rows('slides', 'option')): ?>
+			<section class="carusel">
+				<div class="container carusel_container_top">
+					<div class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></div>
+					<div class="carusel__arrow carusel__prev">
+						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M23 6L11.7071 17.2929C11.3166 17.6834 11.3166 18.3166 11.7071 18.7071L23 30" stroke="#C37437"
+								stroke-width="3" />
+						</svg>
+					</div>
+					<div class="carusel__arrow carusel__next">
+						<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13 6L24.2929 17.2929C24.6834 17.6834 24.6834 18.3166 24.2929 18.7071L13 30" stroke="#C37437"
+								stroke-width="3" />
+						</svg>
+					</div>
 				</div>
-				<div class="carusel__arrow carusel__next">
-					<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M13 6L24.2929 17.2929C24.6834 17.6834 24.6834 18.3166 24.2929 18.7071L13 30" stroke="#C37437"
-							stroke-width="3" />
-					</svg>
-				</div>
-			</div>
-			<div class="carusel__slider_main_wrapper">
-				<div class="container">
-					<div class="swiper carusel__slider-wrapper">
-						<div class="swiper-wrapper carusel__slider">
-							<?php while (have_rows('slides', 'option')):
-								the_row();
-								?>
-								<div class="swiper-slide carusel__slide"><img data-fancybox="gallery" src="<?php the_sub_field('foto'); ?>"
-										alt="<?php the_sub_field('description'); ?>"></div>
-							<?php endwhile; ?>
+				<div class="carusel__slider_main_wrapper">
+					<div class="container">
+						<div class="swiper carusel__slider-wrapper">
+							<div class="swiper-wrapper carusel__slider">
+								<?php while (have_rows('slides', 'option')):
+									the_row();
+									?>
+									<div class="swiper-slide carusel__slide"><img data-fancybox="gallery"
+											src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>"></div>
+								<?php endwhile; ?>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="swiper-pagination carusel__pagination"></div>
-		</section>
-	<?php endif; ?>
+				<div class="swiper-pagination carusel__pagination"></div>
+			</section>
+		<?php endif; ?>
 
 	</div>
 </main>
