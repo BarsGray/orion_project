@@ -1,20 +1,5 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package orion_theme
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<main id="primary" class="site-main"></main>
 
-	<main id="primary" class="site-main">
-
-
-
-	</main><!-- #main -->
-
-<?php
-get_footer();
+<?php get_footer(); ?>

@@ -1,5 +1,6 @@
 <?php
 
+add_action('after_setup_theme', 'orion_th_setup');
 function orion_th_setup()
 {
 	add_theme_support('post-thumbnails');
@@ -12,11 +13,10 @@ function orion_th_setup()
 		)
 	);
 }
-add_action('after_setup_theme', 'orion_th_setup');
 
 
 
-
+add_action('wp_enqueue_scripts', 'orion_th_scripts_style');
 function orion_th_scripts_style()
 {
 	wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true);
@@ -32,14 +32,6 @@ function orion_th_scripts_style()
 	}
 }
 
-add_action('wp_enqueue_scripts', 'orion_th_scripts_style');
-
-
-// ======================================================================================================================
-
-
-
-// ======================================================================================================================
 
 
 add_filter('upload_mimes', 'svg_upload_allow');
@@ -69,61 +61,6 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 	return $data;
 }
 
-
-
-
-// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
-
-add_action('wp_ajax_filter_products', 'ajax_product_filter_handler');
-add_action('wp_ajax_nopriv_filter_products', 'ajax_product_filter_handler');
-
-function ajax_product_filter_handler()
-{
-	$category = $_POST['category'];
-
-	$args = [
-		'post_type' => 'product',
-		'posts_per_page' => 8,
-	];
-
-	if (!empty($category)) {
-		$args['tax_query'] = [
-			[
-				'taxonomy' => 'product_cat',
-				'field' => 'slug',
-				'terms' => $category,
-			]
-		];
-	}
-
-	$query = new WP_Query($args);
-
-	if ($query->have_posts()):
-		while ($query->have_posts()):
-			$query->the_post();
-			?>
-			<div class="catalog_item">
-				<a href="<?php the_permalink(); ?>" class="catalog_item_link">
-					<span class="catalog_item_img">
-						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-					</span>
-					<span class="catalog_item_name">
-						<?php the_title(); ?>
-					</span>
-				</a>
-				<a href="" class="catalog_item_btn">Заказать</a>
-			</div>
-			<?php
-		endwhile;
-	else:
-		echo 'Товаров не найдено.';
-	endif;
-
-	wp_reset_postdata();
-	die(); // Обязательно для завершения AJAX-запроса
-}
-
-// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
 
 
 

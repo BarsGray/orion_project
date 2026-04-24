@@ -40,7 +40,7 @@
 		<section class="catalog">
 			<div class="catalog_wrapper">
 				<div class="container">
-					<div class="catalog_title main_title">Каталог</div>
+					<p class="catalog_title main_title">Каталог</p>
 					<div class="catalog_tubs_box">
 						<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
 						<ul class="catalog_tubs_row">
@@ -61,9 +61,7 @@
 					<div class="catalog_box">
 						<div class="catalog_item">
 							<a href="catalog_item_link">
-								<span class="catalog_item_img">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt="">
-								</span>
+								<span class="catalog_item_img"><img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt=""></span>
 								<span class="catalog_item_name">Label-001</span>
 							</a>
 							<a href="" class="catalog_item_btn">Заказать</a>
@@ -89,9 +87,7 @@
 								<?php while (have_rows('slides', 'option')):
 									the_row(); ?>
 									<div class="swiper-slide carusel__slide">
-										<a data-fancybox="gallery" href="<?php the_sub_field('foto'); ?>">
-											<img src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>">
-										</a>
+										<a data-fancybox="gallery" href="<?php the_sub_field('foto'); ?>"><img src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>"></a>
 									</div>
 								<?php endwhile; ?>
 							</div>
@@ -120,8 +116,7 @@
 						<?php if (get_field('city_number', 'option')): ?>
 							<li class="map_info_list_item map_info_list_item_home_number">
 								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link"
-										href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>">
+									<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>">
 										<?php the_field('city_number', 'option') ?>
 									</a>
 								</p>
@@ -130,8 +125,7 @@
 						<?php if (get_field('mobile_number', 'option')): ?>
 							<li class="map_info_list_item map_info_list_item_mobile_number">
 								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link"
-										href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>">
+									<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>">
 										<?php the_field('mobile_number', 'option') ?>
 									</a>
 								</p>
@@ -140,9 +134,7 @@
 						<?php if (get_field('email', 'option')): ?>
 							<li class="map_info_list_item map_info_list_item_mail">
 								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="mailto:9507620621@mail.ru">
-										<?php the_field('email', 'option') ?>
-									</a>
+									<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', 'option') ?></a>
 								</p>
 							</li>
 						<?php endif; ?>
@@ -150,14 +142,10 @@
 					<?php if (get_field('vk_link', 'option') || get_field('max_link', 'option')): ?>
 						<div class="map_socials">
 							<?php if (get_field('vk_link', 'option')): ?>
-								<a href="<?php the_field('vk_link', 'option') ?>" class="socials_link">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt="">
-								</a>
+								<a href="<?php the_field('vk_link', 'option') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
 							<?php endif; ?>
 							<?php if (get_field('max_link', 'option')): ?>
-								<a href="<?php the_field('max_link', 'option') ?>" class="socials_link">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt="">
-								</a>
+								<a href="<?php the_field('max_link', 'option') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
@@ -173,6 +161,6 @@
 
 	</div>
 
-</main><!-- #main -->
+</main>
 
 <?php get_footer(); ?>

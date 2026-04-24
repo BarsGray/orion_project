@@ -29,7 +29,6 @@ jQuery(function ($) {
 	tubs_row.addEventListener('scroll', updadteBtn);
 
 	updadteBtn();
-	// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
@@ -42,7 +41,6 @@ jQuery(function ($) {
 		slidesPerGroup: 1,
 		pagination: {
 			el: '.carusel__pagination',
-			// dynamicBullets: true,
 			clickable: true,
 		},
 		navigation: {
@@ -50,9 +48,6 @@ jQuery(function ($) {
 			prevEl: '.carusel__prev',
 		},
 		breakpoints: {
-			// 1001: {
-			// 	slidesPerView: 3,
-			// },
 			640: {
 				slidesPerView: 3,
 				slidesPerGroup: 1,
@@ -66,57 +61,43 @@ jQuery(function ($) {
 			},
 		},
 	});
-	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 	const menuButton = document.querySelector('.burger_menu_btn');
-	const svgMenuButton = document.querySelector('.burger_menu_btn .ham');
 	const headerMenu = document.querySelector('.row_menu');
 	const overlay = document.querySelector('.overlay');
-
-	const popupBox = document.querySelector('.popup_box');
-	const getKonsultacia = document.querySelector('.row_menu .header_btn');
-	const closeKonsultacia = document.querySelector('.popup_btn_close');
 
 
 	function openMenu() {
 		document.querySelector('body').classList.toggle('scroll-nane');
-
 		menuButton.classList.toggle('burger_menu_btn--active');
-		svgMenuButton.classList.toggle('active');
 		headerMenu.classList.toggle('row_menu--visible');
 		overlay.classList.toggle('overlay--visible');
 	}
 
-
 	function overlayReset() {
 		document.querySelector('body').classList.remove('scroll-nane');
 		menuButton.classList.remove('burger_menu_btn--active');
-		svgMenuButton.classList.remove('active');
 		headerMenu.classList.remove('row_menu--visible');
 		overlay.classList.remove('overlay--visible');
 	}
 
 	overlay.addEventListener('click', overlayReset);
-
 	menuButton.addEventListener('click', openMenu);
-	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
 	const phoneInput = document.getElementById('tel');
 
-	// При фокусе, если поле пустое, подставляем префикс
 	phoneInput.addEventListener('focus', () => {
 		if (!phoneInput.value) {
 			phoneInput.value = '+7 ';
 		}
 	});
 
-	// При потере фокуса, если в поле только префикс, очищаем его для показа плейсхолдера
 	phoneInput.addEventListener('blur', () => {
 		if (phoneInput.value === '+7 ') {
 			phoneInput.value = '';
@@ -124,10 +105,9 @@ jQuery(function ($) {
 	});
 
 	phoneInput.addEventListener('input', (e) => {
-		let input = e.target.value.replace(/\D/g, ''); // Удаляем все нецифры
+		let input = e.target.value.replace(/\D/g, '');
 		let formatted = '';
 
-		// Если первая цифра 7 или 8, убираем её, чтобы начать заново с +7
 		if (['7', '8', '9'].includes(input[0])) {
 			if (input[0] === '9') input = '7' + input;
 			input = input.substring(1);
@@ -151,7 +131,6 @@ jQuery(function ($) {
 		e.target.value = formatted;
 	});
 
-	// Запрещаем удалять +7 вручную и ставим его при фокусе
 	phoneInput.addEventListener('keydown', (e) => {
 		if (e.target.value.length <= 4 && e.keyCode === 8) {
 			e.preventDefault();
@@ -164,10 +143,9 @@ jQuery(function ($) {
 	form.addEventListener('submit', (e) => {
 		if (phoneInput.value.length < 18) {
 			alert('Пожалуйста, введите номер телефона полностью');
-			e.preventDefault(); // Останавливает отправку формы
+			e.preventDefault();
 		}
 	});
-	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
@@ -177,8 +155,7 @@ jQuery(function ($) {
 		infobar: false,
 		buttons: [],
 		clickContent: false,
-    backFocus: false,
+		backFocus: false,
 		loop: true,
 	});
-	// ++++++++++++++++++++++++++++ fancybox gallery  ++++++++++++++++++++++++++++++++++++++++++++
 });

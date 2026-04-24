@@ -468,6 +468,28 @@ header .phone_mobile_btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 42px;
+	height: 42px;
+	position: relative;
+}
+
+header .burger_menu_btn::before,
+header .phone_mobile_btn::before {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+header .burger_menu_btn::before {
+	background: url('assets/img/burger_menu_btn.svg') no-repeat center center;
+}
+
+header .phone_mobile_btn::before {
+	background: url('assets/img/phone_mobile.svg') no-repeat center center;
 }
 
 header .burger_menu_btn {
