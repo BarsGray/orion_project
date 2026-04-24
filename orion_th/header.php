@@ -1,15 +1,3 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package orion_theme
- */
-
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -145,10 +133,10 @@
 							<div class="row_menu">
 								<?php
 								wp_nav_menu([
-									'theme_location' => 'header_menu', // Идентификатор
-									'container' => 'nav',         // Тег-обертка (по умолчанию div)
-									'container_class' => 'nav_menu',     // CSS-класс обертки
-									'menu_class' => 'main-menu',    // CSS-класс самого списка ul
+									'theme_location' => 'header_menu',
+									'container' => 'nav',
+									'container_class' => 'nav_menu',
+									'menu_class' => 'main-menu',
 								]);
 								?>
 								<a href="#" data-fancybox data-src="#popup_box" class="header_btn top_btn">Получить консультацию</a>
@@ -278,31 +266,20 @@
 						<div class="container">
 							<div class="bottom_row_content">
 								<div class="bottom_row_content_title main_title"><?php the_field('zagolovok_na_glavnoy', 'options'); ?></div>
-								<p class="bottom_row_content_text">
-									<?php the_field('description_on_glavnoy', 'options'); ?>
-								</p>
+								<p class="bottom_row_content_text"><?php the_field('description_on_glavnoy', 'options'); ?></p>
 								<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 								<div class="header_advantages_row">
 									<div class="header_advantages_item">
 										<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
-										<p class="header_advantages_item_text">
-											<span>Гарантия</span>
-											на памятник и установку
-										</p>
+										<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
 									</div>
 									<div class="header_advantages_item">
 										<img src="<?php bloginfo('template_url') ?>/assets/img/coins.svg" alt="">
-										<p class="header_advantages_item_text">
-											<span>Рассрочка</span>
-											на выгодных условиях
-										</p>
+										<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
 									</div>
 									<div class="header_advantages_item">
 										<img src="<?php bloginfo('template_url') ?>/assets/img/money.svg" alt="">
-										<p class="header_advantages_item_text">
-											<span>Подбор</span>
-											под ваш бюджет
-										</p>
+										<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
 									</div>
 								</div>
 							</div>

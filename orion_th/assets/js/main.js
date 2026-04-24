@@ -1,27 +1,5 @@
 jQuery(function ($) {
 
-
-
-	// ++++++++++++++++++++++++++++ fancybox gallery ++++++++++++++++++++++++++++++++++++++++++++
-	// ++++++++++++++++++++++++++++ popup ++++++++++++++++++++++++++++++++++++++++++++ 
-	// Fancybox.bind('[data-fancybox="gallery"]', {
-	// 	Galleries: {
-	// 		ignoreDuplicates: true,
-	// 	},
-	// 	placeFocusBack: false,
-	// });
-
-	// Fancybox.bind("[data-fancybox]", {
-	// 	zoomEffect: false,
-	// 	dragToClose: false,
-	// });
-
-	// ++++++++++++++++++++++++++++ fancybox gallery ++++++++++++++++++++++++++++++++++++++++++++
-	// ++++++++++++++++++++++++++++ popup ++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
 	// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
 	const tubs_row = document.querySelector('.catalog_tubs_row');
 	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
@@ -57,7 +35,6 @@ jQuery(function ($) {
 
 
 	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
-
 	const swiper = new Swiper('.swiper', {
 		loop: true,
 		slidesPerView: 3,
@@ -94,7 +71,6 @@ jQuery(function ($) {
 
 
 	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
-
 	const menuButton = document.querySelector('.burger_menu_btn');
 	const svgMenuButton = document.querySelector('.burger_menu_btn .ham');
 	const headerMenu = document.querySelector('.row_menu');
@@ -114,21 +90,6 @@ jQuery(function ($) {
 		overlay.classList.toggle('overlay--visible');
 	}
 
-	// function openPopap() {
-	// 	overlay.classList.toggle('overlay--visible');
-	// 	popupBox.classList.toggle('popup_box--active');
-	// 	menuButton.classList.toggle('burger_menu_btn--disable');
-
-	// 	if (menuButton.closest('.burger_menu_btn--active')) {
-	// 		openMenu();
-	// 	}
-
-	// 	if (popupBox.closest('.popup_box--active')) {
-	// 		closeKonsultacia.addEventListener('click', openPopap, true);
-	// 	} else {
-	// 		closeKonsultacia.removeEventListener('click', openPopap);
-	// 	}
-	// }
 
 	function overlayReset() {
 		document.querySelector('body').classList.remove('scroll-nane');
@@ -136,20 +97,16 @@ jQuery(function ($) {
 		svgMenuButton.classList.remove('active');
 		headerMenu.classList.remove('row_menu--visible');
 		overlay.classList.remove('overlay--visible');
-		// popupBox.classList.remove('popup_box--active');
-		// menuButton.classList.remove('burger_menu_btn--disable');
 	}
 
 	overlay.addEventListener('click', overlayReset);
 
 	menuButton.addEventListener('click', openMenu);
-	// getKonsultacia.addEventListener('click', openPopap);
 	// ++++++++++++++++++++++++++++ menu, popup ++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
-
 	const phoneInput = document.getElementById('tel');
 
 	// При фокусе, если поле пустое, подставляем префикс
@@ -214,31 +171,14 @@ jQuery(function ($) {
 
 
 
-	// ++++++++++++++++++++++++++++ ajax product on home ++++++++++++++++++++++++++++++++++++++++++++
-
-	$('.cat-tab').on('click', function (e) {
-		e.preventDefault();
-
-		var category = $(this).data('slug'); // Получаем слаг категории
-		$('.cat-tab').removeClass('active');
-		$(this).addClass('active');
-
-		$.ajax({
-			url: '/wp-admin/admin-ajax.php', // Системный файл для AJAX
-			type: 'POST',
-			data: {
-				action: 'filter_products', // Имя функции в functions.php
-				category: category
-			},
-			beforeSend: function () {
-				// $('#ajax-products-container').html('<p>Загрузка...</p>');
-			},
-			success: function (data) {
-				$('#ajax-products-container').html(data);
-			}
-		});
+	// ++++++++++++++++++++++++++++ fancybox gallery  ++++++++++++++++++++++++++++++++++++++++++++
+	$('[data-fancybox="gallery"]').fancybox({
+		arrows: false,
+		infobar: false,
+		buttons: [],
+		clickContent: false,
+    backFocus: false,
+		loop: true,
 	});
-
-	// ++++++++++++++++++++++++++++ ajax product on home  ++++++++++++++++++++++++++++++++++++++++++++
-
+	// ++++++++++++++++++++++++++++ fancybox gallery  ++++++++++++++++++++++++++++++++++++++++++++
 });

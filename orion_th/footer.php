@@ -7,9 +7,7 @@
 			<div class="row_content">
 				<div class="row_logo">
 					<?php if (get_field('logotipe', 'option')): ?>
-						<a class="" href="<?php bloginfo('home'); ?>">
-							<img src="<?php the_field('logotipe', 'option'); ?>" alt="">
-						</a>
+						<a class="" href="<?php bloginfo('home'); ?>"><img src="<?php the_field('logotipe', 'option'); ?>" alt=""></a>
 					<?php endif; ?>
 				</div>
 				<div class="row_menu">
