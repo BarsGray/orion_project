@@ -1,24 +1,20 @@
 <footer>
-	<div class="menu_row">
-		<div class="container">
-			<div class="row_content">
-				<div class="row_logo">
-					<?php if (get_field('logotipe', 'option')): ?>
-						<a class="" href="<?php bloginfo('home'); ?>"><img src="<?php the_field('logotipe', 'option'); ?>" alt=""></a>
-					<?php endif; ?>
-				</div>
-				<div class="row_menu">
-					<?php
-					wp_nav_menu([
-						'theme_location' => 'footer_menu',
-						'container' => 'nav',
-						'container_class' => 'nav_menu',
-						'menu_class' => 'main-menu',
-					]);
-					?>
-					<a href="#" data-fancybox data-src="#popup_box" class="footer_btn top_btn">Получить консультацию</a>
-				</div>
-			</div>
+	<div class="container">
+		<div class="row_logo">
+			<?php if (get_field('logotipe', 'option')): ?>
+				<a class="" href="<?php bloginfo('home'); ?>"><img src="<?php the_field('logotipe', 'option'); ?>" alt=""></a>
+			<?php endif; ?>
+		</div>
+		<div class="row_menu">
+			<?php
+			wp_nav_menu([
+				'theme_location' => 'footer_menu',
+				'container' => 'nav',
+				'container_class' => 'nav_menu',
+				'menu_class' => 'main-menu',
+			]);
+			?>
+			<a href="#" data-fancybox data-src="#popup_box" class="footer_btn top_btn">Получить консультацию</a>
 		</div>
 	</div>
 </footer>
@@ -35,7 +31,6 @@
 
 </div>
 
-</div>
 <?php wp_footer(); ?>
 
 </body>

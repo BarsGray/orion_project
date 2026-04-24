@@ -275,7 +275,7 @@ header .top_row {
 	font-size: 20px;
 }
 
-header .top_row_content {
+header .top_row .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -352,7 +352,8 @@ header .contacts_socials_link:hover {
 	transform: scale(1.1);
 }
 
-header .row_menu {
+header .row_menu,
+header .row_menu .container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -484,6 +485,8 @@ header .phone_mobile_btn::before {
 	transform: translate(-50%, -50%);
 }
 
+
+
 header .burger_menu_btn::before {
 	background: url('assets/img/burger_menu_btn.svg') no-repeat center center;
 }
@@ -503,6 +506,10 @@ header .burger_menu_btn {
 header .burger_menu_btn--active {
 	background-color: #C37437;
 	border: 1px solid #C37437;
+}
+
+header .burger_menu_btn--active::before {
+	background: url('assets/img/close_mobile.svg') no-repeat center center;
 }
 
 header .menu_row {
@@ -939,6 +946,8 @@ section.carusel .carusel__slider_main_wrapper {
 
 section.carusel .carusel__slider-wrapper {
 	position: relative;
+	max-width: 2080px;
+  margin: 0 auto;
 }
 
 .swiper-pagination-bullet {
@@ -1054,15 +1063,16 @@ section.carusel .carusel_title {
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-footer .menu_row {
+footer {
 	background-color: #fff;
 }
 
-footer .row_content {
+footer .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 24px 0;
+	padding-top: 24px;
+	padding-bottom: 24px;
 }
 
 footer .row_menu {
@@ -1094,7 +1104,7 @@ footer .footer_btn {
 	width: 100%;
 }
 
-.section_map .map {
+.section_map {
 	position: relative;
 }
 
@@ -1500,8 +1510,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		font-size: 17px;
 	}
 
-	footer .row_content {
-		padding: 16px 0;
+	footer .container {
+		padding-top: 16px;
+		padding-bottom: 16px;
 	}
 
 	footer .row_menu ul {
@@ -1656,10 +1667,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		display: none;
 	}
 
-	footer .row_content {
+	footer .container {
 		flex-direction: column;
 		gap: 40px;
-		padding: 21px 0 20px;
+		padding-top: 21px;
+		padding-bottom: 20px;
 	}
 
 	footer .row_menu {
@@ -1955,6 +1967,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 @media (max-width: 390px) {
 	header .row_menu {
 		width: 100%;
+	}
+
+	.section_map .map_info_list_item_inner,
+	footer .row_menu ul {
+		font-size: 15px;
 	}
 }
 

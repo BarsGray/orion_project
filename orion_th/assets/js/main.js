@@ -36,7 +36,7 @@ jQuery(function ($) {
 	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 	const swiper = new Swiper('.swiper', {
 		loop: true,
-		slidesPerView: 3,
+		slidesPerView: 1,
 		centeredSlides: true,
 		slidesPerGroup: 1,
 		pagination: {
@@ -48,10 +48,13 @@ jQuery(function ($) {
 			prevEl: '.carusel__prev',
 		},
 		breakpoints: {
+			1350: {
+				slidesPerView: 5.1,
+				slidesPerGroup: 1,
+			},
 			640: {
 				slidesPerView: 3,
 				slidesPerGroup: 1,
-
 			},
 			300: {
 				centeredSlides: false,
@@ -75,6 +78,7 @@ jQuery(function ($) {
 		menuButton.classList.toggle('burger_menu_btn--active');
 		headerMenu.classList.toggle('row_menu--visible');
 		overlay.classList.toggle('overlay--visible');
+
 	}
 
 	function overlayReset() {
