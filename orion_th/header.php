@@ -16,7 +16,6 @@
 
 
 <body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
 	<div class="wrapper">
 
 		<header>
@@ -36,12 +35,12 @@
 							<div class="top_row_contacts">
 								<?php if (get_field('city_number', 'option')): ?>
 									<div class="top_row_contacts_tel_1">
-										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>"class="contacts_tel"><?php the_field('city_number', 'option') ?></a>
+										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel"><?php the_field('city_number', 'option') ?></a>
 									</div>
 								<?php endif; ?>
 								<?php if (get_field('mobile_number', 'option')): ?>
 									<div class="top_row_contacts_tel_2">
-										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>"class="contacts_tel"><?php the_field('mobile_number', 'option') ?></a>
+										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="contacts_tel"><?php the_field('mobile_number', 'option') ?></a>
 									</div>
 								<?php endif; ?>
 								<?php if (get_field('vk_link', 'option') || get_field('max_link', 'option')): ?>
@@ -86,7 +85,7 @@
 									<?php endif; ?>
 									<?php if (get_field('city_number', 'option')): ?>
 										<div class="top_rowmobile_menu_info_contacts_tel_1">
-											<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>"class="contacts_tel">
+											<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel">
 												<?php the_field('city_number', 'option') ?>
 											</a>
 										</div>

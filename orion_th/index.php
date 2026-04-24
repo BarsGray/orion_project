@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 
-<main id="primary" class="site-main">
-
-	<div class="main_wrapper">
 
 		<section class="services">
 			<div class="container">
@@ -38,37 +35,35 @@
 		</section>
 
 		<section class="catalog">
-			<div class="catalog_wrapper">
-				<div class="container">
-					<p class="catalog_title main_title">Каталог</p>
-					<div class="catalog_tubs_box">
-						<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
-						<ul class="catalog_tubs_row">
-							<li class="catalog_tub_item active"><a href="">Ангелы</a></li>
-							<li class="catalog_tub_item"><a href="">Ветви</a></li>
-							<li class="catalog_tub_item"><a href="">Военные</a></li>
-							<li class="catalog_tub_item"><a href="">Деревья</a></li>
-							<li class="catalog_tub_item"><a href="">Детские</a></li>
-							<li class="catalog_tub_item"><a href="">Иконы</a></li>
-							<li class="catalog_tub_item"><a href="">Колосья</a></li>
-							<li class="catalog_tub_item"><a href="">Кресты</a></li>
-							<li class="catalog_tub_item"><a href="">Лоза</a></li>
-							<li class="catalog_tub_item"><a href="">Пламя</a></li>
-							<li class="catalog_tub_item"><a href="">Кресты</a></li>
-						</ul>
-						<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
-					</div>
-					<div class="catalog_box">
-						<div class="catalog_item">
-							<a href="catalog_item_link">
-								<span class="catalog_item_img"><img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt=""></span>
-								<span class="catalog_item_name">Label-001</span>
-							</a>
-							<a href="" class="catalog_item_btn">Заказать</a>
-						</div>
-					</div>
-					<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
+			<div class="container">
+				<p class="catalog_title main_title">Каталог</p>
+				<div class="catalog_tubs_box">
+					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
+					<ul class="catalog_tubs_row">
+						<li class="catalog_tub_item active"><a href="">Ангелы</a></li>
+						<li class="catalog_tub_item"><a href="">Ветви</a></li>
+						<li class="catalog_tub_item"><a href="">Военные</a></li>
+						<li class="catalog_tub_item"><a href="">Деревья</a></li>
+						<li class="catalog_tub_item"><a href="">Детские</a></li>
+						<li class="catalog_tub_item"><a href="">Иконы</a></li>
+						<li class="catalog_tub_item"><a href="">Колосья</a></li>
+						<li class="catalog_tub_item"><a href="">Кресты</a></li>
+						<li class="catalog_tub_item"><a href="">Лоза</a></li>
+						<li class="catalog_tub_item"><a href="">Пламя</a></li>
+						<li class="catalog_tub_item"><a href="">Кресты</a></li>
+					</ul>
+					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 				</div>
+				<div class="catalog_box">
+					<div class="catalog_item">
+						<a href="catalog_item_link">
+							<span class="catalog_item_img"><img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt=""></span>
+							<span class="catalog_item_name">Label-001</span>
+						</a>
+						<a href="" class="catalog_item_btn">Заказать</a>
+					</div>
+				</div>
+				<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
 
@@ -81,7 +76,6 @@
 					<div class="carusel__arrow carusel__next"></div>
 				</div>
 				<div class="carusel__slider_main_wrapper">
-					<div class="container">
 						<div class="swiper carusel__slider-wrapper">
 							<div class="swiper-wrapper carusel__slider">
 								<?php while (have_rows('slides', 'option')):
@@ -92,7 +86,6 @@
 								<?php endwhile; ?>
 							</div>
 						</div>
-					</div>
 				</div>
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
@@ -159,8 +152,6 @@
 		</section>
 
 
-	</div>
 
-</main>
 
 <?php get_footer(); ?>
