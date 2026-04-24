@@ -232,12 +232,38 @@ body {
 .top_rowmobile_menu_info_contacts_tel_1,
 .top_rowmobile_menu_info_adress_2,
 .mobile_menu_info_adress_1 {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+	position: relative;
 	margin-bottom: 20px;
 	color: #fff;
+	padding-left: 32px;
 }
+
+.top_rowmobile_menu_info_contacts_tel_2::before,
+.top_rowmobile_menu_info_contacts_tel_1::before,
+.top_rowmobile_menu_info_adress_2::before,
+.mobile_menu_info_adress_1::before {
+	position: absolute;
+	content: '';
+	width: 24px;
+	height: 24px;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.top_rowmobile_menu_info_adress_2::before,
+.mobile_menu_info_adress_1::before {
+	background: url('assets/img/marker.svg') no-repeat center center / cover;
+}
+
+.top_rowmobile_menu_info_contacts_tel_2::before {
+	background: url('assets/img/mobile.svg') no-repeat center center / cover;
+}
+
+.top_rowmobile_menu_info_contacts_tel_1::before {
+	background: url('assets/img/phone.svg') no-repeat center center / cover;
+}
+
 
 header .top_row {
 	background-color: #282828;
@@ -262,6 +288,34 @@ header .top_row_contacts_tel_2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+	padding-left: 32px;
+}
+
+header .top_row_adress_1::before,
+header .top_row_adress_2::before,
+header .top_row_contacts_tel_1::before,
+header .top_row_contacts_tel_2::before {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+header .top_row_adress_1::before,
+header .top_row_adress_2::before {
+	background: url('assets/img/marker.svg') no-repeat center center / cover;
+}
+
+header .top_row_contacts_tel_1::before {
+	background: url('assets/img/phone.svg') no-repeat center center / cover;
+}
+
+header .top_row_contacts_tel_2::before {
+	background: url('assets/img/mobile.svg') no-repeat center center / cover;
 }
 
 header .top_row_place,
@@ -282,7 +336,7 @@ header .top_row_contacts span {
 
 header .top_row_contacts a {
 	font-size: 20px;
-	padding-top: 4px;
+	padding-top: 2px;
 }
 
 header .contacts_socials {
@@ -653,11 +707,19 @@ section.catalog .catalog_tubs_btn_next:disabled {
 	top: 50%;
 }
 
-section.catalog .catalog_tubs_btn_prev:disabled::before  {
+section.catalog .catalog_tubs_btn_prev::before {
+	background: url('assets/img/catalog_left_36_24_16.svg') no-repeat center center;
+}
+
+section.catalog .catalog_tubs_btn_prev:disabled::before {
 	background: url('assets/img/catalog_left_36_24_16_unactive.svg') no-repeat center center;
 }
 
-section.catalog .catalog_tubs_btn_next:disabled::before  {
+section.catalog .catalog_tubs_btn_next::before {
+	background: url('assets/img/catflog_right_36_24_16.svg') no-repeat center center;
+}
+
+section.catalog .catalog_tubs_btn_next:disabled::before {
 	background: url('assets/img/catflog_right_36_24_16_unactive.svg') no-repeat center center;
 }
 
@@ -1162,7 +1224,6 @@ footer .footer_btn {
 }
 
 .popup_text {
-	padding-bottom: 10px;
 	font-size: 16px;
 	line-height: 1.4;
 	margin-bottom: 20px;
