@@ -39,88 +39,45 @@
 				<p class="catalog_title main_title">Каталог</p>
 				<div class="catalog_tubs_box">
 					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
-
 					<ul class="catalog_tubs_row">
-							<li class="catalog_tub_item active" data-filter="all">
-									<a href="#">Все</a>
+						<li class="catalog_tub_item active" data-filter="all"><a href="#">Все</a></li>
+						<?php $categories = get_categories(['hide_empty' => true]);
+						foreach ($categories as $category): ?>
+							<li class="catalog_tub_item" data-filter=".cat-<?php echo $category->slug; ?>">
+								<a href="#"><?php echo esc_html($category->name); ?></a>
 							</li>
-
-							<?php
-							$categories = get_categories(['hide_empty' => true]);
-
-							foreach ($categories as $category): ?>
-									<li class="catalog_tub_item" data-filter=".cat-<?php echo $category->slug; ?>">
-											<a href="#"><?php echo esc_html($category->name); ?></a>
-									</li>
-							<?php endforeach; ?>
+						<?php endforeach; ?>
 					</ul>
-
 					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 				</div>
-
 				<div class="catalog_box">
-
-				<?php
-				$query = new WP_Query([
+					<?php
+					$query = new WP_Query([
 						'post_type' => 'post',
 						'posts_per_page' => -1
-				]);
-
-				while ($query->have_posts()) : $query->the_post();
-
-				$cats = get_the_category();
-				$classes = '';
-
-				foreach ($cats as $cat) {
-						$classes .= ' cat-' . $cat->slug;
-				}
-				?>
+					]);
+					while ($query->have_posts()):
+						$query->the_post();
+						$cats = get_the_category();
+						$classes = '';
+						foreach ($cats as $cat) {
+							$classes .= ' cat-' . $cat->slug;
+						}
+						?>
 						<div class="catalog_item mix<?php echo $classes; ?>">
-								<a href="<?php the_permalink(); ?>">
-										<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
-										<span class="catalog_item_name"><?php the_title(); ?></span>
-								</a>
-
-								<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Подробнее</a>
+							<a href="<?php the_permalink(); ?>">
+								<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
+								<span class="catalog_item_name"><?php the_title(); ?></span>
+							</a>
+							<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Подробнее</a>
 						</div>
-				<?php endwhile; wp_reset_postdata(); ?>
+					<?php endwhile;
+					wp_reset_postdata(); ?>
 				</div>
 				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
 
-		<!-- <section class="catalog">
-			<div class="container">
-				<p class="catalog_title main_title">Каталог</p>
-				<div class="catalog_tubs_box">
-					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
-					<ul class="catalog_tubs_row">
-						<li class="catalog_tub_item active"><a href="">Ангелы</a></li>
-						<li class="catalog_tub_item"><a href="">Ветви</a></li>
-						<li class="catalog_tub_item"><a href="">Военные</a></li>
-						<li class="catalog_tub_item"><a href="">Деревья</a></li>
-						<li class="catalog_tub_item"><a href="">Детские</a></li>
-						<li class="catalog_tub_item"><a href="">Иконы</a></li>
-						<li class="catalog_tub_item"><a href="">Колосья</a></li>
-						<li class="catalog_tub_item"><a href="">Кресты</a></li>
-						<li class="catalog_tub_item"><a href="">Лоза</a></li>
-						<li class="catalog_tub_item"><a href="">Пламя</a></li>
-						<li class="catalog_tub_item"><a href="">Кресты</a></li>
-					</ul>
-					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
-				</div>
-				<div class="catalog_box">
-					<div class="catalog_item">
-						<a href="catalog_item_link">
-							<span class="catalog_item_img"><img src="<?php bloginfo('template_url') ?>/assets/img/angel-003.jpg" alt=""></span>
-							<span class="catalog_item_name">Label-001</span>
-						</a>
-						<a href="#" class="catalog_item_btn">Заказать</a>
-					</div>
-				</div>
-				<a href="#" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
-			</div>
-		</section> -->
 
 
 		<?php if (have_rows('slides', 'option')): ?>
