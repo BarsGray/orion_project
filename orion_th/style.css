@@ -1542,9 +1542,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		grid-template-columns: repeat(4, 1fr);
 	}
 
-	section.catalog .catalog_item:nth-child(n+9) {
+	/* section.catalog .catalog_item:nth-child(n+9) {
 		display: none;
-	}
+	} */
 
 	section.carusel .carusel__slide {
 		padding: 6px;
@@ -1834,9 +1834,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		row-gap: 30px;
 	}
 
-	section.catalog .catalog_item:nth-child(n+7) {
+	/* section.catalog .catalog_item:nth-child(n+7) {
 		display: none;
-	}
+	} */
 
 	section.catalog .catalog_tub_item a {
 		font-size: 17px;
@@ -1936,9 +1936,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		column-gap: 10px;
 	}
 
-	section.catalog .catalog_item:nth-child(n+5) {
+	/* section.catalog .catalog_item:nth-child(n+5) {
 		display: none;
-	}
+	} */
 
 	section.catalog {
 		overflow: hidden;

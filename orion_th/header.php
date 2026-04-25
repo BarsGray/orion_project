@@ -55,64 +55,62 @@
 			</div>
 			<div class="menu_row">
 				<div class="container">
-					<!-- <div class="row_content"> -->
-						<div class="row_logo">
-							<?php if (get_field('logotipe', 'option')): ?>
-								<a href="<?php bloginfo('home'); ?>"><img src="<?php the_field('logotipe', 'option'); ?>" alt=""></a>
-							<?php endif; ?>
-						</div>
-						<div class="row_menu">
-							<?php
-							wp_nav_menu([
-								'theme_location' => 'header_menu',
-								'container' => 'nav',
-								'container_class' => 'nav_menu',
-								'menu_class' => 'main-menu',
-							]);
-							?>
-							<a href="#" data-fancybox data-src="#popup_box" class="header_btn top_btn">Получить консультацию</a>
-							<div class="mobile_menu_info">
-								<?php if (get_field('mobile_number', 'option')): ?>
-									<div class="top_rowmobile_menu_info_contacts_tel_2">
-										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="contacts_tel">
-											<?php the_field('mobile_number', 'option') ?>
-										</a>
-									</div>
-								<?php endif; ?>
-								<?php if (get_field('city_number', 'option')): ?>
-									<div class="top_rowmobile_menu_info_contacts_tel_1">
-										<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel">
-											<?php the_field('city_number', 'option') ?>
-										</a>
-									</div>
-								<?php endif; ?>
-								<?php if (get_field('adres_1', 'option')): ?>
-									<div class="mobile_menu_info_adress_1">
-										<div class="top_rowmobile_menu_info_text"><?php the_field('adres_1', 'option') ?></div>
-									</div>
-								<?php endif; ?>
-								<?php if (get_field('adres_2', 'option')): ?>
-									<div class="top_rowmobile_menu_info_adress_2">
-										<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', 'option') ?></div>
-									</div>
-								<?php endif; ?>
-								<div class="contacts_socials">
-									<?php if (get_field('vk_link', 'option')): ?>
-										<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt=""></a>
-									<?php endif; ?>
-									<?php if (get_field('max_link', 'option')): ?>
-										<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt=""></a>
-									<?php endif; ?>
+					<div class="row_logo">
+						<?php if (get_field('logotipe', 'option')): ?>
+							<a href="<?php bloginfo('home'); ?>"><img src="<?php the_field('logotipe', 'option'); ?>" alt=""></a>
+						<?php endif; ?>
+					</div>
+					<div class="row_menu">
+						<?php
+						wp_nav_menu([
+							'theme_location' => 'header_menu',
+							'container' => 'nav',
+							'container_class' => 'nav_menu',
+							'menu_class' => 'main-menu',
+						]);
+						?>
+						<a href="#" data-fancybox data-src="#popup_box" class="header_btn top_btn">Получить консультацию</a>
+						<div class="mobile_menu_info">
+							<?php if (get_field('mobile_number', 'option')): ?>
+								<div class="top_rowmobile_menu_info_contacts_tel_2">
+									<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="contacts_tel">
+										<?php the_field('mobile_number', 'option') ?>
+									</a>
 								</div>
+							<?php endif; ?>
+							<?php if (get_field('city_number', 'option')): ?>
+								<div class="top_rowmobile_menu_info_contacts_tel_1">
+									<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel">
+										<?php the_field('city_number', 'option') ?>
+									</a>
+								</div>
+							<?php endif; ?>
+							<?php if (get_field('adres_1', 'option')): ?>
+								<div class="mobile_menu_info_adress_1">
+									<div class="top_rowmobile_menu_info_text"><?php the_field('adres_1', 'option') ?></div>
+								</div>
+							<?php endif; ?>
+							<?php if (get_field('adres_2', 'option')): ?>
+								<div class="top_rowmobile_menu_info_adress_2">
+									<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', 'option') ?></div>
+								</div>
+							<?php endif; ?>
+							<div class="contacts_socials">
+								<?php if (get_field('vk_link', 'option')): ?>
+									<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt=""></a>
+								<?php endif; ?>
+								<?php if (get_field('max_link', 'option')): ?>
+									<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt=""></a>
+								<?php endif; ?>
 							</div>
 						</div>
-						<div class="mobile_box_btns">
-							<?php if (get_field('mobile_number', 'option')): ?>
-								<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="phone_mobile_btn"></a>
-							<?php endif; ?>
-							<a class="burger_menu_btn"></a>
-						</div>
-					<!-- </div> -->
+					</div>
+					<div class="mobile_box_btns">
+						<?php if (get_field('mobile_number', 'option')): ?>
+							<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="phone_mobile_btn"></a>
+						<?php endif; ?>
+						<a class="burger_menu_btn"></a>
+					</div>
 				</div>
 			</div>
 			<div class="bottom_row">

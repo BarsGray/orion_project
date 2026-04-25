@@ -162,4 +162,32 @@ jQuery(function ($) {
 		backFocus: false,
 		loop: true,
 	});
+
+
+
+	// ++++++++++++++++++++++++++++ tubs  ++++++++++++++++++++++++++++++++++++++++++++
+
+	let containerEl = document.querySelector('.catalog_box');
+	let mixer = mixitup(containerEl, {
+		selectors: {
+			target: '.mix'
+		},
+		animation: {
+			duration: 400,
+			effects: 'fade scale(0.9) translateY(20px)'
+		}
+	});
+
+	$('.catalog_tub_item').on('click', function (e) {
+		e.preventDefault();
+
+		$('.catalog_tub_item').removeClass('active');
+		$(this).addClass('active');
+
+		let filter = $(this).data('filter');
+
+		mixer.filter(filter);
+	});
+
+
 });
