@@ -30,28 +30,31 @@ jQuery(function ($) {
 
 	updadteBtn();
 
-	
-	let containerEl = document.querySelector('.catalog_box');
-	let mixer = mixitup(containerEl, {
-		selectors: {
-			target: '.mix'
-		},
-		animation: {
-			duration: 400,
-			effects: 'fade scale(0.9) translateY(20px)'
-		}
-	});
 
-	$('.catalog_tub_item').on('click', function (e) {
-		e.preventDefault();
+	let containerEl = document.querySelector('.catalog_box_mix');
+	if (containerEl) {
 
-		$('.catalog_tub_item').removeClass('active');
-		$(this).addClass('active');
+		let mixer = mixitup(containerEl, {
+			selectors: {
+				target: '.mix'
+			},
+			animation: {
+				duration: 400,
+				effects: 'fade scale(0.9) translateY(20px)'
+			}
+		});
 
-		let filter = $(this).data('filter');
+		$('.catalog_tub_item_mix').on('click', function (e) {
+			e.preventDefault();
 
-		mixer.filter(filter);
-	});
+			$('.catalog_tub_item_mix').removeClass('active');
+			$(this).addClass('active');
+
+			let filter = $(this).data('filter');
+
+			mixer.filter(filter);
+		});
+	}
 
 
 	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++

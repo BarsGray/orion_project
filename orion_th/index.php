@@ -40,17 +40,17 @@
 				<div class="catalog_tubs_box">
 					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
 					<ul class="catalog_tubs_row">
-						<li class="catalog_tub_item active" data-filter="all"><a href="#">Все</a></li>
+						<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
 						<?php $categories = get_categories(['hide_empty' => true]);
 						foreach ($categories as $category): ?>
-							<li class="catalog_tub_item" data-filter=".cat-<?php echo $category->slug; ?>">
+							<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
 								<a href="#"><?php echo esc_html($category->name); ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
 					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 				</div>
-				<div class="catalog_box">
+				<div class="catalog_box catalog_box_mix">
 					<?php
 					$query = new WP_Query([
 						'post_type' => 'post',
@@ -69,7 +69,7 @@
 								<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
 								<span class="catalog_item_name"><?php the_title(); ?></span>
 							</a>
-							<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Подробнее</a>
+							<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
 						</div>
 					<?php endwhile;
 					wp_reset_postdata(); ?>

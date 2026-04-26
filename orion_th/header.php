@@ -113,6 +113,7 @@
 					</div>
 				</div>
 			</div>
+			<?php if (is_front_page()) : ?>
 			<div class="bottom_row">
 				<div class="bottom_row_content_box">
 					<div class="container">
@@ -138,4 +139,5 @@
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
 		</header>
