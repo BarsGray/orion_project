@@ -1,51 +1,50 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package orion_theme
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<main class="catalog">
 
-	<main id="primary" class="site-main">
+    <h1>Каталог</h1>
 
-		<?php if ( have_posts() ) : ?>
+    <!-- КАТЕГОРИИ -->
+    <div class="catalog-categories">
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+        <a href="<?php echo home_url(); ?>/category/">Все</a>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+        <?php
+        $categories = get_categories();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+        foreach ($categories as $cat) {
+            echo '<a href="' . get_category_link($cat->term_id) . '">'
+                . $cat->name .
+            '</a> ';
+        }
+        ?>
 
-			endwhile;
+    </div>
 
-			the_posts_navigation();
+    <hr>
 
-		else :
+    <!-- ЗАПИСИ -->
+    <div class="catalog-items">
 
-			get_template_part( 'template-parts/content', 'none' );
+        <?php if (have_posts()) : ?>
 
-		endif;
-		?>
+            <?php while (have_posts()) : the_post(); ?>
 
-	</main><!-- #main -->
+                <div class="catalog-item">
+                    <h3><?php the_title(); ?></h3>
+                    <div><?php the_excerpt(); ?></div>
+                </div>
 
-<?php
-get_sidebar();
-get_footer();
+            <?php endwhile; ?>
+
+            <?php the_posts_navigation(); ?>
+
+        <?php else : ?>
+            <p>Ничего не найдено</p>
+        <?php endif; ?>
+
+    </div>
+
+</main>
+
+<?php get_footer(); ?>

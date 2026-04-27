@@ -83,6 +83,8 @@
 									<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>" class="contacts_tel">
 										<?php the_field('city_number', 'option') ?>
 									</a>
+<<<<<<< HEAD
+=======
 								</div>
 							<?php endif; ?>
 							<?php if (get_field('adres_1', 'option')): ?>
@@ -113,4 +115,48 @@
 					</div>
 				</div>
 			</div>
+			<?php if (is_front_page()) : ?>
+			<div class="bottom_row">
+				<div class="bottom_row_content_box">
+					<div class="container">
+						<div class="bottom_row_content">
+							<p class="bottom_row_content_title main_title"><?php the_field('zagolovok_na_glavnoy', 'options'); ?></p>
+							<p class="bottom_row_content_text"><?php the_field('description_on_glavnoy', 'options'); ?></p>
+							<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
+							<div class="header_advantages_row">
+								<div class="header_advantages_item">
+									<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
+									<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
+>>>>>>> 080515a80cab74dc67403ce5f078d1fd5675ccd9
+								</div>
+							<?php endif; ?>
+							<?php if (get_field('adres_1', 'option')): ?>
+								<div class="mobile_menu_info_adress_1">
+									<div class="top_rowmobile_menu_info_text"><?php the_field('adres_1', 'option') ?></div>
+								</div>
+							<?php endif; ?>
+							<?php if (get_field('adres_2', 'option')): ?>
+								<div class="top_rowmobile_menu_info_adress_2">
+									<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', 'option') ?></div>
+								</div>
+							<?php endif; ?>
+							<div class="contacts_socials">
+								<?php if (get_field('vk_link', 'option')): ?>
+									<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt=""></a>
+								<?php endif; ?>
+								<?php if (get_field('max_link', 'option')): ?>
+									<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt=""></a>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+					<div class="mobile_box_btns">
+						<?php if (get_field('mobile_number', 'option')): ?>
+							<a href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>" class="phone_mobile_btn"></a>
+						<?php endif; ?>
+						<a class="burger_menu_btn"></a>
+					</div>
+				</div>
+			</div>
+			<?php endif; ?>
 		</header>
