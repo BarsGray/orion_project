@@ -3,17 +3,14 @@
  * Template Name: Catalog
  */
 get_header();
-
 $selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 ?>
 
 <div class="title_box">
-	<p class="title main_title">Каталог</p>
-	<div class="bread_crumbs">
-		<a href="<?php bloginfo('home'); ?>">Главная</a>
-		<span>/</span>
-		<span><?php the_title(); ?></span>
+	<div class="container">
+		<p class="title main_title"><?php the_title(); ?></p>
+		<?php breadcrumbs(); ?>
 	</div>
 </div>
 

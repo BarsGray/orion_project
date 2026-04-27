@@ -5,31 +5,31 @@ jQuery(function ($) {
 	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
 	const btn_next = document.querySelector('.catalog_tubs_btn_next');
 
+	if (tubs_row) {
+		tubs_row.addEventListener('wheel', (e) => {
+			e.preventDefault();
+			tubs_row.scrollBy({ left: e.deltaY });
+		});
 
-	tubs_row.addEventListener('wheel', (e) => {
-		e.preventDefault();
-		tubs_row.scrollBy({ left: e.deltaY });
-	});
+		btn_prev.onclick = () => {
+			tubs_row.scrollBy({ left: -150 });
+		};
+		btn_next.onclick = () => {
+			tubs_row.scrollBy({ left: 150 });
+		};
 
-	btn_prev.onclick = () => {
-		tubs_row.scrollBy({ left: -150 });
-	};
-	btn_next.onclick = () => {
-		tubs_row.scrollBy({ left: 150 });
-	};
+		function updadteBtn() {
+			const scrollLeft = tubs_row.scrollLeft;
+			const maxScroll = tubs_row.scrollWidth - tubs_row.clientWidth;
 
-	function updadteBtn() {
-		const scrollLeft = tubs_row.scrollLeft;
-		const maxScroll = tubs_row.scrollWidth - tubs_row.clientWidth;
+			btn_prev.disabled = scrollLeft <= 0;
+			btn_next.disabled = scrollLeft >= maxScroll - 3;
+		}
 
-		btn_prev.disabled = scrollLeft <= 0;
-		btn_next.disabled = scrollLeft >= maxScroll - 3;
+		tubs_row.addEventListener('scroll', updadteBtn);
+
+		updadteBtn();
 	}
-
-	tubs_row.addEventListener('scroll', updadteBtn);
-
-	updadteBtn();
-
 
 	let containerEl = document.querySelector('.catalog_box_mix');
 	if (containerEl) {
