@@ -36,6 +36,6 @@ function breadcrumbs ( $sep = ' / ', $args = array(), $l10n = array() ){
     echo $inst->get_crumbs( $sep, $l10n, $args );
 }
 
-function merge_numbers() {
-	
+function merge_numbers($num) {
+	return str_replace([' ', '-', '(', ')'], '', $num);
 }
