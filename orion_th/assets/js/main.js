@@ -31,6 +31,30 @@ jQuery(function ($) {
 	updadteBtn();
 
 
+	let containerEl = document.querySelector('.catalog_box_mix');
+	if (containerEl) {
+
+		let mixer = mixitup(containerEl, {
+			selectors: {
+				target: '.mix'
+			},
+			animation: {
+				duration: 400,
+				effects: 'fade scale(0.9) translateY(20px)'
+			}
+		});
+
+		$('.catalog_tub_item_mix').on('click', function (e) {
+			e.preventDefault();
+
+			$('.catalog_tub_item_mix').removeClass('active');
+			$(this).addClass('active');
+
+			let filter = $(this).data('filter');
+
+			mixer.filter(filter);
+		});
+	}
 
 
 	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
@@ -162,4 +186,6 @@ jQuery(function ($) {
 		backFocus: false,
 		loop: true,
 	});
+
+
 });
