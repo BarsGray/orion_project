@@ -12,7 +12,7 @@ $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 	<p class="title main_title">Каталог</p>
 	<div class="bread_crumbs">
 		<a href="<?php bloginfo('home'); ?>">Главная</a>
-		<span>&nbsp;/&nbsp;</span>
+		<span>/</span>
 		<span><?php the_title(); ?></span>
 	</div>
 </div>

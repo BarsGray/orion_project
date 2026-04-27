@@ -1,20 +1,7 @@
 <?php
+add_theme_support('post-thumbnails');
 
-add_action('after_setup_theme', 'orion_th_setup');
-function orion_th_setup()
-{
-	add_theme_support('post-thumbnails');
-
-	register_nav_menus(
-		array(
-			'header_menu' => esc_html__('Primary', 'orion_th'),
-			'header_menu' => 'Меню в шапке',
-			'footer_menu' => 'Меню в подвале',
-		)
-	);
-}
-
-
+register_nav_menus();
 
 add_action('wp_enqueue_scripts', 'orion_th_scripts_style');
 function orion_th_scripts_style()

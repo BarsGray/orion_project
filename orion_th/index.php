@@ -1,27 +1,23 @@
-<?php get_header(); ?>
+<?php /* Template Name: Главная */ get_header(); ?>
 
 		<section class="bunner">
-			<div class="bottom_row">
-				<div class="bottom_row_content_box">
-					<div class="container">
-						<div class="bottom_row_content">
-							<p class="bottom_row_content_title main_title"><?php the_field('zagolovok_na_glavnoy', 'options'); ?></p>
-							<p class="bottom_row_content_text"><?php the_field('description_on_glavnoy', 'options'); ?></p>
-							<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
-							<div class="header_advantages_row">
-								<div class="header_advantages_item">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
-									<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
-								</div>
-								<div class="header_advantages_item">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/coins.svg" alt="">
-									<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
-								</div>
-								<div class="header_advantages_item">
-									<img src="<?php bloginfo('template_url') ?>/assets/img/money.svg" alt="">
-									<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
-								</div>
-							</div>
+			<div class="container">
+				<div class="bottom_row_content">
+					<p class="bottom_row_content_title main_title">Изготовление памятников любой сложности</p>
+					<p class="bottom_row_content_text">Мемориальные комплексы, художественная гравировка, благоустройство захоронений. Более 15 лет опыта в Воронеже и области.</p>
+					<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
+					<div class="header_advantages_row">
+						<div class="header_advantages_item">
+							<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
+							<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
+						</div>
+						<div class="header_advantages_item">
+							<img src="<?php bloginfo('template_url') ?>/assets/img/coins.svg" alt="">
+							<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
+						</div>
+						<div class="header_advantages_item">
+							<img src="<?php bloginfo('template_url') ?>/assets/img/money.svg" alt="">
+							<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
 						</div>
 					</div>
 				</div>
@@ -103,79 +99,76 @@
 				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
-
-
-
-		<?php if (have_rows('slides', 'option')): ?>
+		
+		<?php if (get_field('foto')): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
-					<p class="main_title carusel_title"><?php the_field('title_slider', 'option'); ?></p>
+					<p class="main_title carusel_title">Изготовление памятников любой сложности</p>
 					<div class="carusel__arrow carusel__prev"></div>
 					<div class="carusel__arrow carusel__next"></div>
 				</div>
 				<div class="carusel__slider_main_wrapper">
 					<div class="swiper carusel__slider-wrapper">
 						<div class="swiper-wrapper carusel__slider">
-							<?php while (have_rows('slides', 'option')):
-								the_row(); ?>
+							<?php foreach(get_field('foto') as $item): ?>
 								<div class="swiper-slide carusel__slide">
-									<a data-fancybox="gallery" href="<?php the_sub_field('foto'); ?>"><img src="<?php the_sub_field('foto'); ?>" alt="<?php the_sub_field('description'); ?>"></a>
+									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 								</div>
-							<?php endwhile; ?>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
-		<?php endif; ?>
+		<?php  endif; ?>
 
 		<section class="section_map">
 			<div class="map_info_content_box">
 				<p class="map_info_title main_title">Как нас найти</p>
 				<ul class="map_info_list">
-					<?php if (get_field('adres_1', 'option')): ?>
+					<?php if (get_field('adres_1')): ?>
 						<li class="map_info_list_item map_info_list_item_place">
-							<p class="map_info_list_item_inner"><?php the_field('adres_1', 'option') ?></p>
+							<p class="map_info_list_item_inner"><?php the_field('adres_1') ?></p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('adres_2', 'option')): ?>
+					<?php if (get_field('adres_2')): ?>
 						<li class="map_info_list_item map_info_list_item_place">
-							<p class="map_info_list_item_inner"><?php the_field('adres_2', 'option') ?></p>
+							<p class="map_info_list_item_inner"><?php the_field('adres_2') ?></p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('city_number', 'option')): ?>
+					<?php if (get_field('number_1')): ?>
 						<li class="map_info_list_item map_info_list_item_home_number">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('city_number', 'option')); ?>">
-									<?php the_field('city_number', 'option') ?>
+								<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('number_1')); ?>">
+									<?php the_field('number_1') ?>
 								</a>
 							</p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('mobile_number', 'option')): ?>
+					<?php if (get_field('number_2')): ?>
 						<li class="map_info_list_item map_info_list_item_mobile_number">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('mobile_number', 'option')); ?>">
-									<?php the_field('mobile_number', 'option') ?>
+								<a class="map_info_list_link" href="tel:<?php echo str_replace([' ', '-', '(', ')'], '', get_field('number_2')); ?>">
+									<?php the_field('number_2') ?>
 								</a>
 							</p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('email', 'option')): ?>
+					<?php if (get_field('email')): ?>
 						<li class="map_info_list_item map_info_list_item_mail">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', 'option') ?></a>
+								<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email') ?></a>
 							</p>
 						</li>
 					<?php endif; ?>
 				</ul>
-				<?php if (get_field('vk_link', 'option') || get_field('max_link', 'option')): ?>
+				<?php if (get_field('vk_link') || get_field('max_link')): ?>
 					<div class="map_socials">
-						<?php if (get_field('vk_link', 'option')): ?>
-							<a href="<?php the_field('vk_link', 'option') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
+						<?php if (get_field('vk_link')): ?>
+							<a href="<?php the_field('vk_link') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
 						<?php endif; ?>
-						<?php if (get_field('max_link', 'option')): ?>
-							<a href="<?php the_field('max_link', 'option') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
+						<?php if (get_field('max_link')): ?>
+							<a href="<?php the_field('max_link') ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
@@ -186,8 +179,5 @@
 					</script>
 			</div>
 		</section>
-
-
-
 
 <?php get_footer(); ?>

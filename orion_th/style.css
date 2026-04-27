@@ -583,7 +583,7 @@ header .menu_row {
 	background-color: #fff;
 }
 
-.bunner .bottom_row {
+.bunner {
 	background: url("assets/img/header_img.jpg") center 30% / cover no-repeat;
 }
 
@@ -968,6 +968,9 @@ section.how_work {
 .bread_crumbs {
 	font-size: 20px;
 }
+.bread_crumbs .separater {
+	margin: 0 10px;
+}
 
 section.how_work .how_work_main_title {
 	color: #B87C4E;
@@ -1221,7 +1224,7 @@ footer .row_menu {
 
 footer .row_menu ul {
 	display: flex;
-	gap: 30px;
+	gap: 20px;
 	align-items: center;
 	color: #000;
 	font-size: 20px;
@@ -1527,14 +1530,14 @@ header .burger_menu_btn.burger_menu_btn--disable {
 
 
 	.title_box .title,
-	header .bottom_row_content_title {
+	.bunner .bottom_row_content_title {
 		font-size: 60px;
 	}
 
 	.main_btn,
 	header .top_row_contacts a,
-	header .bottom_row_content_text,
-	header .header_advantages_item_text,
+	.bunner .bottom_row_content_text,
+	.bunner .header_advantages_item_text,
 	header .row_menu ul,
 	header .header_btn,
 	header .top_row {
@@ -1560,19 +1563,19 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		margin-right: 5px;
 	}
 
-	header .bottom_row_content_title {
+	.bunner .bottom_row_content_title {
 		margin-bottom: 20px;
 	}
 
-	header .bottom_row_content {
+	.bunner .bottom_row_content {
 		padding: 26px 0 30px;
 	}
 
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		padding-right: 100px;
 	}
 
-	header .bottom_row_content_text {
+	.bunner .bottom_row_content_text {
 		margin-bottom: 34px;
 	}
 
@@ -1580,11 +1583,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		padding-top: 2px;
 	}
 
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		padding-top: 75px;
 	}
 
-	header .bottom_row {
+	.bunner .bottom_row {
 		background: url("assets/img/header_img_1000.jpg") center 30% / cover no-repeat;
 	}
 
@@ -1843,7 +1846,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 }
 
 @media (max-width: 910px) {
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		padding-right: 35px;
 	}
 
@@ -1868,41 +1871,38 @@ header .burger_menu_btn.burger_menu_btn--disable {
 @media (max-width: 840px) {
 
 	.title_box .title,
-	header .bottom_row_content_title {
+	.bunner .bottom_row_content_title {
 		font-size: 40px;
 	}
 
 	header .top_row_contacts a,
-	header .bottom_row_content_text,
-	header .header_advantages_item_text,
+	.bunner .bottom_row_content_text,
+	.bunner .header_advantages_item_text,
 	header .row_menu ul,
 	header .header_btn,
 	header .top_row {
 		font-size: 16px;
 	}
 
-	header .header_advantages_item {
+	.bunner .header_advantages_item {
 		flex-direction: column;
 		align-items: start;
-	}
-
-	header .header_advantages_item {
 		gap: 12px;
 	}
 
-	header .bottom_row_content {
+	.bunner .bottom_row_content {
 		padding-top: 40px;
 	}
 
-	header .bottom_row {
+	.bunner .bottom_row {
 		background: url("assets/img/header_img_640.jpg") center 30% / cover no-repeat;
 	}
 
-	header .bottom_row_content_text {
+	.bunner .bottom_row_content_text {
 		max-width: 498px;
 	}
 
-	header .bottom_row_content_title {
+	.bunner .bottom_row_content_title {
 		max-width: 372px;
 	}
 
@@ -1911,7 +1911,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		padding: 0 20px;
 	}
 
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		padding-right: 50px;
 	}
 
@@ -1988,7 +1988,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		padding: 30px 0;
 	}
 
-	header .bottom_row_content {
+	.bunner .bottom_row_content {
 		padding: 40px 0 20px;
 	}
 
@@ -2076,18 +2076,18 @@ header .burger_menu_btn.burger_menu_btn--disable {
 }
 
 @media (max-width: 570px) {
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
 	}
 
-	header .header_advantages_item {
+	.bunner .header_advantages_item {
 		flex-direction: row;
 		align-items: center;
 	}
 
-	header .bottom_row {
+	.bunner .bottom_row {
 		background: url("assets/img/header_img_320.jpg") center 30% / cover no-repeat;
 	}
 
@@ -2142,15 +2142,15 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		padding: 0 13px;
 	}
 
-	header .bottom_row_content {
+	.bunner .bottom_row_content {
 		padding: 30px 0;
 	}
 
-	header .header_advantages_row {
+	.bunner .header_advantages_row {
 		padding-top: 60px;
 	}
 
-	header .bottom_row_content_text {
+	.bunner .bottom_row_content_text {
 		margin-bottom: 20px;
 	}
 
