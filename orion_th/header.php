@@ -19,30 +19,30 @@
 		<div class="top_row">
 			<div class="container">
 				<div class="top_row_place">
-					<?php if (get_field('adres_1', get_option('page_on_front'))): ?>
-						<div class="top_row_adress_1"><p class="top_row_text"><?php the_field('adres_1', get_option('page_on_front')) ?></p></div>
+					<?php if (get_field('adres_1', FRONT_PAGE)): ?>
+						<div class="top_row_adress_1"><p class="top_row_text"><?php the_field('adres_1', FRONT_PAGE) ?></p></div>
 					<?php endif; ?>
-					<?php if (get_field('adres_2', get_option('page_on_front'))): ?>
-						<div class="top_row_adress_2"><p class="top_row_text"><?php the_field('adres_2', get_option('page_on_front')) ?></p></div>
+					<?php if (get_field('adres_2', FRONT_PAGE)): ?>
+						<div class="top_row_adress_2"><p class="top_row_text"><?php the_field('adres_2', FRONT_PAGE) ?></p></div>
 					<?php endif; ?>
 				</div>
 				<div class="top_row_contacts">
-					<?php if (get_field('number_1', get_option('page_on_front'))): ?>
+					<?php if (get_field('number_1', FRONT_PAGE)): ?>
 						<div class="top_row_contacts_tel_1">
-							<a href="tel:<?php merge_numbers(get_field('number_1', get_option('page_on_front'))); ?>" class="contacts_tel"><?php the_field('number_1', get_option('page_on_front')) ?></a>
+							<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_1', FRONT_PAGE) ?></a>
 						</div>
 					<?php endif; ?>
-					<?php if (get_field('number_2', get_option('page_on_front'))): ?>
+					<?php if (get_field('number_2', FRONT_PAGE)): ?>
 						<div class="top_row_contacts_tel_2">
-							<a href="tel:<?php merge_numbers(get_field('number_2', get_option('page_on_front'))); ?>" class="contacts_tel"><?php the_field('number_2', get_option('page_on_front')) ?></a>
+							<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_2', FRONT_PAGE) ?></a>
 						</div>
 					<?php endif; ?>
 					<?php if (get_field('vk_link') || get_field('max_link')): ?>
 						<div class="contacts_socials">
-							<?php if (get_field('vk_link', get_option('page_on_front'))): ?>
+							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
 								<a href="<?php the_field('vk_link') ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/frame4382vk.svg" alt=""></a>
 							<?php endif; ?>
-							<?php if (get_field('max_link', get_option('page_on_front'))): ?>
+							<?php if (get_field('max_link', FRONT_PAGE)): ?>
 								<a href="<?php the_field('max_link') ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/logo_MAX2.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
@@ -61,43 +61,43 @@
 
 					<a href="#" data-fancybox data-src="#popup_box" class="header_btn top_btn">Получить консультацию</a>
 					<div class="mobile_menu_info">
-						<?php if (get_field('number_1', get_option('page_on_front'))): ?>
+						<?php if (get_field('number_1', FRONT_PAGE)): ?>
 							<div class="top_rowmobile_menu_info_contacts_tel_2">
-								<a href="tel:<?php merge_numbers(get_field('number_1', get_option('page_on_front'))); ?>" class="contacts_tel">
-									<?php the_field('number_1', get_option('page_on_front')) ?>
+								<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel">
+									<?php the_field('number_1', FRONT_PAGE) ?>
 								</a>
 							</div>
 						<?php endif; ?>
-						<?php if (get_field('number_2', get_option('page_on_front'))): ?>
+						<?php if (get_field('number_2', FRONT_PAGE)): ?>
 							<div class="top_rowmobile_menu_info_contacts_tel_1">
-								<a href="tel:<?php merge_numbers(get_field('number_2', get_option('page_on_front'))); ?>" class="contacts_tel">
-									<?php the_field('number_2', get_option('page_on_front')) ?>
+								<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel">
+									<?php the_field('number_2', FRONT_PAGE) ?>
 								</a>
 							</div>
 						<?php endif; ?>
-						<?php if (get_field('adres_1', get_option('page_on_front'))): ?>
+						<?php if (get_field('adres_1', FRONT_PAGE)): ?>
 							<div class="mobile_menu_info_adress_1">
-								<div class="top_rowmobile_menu_info_text"><?php the_field('adres_1', get_option('page_on_front')) ?></div>
+								<div class="top_rowmobile_menu_info_text"><?php the_field('adres_1', FRONT_PAGE) ?></div>
 							</div>
 						<?php endif; ?>
-						<?php if (get_field('adres_2', get_option('page_on_front'))): ?>
+						<?php if (get_field('adres_2', FRONT_PAGE)): ?>
 							<div class="top_rowmobile_menu_info_adress_2">
-								<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', get_option('page_on_front')) ?></div>
+								<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', FRONT_PAGE) ?></div>
 							</div>
 						<?php endif; ?>
 						<div class="contacts_socials">
-							<?php if (get_field('vk_link', get_option('page_on_front'))): ?>
+							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
 								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt=""></a>
 							<?php endif; ?>
-							<?php if (get_field('max_link', get_option('page_on_front'))): ?>
+							<?php if (get_field('max_link', FRONT_PAGE)): ?>
 								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					</div>
 				</div>
 				<div class="mobile_box_btns">
-					<?php if (get_field('number_1', get_option('page_on_front'))): ?>
-						<a href="tel:<?php merge_numbers(get_field('number_1', get_option('page_on_front'))); ?>" class="phone_mobile_btn"></a>
+					<?php if (get_field('number_1', FRONT_PAGE)): ?>
+						<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="phone_mobile_btn"></a>
 					<?php endif; ?>
 					<a class="burger_menu_btn"></a>
 				</div>

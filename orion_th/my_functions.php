@@ -8,8 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.2' );
+}
+
+if ( ! defined( 'FRONT_PAGE' ) ) {
+	define( 'FRONT_PAGE', get_option('page_on_front') );
 }
 
 add_theme_support('post-thumbnails');

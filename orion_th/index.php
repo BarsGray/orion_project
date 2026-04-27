@@ -126,49 +126,49 @@
 			<div class="map_info_content_box">
 				<p class="map_info_title main_title">Как нас найти</p>
 				<ul class="map_info_list">
-					<?php if (get_field('adres_1', get_option('page_on_front'))): ?>
+					<?php if (get_field('adres_1', FRONT_PAGE)): ?>
 						<li class="map_info_list_item map_info_list_item_place">
-							<p class="map_info_list_item_inner"><?php the_field('adres_1', get_option('page_on_front')) ?></p>
+							<p class="map_info_list_item_inner"><?php the_field('adres_1', FRONT_PAGE) ?></p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('adres_2', get_option('page_on_front'))): ?>
+					<?php if (get_field('adres_2', FRONT_PAGE)): ?>
 						<li class="map_info_list_item map_info_list_item_place">
-							<p class="map_info_list_item_inner"><?php the_field('adres_2', get_option('page_on_front')) ?></p>
+							<p class="map_info_list_item_inner"><?php the_field('adres_2', FRONT_PAGE) ?></p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('number_1', get_option('page_on_front'))): ?>
+					<?php if (get_field('number_1', FRONT_PAGE)): ?>
 						<li class="map_info_list_item map_info_list_item_home_number">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', get_option('page_on_front'))); ?>">
+								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>">
 									<?php the_field('number_1') ?>
 								</a>
 							</p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('number_2', get_option('page_on_front'))): ?>
+					<?php if (get_field('number_2', FRONT_PAGE)): ?>
 						<li class="map_info_list_item map_info_list_item_mobile_number">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', get_option('page_on_front'))); ?>">
+								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>">
 									<?php the_field('number_2') ?>
 								</a>
 							</p>
 						</li>
 					<?php endif; ?>
-					<?php if (get_field('email', get_option('page_on_front'))): ?>
+					<?php if (get_field('email', FRONT_PAGE)): ?>
 						<li class="map_info_list_item map_info_list_item_mail">
 							<p class="map_info_list_item_inner">
-								<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', get_option('page_on_front')) ?></a>
+								<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a>
 							</p>
 						</li>
 					<?php endif; ?>
 				</ul>
-				<?php if (get_field('vk_link', get_option('page_on_front')) || get_field('max_link', get_option('page_on_front'))): ?>
+				<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 					<div class="map_socials">
-						<?php if (get_field('vk_link', get_option('page_on_front'))): ?>
-							<a href="<?php the_field('vk_link', get_option('page_on_front')) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
+						<?php if (get_field('vk_link', FRONT_PAGE)): ?>
+							<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
 						<?php endif; ?>
-						<?php if (get_field('max_link', get_option('page_on_front'))): ?>
-							<a href="<?php the_field('max_link', get_option('page_on_front')) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
+						<?php if (get_field('max_link', FRONT_PAGE)): ?>
+							<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
