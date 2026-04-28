@@ -120,15 +120,57 @@ a {
 
 /* =========================== font ====================================== */
 
+.content img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto
+}
+
+.content img.alignright {
+	float: right;
+	margin: 0 0 1em 1em;
+}
+
+.content img.alignleft {
+	float: left;
+	margin: 0 1em 1em 0;
+}
+
+.content img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media screen and (max-width:650px) {
+
+	.content img.alignright,
+	.content img.alignleft,
+	.content img.aligncenter {
+		display: block;
+		float: none;
+		margin: 0 auto 10px;
+		max-width: 100%;
+	}
+}
+
 *,
 html,
 body {
 	font-family: "Roboto";
 }
 
-.content ul,
-.content li {
+.content ul li {
 	list-style: disc;
+}
+
+.content ol li {
+	list-style: decimal;
+}
+
+.content ol {
+	padding-inline-start: 40px;
 }
 
 .content ul,
@@ -136,10 +178,19 @@ body {
 .content p {
 	font-size: 20px;
 	padding-bottom: 20px;
+	font-family: ;
 }
 
+.content ol,
 .content ul {
 	padding-left: 40px;
+	font-size: 22px;
+}
+
+.content ol li,
+.content ul li {
+	font-family: "Tenor Sans";
+	margin-bottom: 10px;
 }
 
 body {
@@ -2380,6 +2431,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	footer .row_menu ul {
 		font-size: 15px;
 	}
+
 	.form_box {
 		padding: 20px;
 	}
