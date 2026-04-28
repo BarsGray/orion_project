@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( '_S_VERSION' ) ) {
-	define( '_S_VERSION', '1.0.2' );
+	define( '_S_VERSION', '1.0.3' );
 }
 
 if ( ! defined( 'FRONT_PAGE' ) ) {

@@ -12,7 +12,7 @@
 				the_content();
 				
 				// Каталог
-				if(is_page(18)){
+				if(is_page(18)) {
 					echo '<div class="catalog">';
 						$tx_terms=get_terms(array(
 							'taxonomy' => 'catalog',
@@ -24,12 +24,12 @@
 				}
 				
 				// Услуги
-				if(is_page(14)){
+				if(is_page(14)) {
 					$services=get_posts(array('post_type' => 'services','numberposts' => -1,));
 					view_services($services);
 				}
 				// Сертификаты
-				if(is_page(886)){
+				if(is_page(886)) {
 					$certificates=get_posts(array('post_type' => 'certificates','numberposts' => -1,));
 					view_certificates($certificates);
 				}

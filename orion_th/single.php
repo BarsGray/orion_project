@@ -1,9 +1,11 @@
-<?php get_header(); ?>
+<?php
+get_header();
+show_title_box();
+?>
 
-<div class="title_box">
+<div class="content">
 	<div class="container">
-		<p class="title main_title"><?php the_title(); ?></p>
-		<?php breadcrumbs(); ?>
+		<?php the_content(); ?>
 	</div>
 </div>
 

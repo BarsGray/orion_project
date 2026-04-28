@@ -5,14 +5,8 @@
 get_header();
 $selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+show_title_box();
 ?>
-
-<div class="title_box">
-	<div class="container">
-		<p class="title main_title"><?php the_title(); ?></p>
-		<?php breadcrumbs(); ?>
-	</div>
-</div>
 
 <div class="catalog_tubs_box catalog_tubs_box_catalog">
 	<div class="container">

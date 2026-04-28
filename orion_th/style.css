@@ -126,10 +126,6 @@ body {
 	font-family: "Roboto";
 }
 
-.content ul {
-	padding-left: 40px;
-}
-
 .content ul,
 .content li {
 	list-style: disc;
@@ -140,6 +136,10 @@ body {
 .content p {
 	font-size: 20px;
 	padding-bottom: 20px;
+}
+
+.content ul {
+	padding-left: 40px;
 }
 
 body {
@@ -323,6 +323,8 @@ footer {
 	color: #000;
 }
 
+
+
 .content h2,
 .content h3,
 .content h4,
@@ -339,10 +341,48 @@ footer {
 	margin-bottom: 20px;
 }
 
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 .main_title {
 	font-size: 80px;
 	font-weight: 400;
 	font-family: "Tenor Sans";
+}
+
+.about_content .about_h2,
+.about_content .about_h3,
+.about_content .about_h4,
+.about_content .about_h5,
+.about_content .about_h6 {
+	font-size: 50px;
+	font-weight: 400;
+	font-family: "Tenor Sans";
+	margin-bottom: 20px;
+	margin: 0 auto;
+	max-width: 808px;
+}
+
+.about_img_box img,
+.about_img_box {
+	width: 100%;
+}
+
+.about_img_box {
+	margin: 40px 0 60px;
+}
+
+.about_content p.about_text,
+.about_content ul.about_ul {
+	max-width: 808px;
+	margin: 0 auto;
 }
 
 .mobile_menu_info {
