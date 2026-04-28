@@ -13,9 +13,10 @@
 </footer>
 
 <div id="popup_box" class="popup_box">
-	<div class="popup_title">Оставить заявку</div>
-	<p class="popup_text">Оставьте свои контакты и наш специалист перезвонит вам в ближайшее время.</p>
-
+	<div class="top_box">
+		<p class="popup_title">Оставить заявку</p>
+		<p class="popup_text">Оставьте свои контакты и наш специалист перезвонит вам в ближайшее время.</p>
+	</div>
 	<form method="POST">
 		<input type="text" id="name" name="user_name" placeholder="Имя (опционально)" required>
 		<input type="tel" id="tel" name="tel" placeholder="Телефон" required>
