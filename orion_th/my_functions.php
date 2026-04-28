@@ -33,7 +33,6 @@ function orion_th_scripts_style()
 }
 
 
-
 function breadcrumbs($sep = ' / ', $args = array(), $l10n = array())
 {
 	static $inst;
@@ -46,79 +45,60 @@ function breadcrumbs($sep = ' / ', $args = array(), $l10n = array())
 	echo $inst->get_crumbs($sep, $l10n, $args);
 }
 
+
 function merge_numbers($num)
 {
 	return str_replace([' ', '-', '(', ')'], '', $num);
 }
 
 
-
-function my_custom_post_type_init()
+function register_orion_content()
 {
-	$labels = array(
+
+	$post_labels = array(
 		'name' => 'Товары',
 		'singular_name' => 'Товар',
 		'add_new' => 'Добавить новый',
 		'add_new_item' => 'Добавить новый товар',
 		'edit_item' => 'Редактировать товар',
-		'new_item' => 'Новый товар',
-		'view_item' => 'Посмотреть товар',
-		'search_items' => 'Найти товар',
-		'not_found' => 'Товар не найдено',
-		'parent_item_colon' => '',
 		'menu_name' => 'Товары'
 	);
 
-	$args = array(
-		'labels' => $labels,
+	$post_args = array(
+		'labels' => $post_labels,
 		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'query_var' => true,
-		'rewrite' => array('slug' => 'or_product'),
-		'capability_type' => 'post',
-		'has_archive' => true,
-		'hierarchical' => false,
+		'has_archive' => 'catalog',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-admin-post',
-		'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-		'show_in_rest' => false,
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'rewrite' => array('slug' => 'catalog'),
+		'show_in_rest' => true,
+		'capability_type' => 'post',
+		'taxonomies' => array('or_category'),
 	);
 
-	register_post_type('or_product', $args);
+	register_post_type('or_product', $post_args);
+
+	$tax_labels = array(
+		'name' => 'Категории товаров',
+		'singular_name' => 'Категория',
+		'menu_name' => 'Категории',
+		'all_items' => 'Все категории',
+		'add_new_item' => 'Добавить новую категорию',
+		'edit_item' => 'Изменить категорию',
+	);
+
+	$tax_args = array(
+		'hierarchical' => true,
+		'labels' => $tax_labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'catalog-cat'),
+		'show_in_rest' => true,
+	);
+
+	register_taxonomy('or_category', array('or_product'), $tax_args);
 }
 
-function register_or_product_taxonomy() {
-    $labels = array(
-        'name'              => 'Категории товаров',
-        'singular_name'     => 'Категория',
-        'search_items'      => 'Найти категории',
-        'all_items'         => 'Все категории',
-        'parent_item'       => 'Родительская категория',
-        'parent_item_colon' => 'Родительская категория:',
-        'edit_item'         => 'Изменить категорию',
-        'update_item'       => 'Обновить категорию',
-        'add_new_item'      => 'Добавить новую категорию',
-        'new_item_name'     => 'Имя новой категории',
-        'menu_name'         => 'Категории',
-    );
-
-    $args = array(
-        'hierarchical'      => true, // true — как категории (с вложенностью), false — как метки (теги)
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true, // Показывать колонку категории в списке товаров
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'product-cat' ), // Слаг в URL (://site.com)
-        'show_in_rest'      => true, // Обязательно для редактора Gutenberg
-    );
-
-    // Привязываем таксономию 'or_category' к типу записи 'or_product'
-    register_taxonomy( 'or_category', array( 'or_product' ), $args );
-}
-
-// Добавляем в тот же хук init, где и регистрация типа записи
-add_action( 'init', 'register_or_product_taxonomy' );
-
-add_action('init', 'my_custom_post_type_init');
+add_action('init', 'register_orion_content');

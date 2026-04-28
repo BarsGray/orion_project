@@ -102,8 +102,8 @@
 
 <?php
 
-		function register_orion_content() {
-    // 1. Регистрация таксономии (Категории)
+		function register_orion_content()
+		{
     $tax_labels = array(
         'name'              => 'Категории товаров',
         'singular_name'     => 'Категория',
@@ -119,13 +119,13 @@
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'product-cat' ),
-        'show_in_rest'      => true, // Нужно для отображения категорий в Gutenberg
+        'rewrite'           => array( 'slug' => 'or_product-cat' ),
+        'show_in_rest'      => false,
     );
 
     register_taxonomy( 'or_category', array( 'or_product' ), $tax_args );
 
-    // 2. Регистрация типа записи (Товары)
+
     $post_labels = array(
         'name'               => 'Товары',
         'singular_name'      => 'Товар',
@@ -140,12 +140,12 @@
         'public'             => true,
         'has_archive'        => true,
         'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-cart', // Поменял на корзинку, так нагляднее
+        'menu_icon'          => 'dashicons-admin-post',
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'rewrite'            => array('slug' => 'product'), // Упростил слаг
-        'show_in_rest'       => true, // Включает редактор блоков (Gutenberg)
+        'rewrite'            => array('slug' => 'or_product'),
+        'show_in_rest'       => false,
         'capability_type'    => 'post',
-        'taxonomies'         => array('or_category'), // Явно указываем связь
+        'taxonomies'         => array('or_category'),
     );
 
     register_post_type('or_product', $post_args);
@@ -153,4 +153,87 @@
 
 add_action( 'init', 'register_orion_content' );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function register_product_post_type_and_taxonomy() {
+
+    // Тип записи "Товары"
+    $labels = array(
+        'name' => 'Товары',
+        'singular_name' => 'Товар',
+        'add_new' => 'Добавить новый',
+        'add_new_item' => 'Добавить новый товар',
+        'edit_item' => 'Редактировать товар',
+        'new_item' => 'Новый товар',
+        'view_item' => 'Посмотреть товар',
+        'search_items' => 'Найти товар',
+        'not_found' => 'Товар не найден',
+        'parent_item_colon' => '',
+        'menu_name' => 'Товары'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'products'),
+        'capability_type' => 'post',
+        'has_archive' => 'products',
+        'hierarchical' => false,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-admin-post',
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest' => true,
+    );
+
+    register_post_type('or_product', $args);
+
+
+    // Таксономия "Категории товаров"
+    $taxonomy_labels = array(
+        'name'              => 'Категории товаров',
+        'singular_name'     => 'Категория',
+        'search_items'      => 'Найти категории',
+        'all_items'         => 'Все категории',
+        'parent_item'       => 'Родительская категория',
+        'parent_item_colon' => 'Родительская категория:',
+        'edit_item'         => 'Изменить категорию',
+        'update_item'       => 'Обновить категорию',
+        'add_new_item'      => 'Добавить новую категорию',
+        'new_item_name'     => 'Имя новой категории',
+        'menu_name'         => 'Категории',
+    );
+
+    $taxonomy_args = array(
+        'hierarchical'      => true,
+        'labels'            => $taxonomy_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'product-cat'),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy('or_category', array('or_product'), $taxonomy_args);
+}
+
+add_action('init', 'register_product_post_type_and_taxonomy');
 ?>
