@@ -9,4 +9,7 @@ show_title_box();
 	</div>
 </div>
 
-<?php get_footer(); ?>
+<?php
+show_map();
+get_footer();
+?>

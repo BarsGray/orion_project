@@ -64,4 +64,7 @@ show_title_box();
 	</div>
 </section>
 
-<?php get_footer(); ?>
+<?php
+show_map();
+get_footer();
+?>
