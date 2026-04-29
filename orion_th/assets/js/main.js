@@ -195,7 +195,7 @@ jQuery(function ($) {
 
 	let iShow = servicesItemsPreviose;
 
-	if (services_items) {
+	if (!services_items.length == 0) {
 
 		function galleryCounter() {
 			for (let i = 0; i < iShow && i < services_items.length; i++) {
