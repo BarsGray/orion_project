@@ -152,20 +152,48 @@ function show_map()
 }
 
 
-function show_services() {
-	if (get_field('gallery_services')): ?>
-		<div class="gallery_services">
-			<?php foreach(get_field('gallery_services') as $item): ?>
-				<div class="gallery_services_item">
+function show_works() {
+	if (get_field('gallery_works')): ?>
+		<div class="gallery_works">
+			<?php foreach(get_field('gallery_works') as $item): ?>
+				<div class="gallery_works_item">
 					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
-			<a class="gallery_services_btn" href="#">Показать ещё</a>
+			<a class="gallery_works_btn" href="#">Показать ещё</a>
 		</div>
 	<?php
 	endif;
 }
 
+
+
+function show_services()
+{
+	$query = new WP_Query([
+		'post_type' => 'or_service',
+		'posts_per_page' => -1
+	]);
+
+	if ($query->have_posts()):
+		?>
+		<div class="services">
+			<?php while ($query->have_posts()): $query->the_post(); ?>
+				<div class="services_item">
+					<a href="<?php the_permalink(); ?>">
+						<span class="services_item_img"><?php the_post_thumbnail('medium'); ?></span>
+						<span class="services_item_name"><?php the_title(); ?></span>
+					</a>
+					<p class="services_item_description"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></p>
+				</div>
+			<?php endwhile;
+			wp_reset_postdata(); ?>
+		</div>
+
+		<?php
+	endif;
+	
+}
 
 
 

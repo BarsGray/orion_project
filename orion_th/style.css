@@ -1717,7 +1717,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	gap: 10px;
 }
 
-.gallery_services {
+.gallery_works {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 24px;
@@ -1725,7 +1725,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	position: relative;
 }
 
-.gallery_services_btn {
+.gallery_works_btn {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -1738,33 +1738,33 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	transition: all .3s ease-in-out;
 }
 
-.gallery_services_btn:hover {
+.gallery_works_btn:hover {
 	color: #fff;
 	background-color: #C37437;
 	border-color: #C37437;
 }
 
-.gallery_services_item {
+.gallery_works_item {
 	transition: all .3s ease-in-out;
 	display: none;
 	visibility: hidden;
 	opacity: 0;
 }
 
-.gallery_services_item a {
+.gallery_works_item a {
 	display: block;
 	width: 100%;
 	height: 100%;
 }
 
-.gallery_services_item img {
+.gallery_works_item img {
 	width: 100%;
 	height: 100%;
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
 }
 
-.services_visible {
+.works_visible {
 	visibility: visible;
 	opacity: 1;
 }
@@ -2055,7 +2055,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		width: 24px;
 	}
 
-	.gallery_services {
+	.gallery_works {
 		grid-gap: 12px;
 	}
 }
@@ -2474,7 +2474,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		margin-bottom: 0;
 	}
 
-	.gallery_services {
+	.gallery_works {
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: 10px;
 	}
@@ -2522,11 +2522,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		padding: 4px;
 	}
 
-	.gallery_services {
+	.gallery_works {
 		grid-gap: 10px;
 	}
 
-	.gallery_services img {
+	.gallery_works img {
 		border-radius: 12px;
 	}
 }

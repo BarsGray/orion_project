@@ -102,3 +102,34 @@ function register_orion_content()
 }
 
 add_action('init', 'register_orion_content');
+
+
+
+function register_orion_services()
+{
+
+	$post_labels = array(
+		'name' => 'Услуги',
+		'singular_name' => 'Услуга',
+		'add_new' => 'Добавить новую',
+		'add_new_item' => 'Добавить новую услугу',
+		'edit_item' => 'Редактировать услугу',
+		'menu_name' => 'Услуги'
+	);
+
+	$post_args = array(
+		'labels' => $post_labels,
+		'public' => true,
+		'has_archive' => 'services',
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-admin-post',
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'rewrite' => array('slug' => 'services'),
+		'show_in_rest' => true,
+		'capability_type' => 'post',
+	);
+
+	register_post_type('or_service', $post_args);
+}
+
+add_action('init', 'register_orion_services');
