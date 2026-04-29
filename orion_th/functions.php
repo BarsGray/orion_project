@@ -81,6 +81,7 @@ function show_contacty()
 
 		</div>
 	</div>
+	
 	<?php
 	show_map();
 }
