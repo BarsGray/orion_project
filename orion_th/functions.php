@@ -81,7 +81,7 @@ function show_contacty()
 
 		</div>
 	</div>
-	
+
 	<?php
 	show_map();
 }
@@ -152,6 +152,19 @@ function show_map()
 }
 
 
+function show_services() {
+	if (get_field('gallery_services')): ?>
+		<div class="gallery_services">
+			<?php foreach(get_field('gallery_services') as $item): ?>
+				<div class="gallery_services_item">
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+				</div>
+			<?php endforeach; ?>
+			<a class="gallery_services_btn" href="#">Показать ещё</a>
+		</div>
+	<?php
+	endif;
+}
 
 
 

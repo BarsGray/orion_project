@@ -9,6 +9,9 @@ show_title_box();
 		if (is_page(109))
 			show_contacty();
 
+		if (is_page(42))
+			show_services();
+
 		the_content(); ?>
 	</div>
 </div>

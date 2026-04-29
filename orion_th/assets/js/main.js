@@ -188,4 +188,58 @@ jQuery(function ($) {
 	});
 
 
+
+	// ++++++++++++++++++++++++++++ loadMore gallery  ++++++++++++++++++++++++++++++++++++++++++++
+	const services_items = document.querySelectorAll('.gallery_services_item');
+	let servicesItemsPreviose = 3;
+
+	let iShow = servicesItemsPreviose;
+
+	if (services_items) {
+		// iShow = 3;
+
+		function galleryCounter() {
+			for (let i = 0; i < iShow && i < services_items.length; i++) {
+
+				services_items[i].style.display = 'block';
+				setTimeout(() => {
+					services_items[i].classList.add('services_visible');
+				}, 10);
+
+			}
+		}
+
+		galleryCounter();
+
+		document.querySelector('.gallery_services_btn').addEventListener('click', function (e) {
+			e.preventDefault();
+
+			if (iShow === services_items.length) {
+				return;
+			}
+			else if (iShow + servicesItemsPreviose > services_items.length) {
+				iShow += services_items.length - iShow;
+			}
+			else {
+				iShow += servicesItemsPreviose;
+			}
+
+			galleryCounter();
+		});
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
