@@ -62,39 +62,12 @@
 				<div class="catalog_tubs_box">
 					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
 					<ul class="catalog_tubs_row">
-						<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
-						<?php $categories = get_categories(['hide_empty' => true]);
-						foreach ($categories as $category): ?>
-							<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
-								<a href="#"><?php echo esc_html($category->name); ?></a>
-							</li>
-						<?php endforeach; ?>
+						<?php show_category_prod(); ?>
 					</ul>
 					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 				</div>
 				<div class="catalog_box catalog_box_mix">
-					<?php
-					$query = new WP_Query([
-						'post_type' => 'post',
-						'posts_per_page' => -1
-					]);
-					while ($query->have_posts()):
-						$query->the_post();
-						$cats = get_the_category();
-						$classes = '';
-						foreach ($cats as $cat) {
-							$classes .= ' cat-' . $cat->slug;
-						}
-						?>
-						<div class="catalog_item mix<?php echo $classes; ?>">
-							<a href="<?php the_permalink(); ?>">
-								<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
-								<span class="catalog_item_name"><?php the_title(); ?></span>
-							</a>
-							<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
-						</div>
-					<?php endwhile;
-					wp_reset_postdata(); ?>
+					<?php show_products(); ?>
 				</div>
 				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
@@ -110,16 +83,16 @@
 				<div class="carusel__slider_main_wrapper">
 					<div class="swiper carusel__slider-wrapper">
 						<div class="swiper-wrapper carusel__slider">
+
 							<?php $gallery_works_count = 0; ?>
 							<?php foreach(get_field('gallery_works', 45) as $item): ?>
 								<?php if ($gallery_works_count > 9) break; ?>
-								
 								<div class="swiper-slide carusel__slide">
 									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 								</div>
-
 								<?php $gallery_works_count++; ?>
 							<?php endforeach; ?>
+
 						</div>
 					</div>
 				</div>

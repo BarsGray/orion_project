@@ -200,18 +200,19 @@ function show_services()
 
 
 
-function show_category_prod() {
+function show_category_prod()
+{
 	$categories = get_terms([
 		'taxonomy'   => 'or_category',
 		'hide_empty' => true,
 	]);
 	?>
-		<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
-		<?php foreach ($categories as $category): ?>
-			<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
-				<a href="#"><?php echo esc_html($category->name); ?></a>
-			</li>
-		<?php endforeach; ?>
+	<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
+	<?php foreach ($categories as $category): ?>
+		<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
+			<a href="#"><?php echo esc_html($category->name); ?></a>
+		</li>
+	<?php endforeach; ?>
 	<?php
 }
 
@@ -223,17 +224,17 @@ function show_products()
 		'post_type' => 'or_product',
 		'posts_per_page' => -1
 	]);
+
+	if ($query->have_posts()):
+
 	while ($query->have_posts()):
 		$query->the_post();
-		$cats = get_terms([
-		'taxonomy'   => 'or_category',
-		'hide_empty' => true,
-	]);
+		$cats = get_the_terms(get_the_ID(), 'or_category');
 		$classes = '';
 		foreach ($cats as $cat) {
 			$classes .= ' cat-' . $cat->slug;
 		}
-?>
+	?>
 		<div class="catalog_item mix<?php echo $classes; ?>">
 			<a href="<?php the_permalink(); ?>">
 				<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
@@ -244,6 +245,7 @@ function show_products()
 	<?php endwhile;
 	wp_reset_postdata(); ?>
 	<?php
+	endif;
 }
 
 
