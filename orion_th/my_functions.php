@@ -66,7 +66,7 @@ function register_orion_content()
 
 	$post_args = array(
 		'labels' => $post_labels,
-		'public' => true,
+		'public' => false,
 		'has_archive' => 'catalog',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-admin-post',

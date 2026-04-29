@@ -100,7 +100,7 @@
 			</div>
 		</section>
 		
-		<?php if (get_field('foto')): ?>
+		<?php if (get_field('gallery_works', 45)): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
 					<p class="main_title carusel_title">Изготовление памятников любой сложности</p>
@@ -110,11 +110,16 @@
 				<div class="carusel__slider_main_wrapper">
 					<div class="swiper carusel__slider-wrapper">
 						<div class="swiper-wrapper carusel__slider">
-							<?php foreach(get_field('foto') as $item): ?>
+
+							<?php $gallery_works_count = 0; ?>
+							<?php foreach(get_field('gallery_works', 45) as $item): ?>
+								<?php if ($gallery_works_count > 9) break; ?>
 								<div class="swiper-slide carusel__slide">
 									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 								</div>
+								<?php $gallery_works_count++; ?>
 							<?php endforeach; ?>
+
 						</div>
 					</div>
 				</div>

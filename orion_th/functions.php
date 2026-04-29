@@ -177,14 +177,17 @@ function show_services()
 
 	if ($query->have_posts()):
 		?>
-		<div class="services">
+		<div class="services_page">
 			<?php while ($query->have_posts()): $query->the_post(); ?>
-				<div class="services_item">
-					<a href="<?php the_permalink(); ?>">
-						<span class="services_item_img"><?php the_post_thumbnail('medium'); ?></span>
-						<span class="services_item_name"><?php the_title(); ?></span>
-					</a>
-					<p class="services_item_description"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></p>
+				<div class="services_page_item">
+					<div class="services_page_item_img">
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+					</div>
+					<div class="services_page_item_rigth">
+						<p class="services_page_item_name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+						<p class="services_page_item_description"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></p>
+						<a class="services_page_item_btn" href="<?php the_permalink(); ?>">Узнать больше</a>
+					</div>
 				</div>
 			<?php endwhile;
 			wp_reset_postdata(); ?>
