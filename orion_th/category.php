@@ -1,16 +1,17 @@
 <?php
 	get_header();
+	show_title_box();
+
 	$qo=get_queried_object();
 	query_posts(array(
 		'cat' => $cat,
 		'paged' => get_query_var('paged') ? get_query_var('paged') : 0
 	));
 	
-	
 ?>
 
-	<div id="content">
-		<div class="wr text">
+	<div class="content">
+		<div class="container">
 			<?php
 			// bread_crumbs();
 			// cat_title();
@@ -35,4 +36,7 @@
 		</div>
 	</div>
 
-<?php get_footer(); ?>
+<?php
+show_map();
+get_footer();
+?>

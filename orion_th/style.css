@@ -2407,11 +2407,28 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		font-size: 16px;
 		padding-bottom: 12px;
 	}
+
+	.gallery_works {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (max-width: 650px) {
 	.form_box {
 		display: block;
+	}
+
+	.content h2,
+	.content h3,
+	.content h4,
+	.content h5,
+	.content h6,
+	.content .h2,
+	.content .h3,
+	.content .h4,
+	.content .h5,
+	.content .h6 {
+		font-size: 30px;
 	}
 }
 
@@ -2583,6 +2600,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		margin-bottom: 0;
 	}
 
+}
+
+@media (max-width: 410px) {
 	.gallery_works {
 		grid-template-columns: 1fr;
 		grid-gap: 10px;

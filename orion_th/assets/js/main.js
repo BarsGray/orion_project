@@ -76,8 +76,16 @@ jQuery(function ($) {
 				slidesPerView: 5.1,
 				slidesPerGroup: 1,
 			},
-			640: {
-				slidesPerView: 3,
+			800: {
+				slidesPerView: 3.5,
+				slidesPerGroup: 1,
+			},
+			540: {
+				slidesPerView: 2.4,
+				slidesPerGroup: 1,
+			},
+			440: {
+				slidesPerView: 1.6,
 				slidesPerGroup: 1,
 			},
 			300: {

@@ -76,7 +76,7 @@
 		<?php if (get_field('gallery_works', 45)): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
-					<p class="main_title carusel_title">Изготовление памятников любой сложности</p>
+					<p class="main_title carusel_title">Более 5000 памятников и мемориальных комплексов</p>
 					<div class="carusel__arrow carusel__prev"></div>
 					<div class="carusel__arrow carusel__next"></div>
 				</div>
