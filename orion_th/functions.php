@@ -268,8 +268,14 @@ function show_products($args)
 		wp_reset_postdata(); ?>
 		</div>
 	<?php
-		if (!is_front_page())
+		if (!is_front_page()) {
+		$next_link = get_next_posts_page_link($query->max_num_pages);
+		if ($next_link): ?>
+			<a class="load_more_btn" href="<?php echo esc_url($next_link); ?>">Загрузить ещё</a>
+	<?php
+		endif;
 			wp_pagenavi(['query' => $query]);
+		}
 	endif;
 }
 
