@@ -213,13 +213,23 @@ function show_category_prod()
 	]);
 	?>
 		<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
+
 		<ul class="catalog_tubs_row">
+		<?php
+			foreach ($categories as $category): ?>
+				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
+					<a href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
+				</li>
+			<?php endforeach; ?>
+
+		<!-- <ul class="catalog_tubs_row">
 			<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
 			<?php foreach ($categories as $category): ?>
 				<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
 					<a href="#"><?php echo esc_html($category->name); ?></a>
 				</li>
 			<?php endforeach; ?>
+			</ul> -->
 			</ul>
 		<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 	<?php
@@ -227,29 +237,26 @@ function show_category_prod()
 
 
 
-function show_products($page)
+function show_products($args)
 {
-	$posts = -1;
-	if ($page === 'catalog')
-		$posts = 3;
-
-	$query = new WP_Query([
-		'post_type' => 'or_product',
-		'posts_per_page' => $posts,
-		'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-		'category_name' => isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : ''
-	]);
+	$query = new WP_Query($args);
+	// $query = new WP_Query([
+	// 	'post_type' => 'or_product',
+	// 	'posts_per_page' => -1,
+	// ]);
 
 	if ($query->have_posts()): ?>
-		<div class="catalog_box catalog_box_mix">
+		<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
 		<?php while ($query->have_posts()): $query->the_post();
 			$cats = get_the_terms(get_the_ID(), 'or_category');
 			$classes = '';
-			foreach ($cats as $cat) {
-				$classes .= ' cat-' . $cat->slug;
+			if (is_front_page()) {
+				foreach ($cats as $cat) {
+					$classes .= ' cat-' . $cat->slug;
+				}
 			}
 		?>
-			<div class="catalog_item mix<?php echo $classes; ?>">
+			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
 				<a href="<?php the_permalink(); ?>">
 					<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
@@ -259,13 +266,14 @@ function show_products($page)
 		<?php endwhile;
 		wp_reset_postdata(); ?>
 		</div>
-		<?php
-
-	if ($page === 'catalog')
-		wp_pagenavi(['query' => $query]);
-	
+	<?php
+		if (!is_front_page())
+			wp_pagenavi(['query' => $query]);
 	endif;
 }
 
+function show_catalog_prod() {
+
+}
 
 

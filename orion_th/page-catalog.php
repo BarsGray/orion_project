@@ -15,8 +15,7 @@ show_title_box();
 			<?php $categories = get_categories(['hide_empty' => true]);
 			foreach ($categories as $category): ?>
 				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
-					<a
-						href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
+					<a href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
 				</li>
 			<?php endforeach; ?>
 		</ul>
