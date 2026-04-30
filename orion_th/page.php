@@ -17,6 +17,8 @@ show_title_box();
 		if (is_page(42))
 			show_services();
 
+		if (is_page(41))
+			show_products("catalog");
 		?>
 	</div>
 </div>

@@ -10,7 +10,13 @@ function show_title_box()
       <?php breadcrumbs(); ?>
     </div>
   </div>
-  <?php
+  <?php if (is_page(41)) : ?>
+	<div class="catalog_tubs_box catalog_tubs_box_catalog">
+		<div class="container">
+			<?php show_category_prod(); ?>
+		</div>
+	</div>
+	<?php endif;
 }
 
 function show_contacty()
@@ -199,7 +205,6 @@ function show_services()
 }
 
 
-
 function show_category_prod()
 {
 	$categories = get_terms([
@@ -207,46 +212,60 @@ function show_category_prod()
 		'hide_empty' => true,
 	]);
 	?>
-	<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
-	<?php foreach ($categories as $category): ?>
-		<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
-			<a href="#"><?php echo esc_html($category->name); ?></a>
-		</li>
-	<?php endforeach; ?>
+		<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
+		<ul class="catalog_tubs_row">
+			<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
+			<?php foreach ($categories as $category): ?>
+				<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
+					<a href="#"><?php echo esc_html($category->name); ?></a>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+		<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 	<?php
 }
 
 
 
-function show_products()
+function show_products($page)
 {
+	$posts = -1;
+	if ($page === 'catalog')
+		$posts = 3;
+
 	$query = new WP_Query([
 		'post_type' => 'or_product',
-		'posts_per_page' => -1
+		'posts_per_page' => $posts,
+		'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+		'category_name' => isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : ''
 	]);
 
-	if ($query->have_posts()):
-	while ($query->have_posts()): $query->the_post();
-		$cats = get_the_terms(get_the_ID(), 'or_category');
-		$classes = '';
-		foreach ($cats as $cat) {
-			$classes .= ' cat-' . $cat->slug;
-		}
-	?>
-		<div class="catalog_item mix<?php echo $classes; ?>">
-			<a href="<?php the_permalink(); ?>">
-				<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
-				<span class="catalog_item_name"><?php the_title(); ?></span>
-			</a>
-			<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
+	if ($query->have_posts()): ?>
+		<div class="catalog_box catalog_box_mix">
+		<?php while ($query->have_posts()): $query->the_post();
+			$cats = get_the_terms(get_the_ID(), 'or_category');
+			$classes = '';
+			foreach ($cats as $cat) {
+				$classes .= ' cat-' . $cat->slug;
+			}
+		?>
+			<div class="catalog_item mix<?php echo $classes; ?>">
+				<a href="<?php the_permalink(); ?>">
+					<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
+					<span class="catalog_item_name"><?php the_title(); ?></span>
+				</a>
+				<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
+			</div>
+		<?php endwhile;
+		wp_reset_postdata(); ?>
 		</div>
-	<?php endwhile;
-	wp_reset_postdata(); ?>
-	<?php
+		<?php
+
+	if ($page === 'catalog')
+		wp_pagenavi(['query' => $query]);
+	
 	endif;
 }
-
-
 
 
 

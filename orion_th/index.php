@@ -59,16 +59,10 @@
 		<section class="catalog">
 			<div class="container">
 				<p class="catalog_title main_title">Каталог</p>
-				<div class="catalog_tubs_box">
-					<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
-					<ul class="catalog_tubs_row">
+					<div class="catalog_tubs_box">
 						<?php show_category_prod(); ?>
-					</ul>
-					<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
-				</div>
-				<div class="catalog_box catalog_box_mix">
-					<?php show_products(); ?>
-				</div>
+					</div>
+					<?php show_products("front_page"); ?>
 				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
