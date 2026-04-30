@@ -2554,9 +2554,9 @@ header .burger_menu_btn.burger_menu_btn--disable {
 		column-gap: 10px;
 	}
 
-	section.catalog {
+	/* section.catalog {
 		overflow: hidden;
-	}
+	} */
 
 	.catalog_tubs_row {
 		gap: 12px;
@@ -2646,5 +2646,14 @@ header .burger_menu_btn.burger_menu_btn--disable {
 
 	.gallery_works img {
 		border-radius: 12px;
+	}
+
+	.catalog_tubs_box .container {
+		padding: 20px;
+	}
+	
+	section.catalog .catalog_tubs_box {
+		overflow: hidden;
+		margin: 0 -12px;
 	}
 }

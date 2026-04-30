@@ -207,30 +207,31 @@ function show_services()
 
 function show_category_prod()
 {
+	$selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
+
 	$categories = get_terms([
 		'taxonomy'   => 'or_category',
 		'hide_empty' => true,
 	]);
 	?>
 		<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
-
 		<ul class="catalog_tubs_row">
 		<?php
-			foreach ($categories as $category): ?>
-				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
-					<a href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
-				</li>
-			<?php endforeach; ?>
-
-		<!-- <ul class="catalog_tubs_row">
+		if (is_front_page()) : ?>
 			<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
 			<?php foreach ($categories as $category): ?>
 				<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
 					<a href="#"><?php echo esc_html($category->name); ?></a>
 				</li>
 			<?php endforeach; ?>
-			</ul> -->
-			</ul>
+		<?php else:
+			foreach ($categories as $category): ?>
+				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
+					<a href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
+				</li>
+			<?php endforeach; ?>
+		<?php endif; ?>
+		</ul>
 		<button class="catalog_tubs_btn catalog_tubs_btn_next"></button>
 	<?php
 }
@@ -239,11 +240,11 @@ function show_category_prod()
 
 function show_products($args)
 {
+
+	$cat_slug = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
+	if (!empty($cat_slug)) $args['tax_query'] = [array('taxonomy' => 'or_category', 'field' => 'slug', 'terms' => $cat_slug )];
+
 	$query = new WP_Query($args);
-	// $query = new WP_Query([
-	// 	'post_type' => 'or_product',
-	// 	'posts_per_page' => -1,
-	// ]);
 
 	if ($query->have_posts()): ?>
 		<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
@@ -270,10 +271,6 @@ function show_products($args)
 		if (!is_front_page())
 			wp_pagenavi(['query' => $query]);
 	endif;
-}
-
-function show_catalog_prod() {
-
 }
 
 
