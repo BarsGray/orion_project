@@ -50,19 +50,19 @@ function admin_head(){
 
 // function breadcrumbs($sep = ' / ', $args = array(), $l10n = array())
 // {
-	// static $inst;
-	// if (!$inst)
-		// $inst = new Breadcrumbs();
-	// if (is_array($sep)) {
-		// $args = $sep;
-		// $sep = isset($args['sep']) ? $args['sep'] : ' / ';
-	// }
-	// echo $inst->get_crumbs($sep, $l10n, $args);
+// 	static $inst;
+// 	if (!$inst)
+// 		$inst = new Breadcrumbs();
+// 	if (is_array($sep)) {
+// 		$args = $sep;
+// 		$sep = isset($args['sep']) ? $args['sep'] : ' / ';
+// 	}
+// 	echo $inst->get_crumbs($sep, $l10n, $args);
 // }
 
-function breadcrumbs(){
+function breadcrumbs($sep = ' / '){
 	$kb=new Breadcrumbs();
-	echo $kb->get_crumbs();
+	echo $kb->get_crumbs($sep);
 }
 
 add_action('kama_breadcrumbs_home_after','add_tax_custom',10,5);
@@ -75,9 +75,9 @@ function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
 			if(isset($ptype->name) && $ptype->name==$post_type){
 				$page=get_post($id_page);
 				if($q_obj->name==$post_type)
-					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title); 
+					return $home_after=$sep . sprintf($linkpatt,get_permalink($page),$page->post_title); 
 				else
-					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title).$sep;
+					return $home_after=$sep . sprintf($linkpatt,get_permalink($page),$page->post_title) . $sep;
 			}
 		}
 	}
