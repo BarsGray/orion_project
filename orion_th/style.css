@@ -1790,6 +1790,7 @@ header .burger_menu_btn.burger_menu_btn--disable {
 
 .services_page_item_img img,
 .services_page_item_img a {
+	max-height: 300px;
 	width: 100%;
 	height: 100%;
 	display: block;

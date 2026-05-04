@@ -75,9 +75,9 @@ function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
 			if(isset($ptype->name) && $ptype->name==$post_type){
 				$page=get_post($id_page);
 				if($q_obj->name==$post_type)
-					return $home_after=$sep . sprintf($linkpatt,get_permalink($page),$page->post_title); 
+					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title); 
 				else
-					return $home_after=$sep . sprintf($linkpatt,get_permalink($page),$page->post_title) . $sep;
+					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title) . $sep;
 			}
 		}
 	}
