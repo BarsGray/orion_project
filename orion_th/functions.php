@@ -177,8 +177,9 @@ function show_works() {
 function show_services()
 {
 	$query = new WP_Query([
-		'post_type' => 'or_service',
-		'posts_per_page' => -1
+		'post_type' => 'service',
+		'posts_per_page' => 2,
+		'paged' => (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1)
 	]);
 
 	if ($query->have_posts()):
@@ -195,11 +196,11 @@ function show_services()
 						<a class="services_page_item_btn" href="<?php the_permalink(); ?>">Узнать больше</a>
 					</div>
 				</div>
-			<?php endwhile;
-			wp_reset_postdata(); ?>
+			<?php endwhile; ?>
 		</div>
-
 		<?php
+		wp_pagenavi(['query' => $query]);
+		wp_reset_postdata();
 	endif;
 	
 }
@@ -210,7 +211,7 @@ function show_category_prod()
 	$selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 
 	$categories = get_terms([
-		'taxonomy'   => 'or_category',
+		'taxonomy'   => 'catalog',
 		'hide_empty' => true,
 	]);
 	?>
@@ -242,14 +243,14 @@ function show_products($args)
 {
 
 	$cat_slug = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
-	if (!empty($cat_slug)) $args['tax_query'] = [array('taxonomy' => 'or_category', 'field' => 'slug', 'terms' => $cat_slug )];
+	if (!empty($cat_slug)) $args['tax_query'] = [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat_slug )];
 
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()): ?>
 		<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
 		<?php while ($query->have_posts()): $query->the_post();
-			$cats = get_the_terms(get_the_ID(), 'or_category');
+			$cats = get_the_terms(get_the_ID(), 'catalog');
 			$classes = '';
 			if (is_front_page()) {
 				foreach ($cats as $cat) {

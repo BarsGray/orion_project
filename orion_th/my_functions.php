@@ -40,7 +40,6 @@ function filter_plugin_updates($value){
 
 add_action('template_redirect','template_redirect');
 function template_redirect(){
-	if (is_post_type_archive('or_service')) { wp_redirect( home_url('/nashi-uslugi/'), 301 ); exit; }
 	if((is_post_type_archive() || is_category(1) || is_attachment())){ wp_redirect('/',301); exit; }
 }
 
@@ -49,18 +48,40 @@ function admin_head(){
 	echo '<style type="text/css">#wpwrap #edittag{max-width:100%;}.term-description-wrap{display:none;}</style>';
 }
 
-function breadcrumbs($sep = ' / ', $args = array(), $l10n = array())
-{
-	static $inst;
-	if (!$inst)
-		$inst = new Breadcrumbs();
-	if (is_array($sep)) {
-		$args = $sep;
-		$sep = isset($args['sep']) ? $args['sep'] : ' / ';
-	}
-	echo $inst->get_crumbs($sep, $l10n, $args);
+// function breadcrumbs($sep = ' / ', $args = array(), $l10n = array())
+// {
+	// static $inst;
+	// if (!$inst)
+		// $inst = new Breadcrumbs();
+	// if (is_array($sep)) {
+		// $args = $sep;
+		// $sep = isset($args['sep']) ? $args['sep'] : ' / ';
+	// }
+	// echo $inst->get_crumbs($sep, $l10n, $args);
+// }
+
+function breadcrumbs(){
+	$kb=new Breadcrumbs();
+	echo $kb->get_crumbs();
 }
 
+add_action('kama_breadcrumbs_home_after','add_tax_custom',10,5);
+function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
+	if(!is_search()){
+		$data_taxs=array(
+			'service' => 42,
+		);
+		foreach($data_taxs as $post_type=>$id_page){
+			if(isset($ptype->name) && $ptype->name==$post_type){
+				$page=get_post($id_page);
+				if($q_obj->name==$post_type)
+					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title); 
+				else
+					return $home_after=sprintf($linkpatt,get_permalink($page),$page->post_title).$sep;
+			}
+		}
+	}
+}
 
 function merge_numbers($num)
 {
@@ -91,10 +112,10 @@ function register_orion_content()
 		'rewrite' => array('slug' => 'catalog'),
 		'show_in_rest' => true,
 		'capability_type' => 'post',
-		'taxonomies' => array('or_category'),
+		'taxonomies' => array('catalog'),
 	);
 
-	register_post_type('or_product', $post_args);
+	register_post_type('product', $post_args);
 
 	$tax_labels = array(
 		'name' => 'Категории товаров',
@@ -115,7 +136,7 @@ function register_orion_content()
 		'show_in_rest' => true,
 	);
 
-	register_taxonomy('or_category', array('or_product'), $tax_args);
+	register_taxonomy('catalog', array('product'), $tax_args);
 }
 
 add_action('init', 'register_orion_content');
@@ -137,18 +158,16 @@ function register_orion_services()
 	$post_args = array(
 		'labels' => $post_labels,
 		'public' => true,
-		'has_archive' => 'archive-nashi-uslugi',
+		'has_archive' => 'services',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-hammer',
 		'supports' => array('title', 'editor', 'thumbnail'),
-		'rewrite' => array('slug' => 'nashi-uslugi'),
+		'rewrite' => array('slug' => 'services'),
 		'show_in_rest' => true,
 		'capability_type' => 'post',
 	);
 
-	register_post_type('or_service', $post_args);
+	register_post_type('service', $post_args);
 }
 
 add_action('init', 'register_orion_services');
-
-

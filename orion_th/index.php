@@ -59,10 +59,10 @@
 		<section class="catalog">
 			<div class="container">
 				<p class="catalog_title main_title">Каталог</p>
-				<div class="catalog_tubs_box">
-					<?php show_category_prod(); ?>
-				</div>
-				<?php show_products($args = ['post_type' => 'or_product', 'posts_per_page' => -1]); ?>
+					<div class="catalog_tubs_box">
+						<?php show_category_prod(); ?>
+					</div>
+					<?php show_products($args = ['post_type' => 'product', 'posts_per_page' => -1]); ?>
 				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
@@ -77,7 +77,6 @@
 				<div class="carusel__slider_main_wrapper">
 					<div class="swiper carusel__slider-wrapper">
 						<div class="swiper-wrapper carusel__slider">
-
 							<?php $gallery_works_count = 0; ?>
 							<?php foreach(get_field('gallery_works', 45) as $item): ?>
 								<?php if ($gallery_works_count > 9) break; ?>
@@ -86,7 +85,6 @@
 								</div>
 								<?php $gallery_works_count++; ?>
 							<?php endforeach; ?>
-
 						</div>
 					</div>
 				</div>

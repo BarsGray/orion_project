@@ -5,11 +5,18 @@ show_title_box();
 
 <div class="content">
 	<div class="container">
-		<?php the_content(); ?>
+		<?php
+		the_content();
+    
+		if (is_page(42))
+			show_services();
+		?>
 	</div>
 </div>
 
 <?php
-show_map();
+if (!is_page(109))
+	show_map();
+
 get_footer();
 ?>
