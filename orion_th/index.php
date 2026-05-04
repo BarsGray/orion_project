@@ -5,7 +5,7 @@
 				<div class="bottom_row_content">
 					<p class="bottom_row_content_title main_title">Изготовление памятников любой сложности</p>
 					<p class="bottom_row_content_text">Мемориальные комплексы, художественная гравировка, благоустройство захоронений. Более 15 лет опыта в Воронеже и области.</p>
-					<a href="#" class="bottom_row_content_link main_btn">Выбрать памятник</a>
+					<a href="<?php echo get_permalink(41); ?>" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 					<div class="header_advantages_row">
 						<div class="header_advantages_item">
 							<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
@@ -52,7 +52,7 @@
 						<p class="services_text">Художественная гравировка</p>
 					</div>
 				</div>
-				<a href="#" class="services_main_btn main_btn">Узнать больше</a>
+				<a href="<?php echo get_permalink(42); ?>" class="services_main_btn main_btn">Узнать больше</a>
 			</div>
 		</section>
 
@@ -63,7 +63,7 @@
 						<?php show_category_prod(); ?>
 					</div>
 					<?php show_products($args = ['post_type' => 'product', 'posts_per_page' => -1]); ?>
-				<a href="<?php echo get_post_type_archive_link('post'); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
+				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
 		

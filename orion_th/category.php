@@ -2,7 +2,6 @@
 	get_header();
 	show_title_box();
 
-
 	$qo=get_queried_object();
 	$paged = get_query_var('paged') ? get_query_var('paged') : (get_query_var('page') ? get_query_var('page') : 1);
 

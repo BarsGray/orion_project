@@ -178,7 +178,7 @@ function show_services()
 {
 	$query = new WP_Query([
 		'post_type' => 'service',
-		'posts_per_page' => 2,
+		'posts_per_page' => 10,
 		'paged' => (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1)
 	]);
 
@@ -263,7 +263,7 @@ function show_products($args)
 					<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>
-				<a href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
+				<a data-fancybox data-src="#popup_box" href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
 			</div>
 		<?php endwhile;
 		wp_reset_postdata(); ?>

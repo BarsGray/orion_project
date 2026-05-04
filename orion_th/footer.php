@@ -15,11 +15,12 @@
 		<p class="popup_title">Оставить заявку</p>
 		<p class="popup_text">Оставьте свои контакты и наш специалист перезвонит вам в ближайшее время.</p>
 	</div>
-	<form method="POST">
+	<!-- <form method="POST">
 		<input type="text" id="name" name="user_name" placeholder="Имя (опционально)" required>
 		<input type="tel" id="tel" name="tel" placeholder="Телефон" required>
 		<button type="submit">Отправить</button>
-	</form>
+	</form> -->
+	<?php echo do_shortcode('[contact-form-7 id="5e383e4" title="Contact form"]'); ?>
 
 </div>
 
