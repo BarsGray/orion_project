@@ -40,6 +40,7 @@ function filter_plugin_updates($value){
 
 add_action('template_redirect','template_redirect');
 function template_redirect(){
+	if (is_post_type_archive('or_service')) { wp_redirect( home_url('/nashi-uslugi/'), 301 ); exit; }
 	if((is_post_type_archive() || is_category(1) || is_attachment())){ wp_redirect('/',301); exit; }
 }
 
@@ -125,7 +126,7 @@ function register_orion_services()
 {
 
 	$post_labels = array(
-		'name' => 'Услуги',
+		'name' => 'Наши услуги',
 		'singular_name' => 'Услуга',
 		'add_new' => 'Добавить новую',
 		'add_new_item' => 'Добавить новую услугу',
@@ -136,11 +137,11 @@ function register_orion_services()
 	$post_args = array(
 		'labels' => $post_labels,
 		'public' => true,
-		'has_archive' => 'services',
+		'has_archive' => 'all-services',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-hammer',
 		'supports' => array('title', 'editor', 'thumbnail'),
-		'rewrite' => array('slug' => 'services'),
+		'rewrite' => array('slug' => 'nashi-uslugi'),
 		'show_in_rest' => true,
 		'capability_type' => 'post',
 	);
@@ -149,3 +150,5 @@ function register_orion_services()
 }
 
 add_action('init', 'register_orion_services');
+
+

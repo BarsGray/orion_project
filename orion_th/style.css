@@ -127,6 +127,11 @@ a {
 	height: auto
 }
 
+img.attachment-post-thumbnail {
+	display: block;
+	margin: 0 auto 30px;
+}
+
 .content img.alignright {
 	float: right;
 	margin: 0 0 1em 1em;
@@ -2497,6 +2502,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	.services_page_item_rigth {
 		padding-bottom: 50px;
 	}
+
+	.title_box .title,
+	.bunner .bottom_row_content_title {
+		font-size: 30px;
+	}
 }
 
 @media (max-width: 610px) {
@@ -2651,9 +2661,10 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	.catalog_tubs_box .container {
 		padding: 20px;
 	}
-	
+
 	section.catalog .catalog_tubs_box {
 		overflow: hidden;
 		margin: 0 -12px;
 	}
+
 }
