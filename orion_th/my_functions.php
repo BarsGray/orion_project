@@ -137,7 +137,7 @@ function register_orion_services()
 	$post_args = array(
 		'labels' => $post_labels,
 		'public' => true,
-		'has_archive' => 'all-services',
+		'has_archive' => 'archive-nashi-uslugi',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-hammer',
 		'supports' => array('title', 'editor', 'thumbnail'),
