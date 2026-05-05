@@ -126,69 +126,75 @@ jQuery(function ($) {
 
 
 	// ++++++++++++++++++++++++++++ validate input  ++++++++++++++++++++++++++++++++++++++++++++
-	const phoneInput = document.getElementById('tel');
+	const allForms = document.querySelectorAll('.wpcf7-form');
 
-	phoneInput.addEventListener('focus', () => {
-		if (!phoneInput.value) {
-			phoneInput.value = '+7 ';
-		}
+	allForms.forEach(form => {
+		const phoneInput = form.querySelector('input[type="tel"]');
+
+		phoneInput.addEventListener('focus', () => {
+			if (!phoneInput.value) {
+				phoneInput.value = '+7 ';
+			}
+			if (phoneInput.value.length < 18) {
+				phoneInput.classList.remove('wpcf7-not-valid');
+			}
+		});
+
+		phoneInput.addEventListener('blur', () => {
+			if (phoneInput.value === '+7 ') {
+				phoneInput.value = '';
+				phoneInput.classList.remove('wpcf7-not-valid');
+			}
+			if (phoneInput.value.length < 18 && phoneInput.value.length > 3) {
+				phoneInput.classList.add('wpcf7-not-valid');
+			}
+		});
+
+		phoneInput.addEventListener('input', (e) => {
+			let input = e.target.value.replace(/\D/g, '');
+			let formatted = '';
+
+			if (['7', '8', '9'].includes(input[0])) {
+				if (input[0] === '9') input = '7' + input;
+				input = input.substring(1);
+			}
+
+			formatted = '+7 ';
+
+			if (input.length > 0) {
+				formatted += '(' + input.substring(0, 3);
+			}
+			if (input.length >= 4) {
+				formatted += ') ' + input.substring(3, 6);
+			}
+			if (input.length >= 7) {
+				formatted += '-' + input.substring(6, 8);
+			}
+			if (input.length >= 9) {
+				formatted += '-' + input.substring(8, 10);
+			}
+
+			e.target.value = formatted;
+		});
+
+		phoneInput.addEventListener('keydown', (e) => {
+			if (e.target.value.length <= 4 && e.keyCode === 8) {
+				e.preventDefault();
+			}
+		});
+
+		form.addEventListener('submit', (e) => {
+			if (phoneInput.value.length < 18) {
+				// alert('Пожалуйста, введите номер телефона полностью');
+				e.preventDefault();
+				phoneInput.classList.add('wpcf7-not-valid');
+				e.stopImmediatePropagation();
+				return false;
+			} else {
+				phoneInput.classList.remove('wpcf7-not-valid');
+			}
+		}, true);
 	});
-
-	phoneInput.addEventListener('blur', () => {
-		if (phoneInput.value === '+7 ') {
-			phoneInput.value = '';
-		}
-	});
-
-	phoneInput.addEventListener('input', (e) => {
-		let input = e.target.value.replace(/\D/g, '');
-		let formatted = '';
-
-		if (['7', '8', '9'].includes(input[0])) {
-			if (input[0] === '9') input = '7' + input;
-			input = input.substring(1);
-		}
-
-		formatted = '+7 ';
-
-		if (input.length > 0) {
-			formatted += '(' + input.substring(0, 3);
-		}
-		if (input.length >= 4) {
-			formatted += ') ' + input.substring(3, 6);
-		}
-		if (input.length >= 7) {
-			formatted += '-' + input.substring(6, 8);
-		}
-		if (input.length >= 9) {
-			formatted += '-' + input.substring(8, 10);
-		}
-
-		e.target.value = formatted;
-	});
-
-	phoneInput.addEventListener('keydown', (e) => {
-		if (e.target.value.length <= 4 && e.keyCode === 8) {
-			e.preventDefault();
-		}
-	});
-
-
-	const form = document.querySelector('form');
-
-	form.addEventListener('submit', (e) => {
-		if (phoneInput.value.length < 18) {
-			// alert('Пожалуйста, введите номер телефона полностью');
-			e.preventDefault();
-			phoneInput.classList.add('wpcf7-not-valid');
-			e.stopImmediatePropagation();
-      return false;
-		} else {
-			phoneInput.classList.remove('wpcf7-not-valid');
-		}
-	}, true);
-	
-	
 
 
 
