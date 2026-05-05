@@ -1613,12 +1613,20 @@ p.form_title {
 .form_box form button,
 .popup_box form button {
 	font-size: 20px;
-	padding: 16px 52px 16px 32px;
+	padding: 15px 51px 15px 31px;
+	background-color: #FFAE00;
+	border: 1px solid #FFAE00;
 	border-radius: 16px;
-	color: #868686;
+	/* color: #868686; */
 	width: fit-content;
 	position: relative;
-	transition: background .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.form_box form button:hover,
+.popup_box form button:hover {
+	background-color: #FFC342;
+	border-color: #FFC342;
 }
 
 .form_box form button::before,
@@ -1630,7 +1638,19 @@ p.form_title {
 	top: 50%;
 	right: 24px;
 	transform: translateY(-50%);
-	background: url('assets/img/submit_chevron.svg') no-repeat center center / cover;
+	background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.25106 5.24408C7.5858 4.91864 8.12839 4.91864 8.46314 5.24408L12.7489 9.4108C13.0837 9.73624 13.0837 10.2638 12.7489 10.5892L8.46314 14.7559C8.12839 15.0814 7.5858 15.0814 7.25106 14.7559C6.91631 14.4305 6.91631 13.903 7.25106 13.5775L10.9308 10L7.25106 6.42248C6.91631 6.09704 6.91631 5.56952 7.25106 5.24408Z' fill='%23000'/%3e%3c/svg%3e") no-repeat center center / cover;
+	transition: opacity .2s ease-in-out;
+}
+
+.popup_box form button[disabled]::before,
+.form_box form button[disabled]::before {
+	opacity: .4;
+}
+
+.popup_box form button[disabled],
+.form_box form button[disabled] {
+	background-color: #D8D8D8;
+	border-color: #D8D8D8;
 }
 
 .popup_phone {
@@ -1843,11 +1863,14 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	background-color: #353535;
 }
 
+div.wpcf7 .wpcf7-form.unaccepted div.wpcf7-response-output,
+div.wpcf7 .wpcf7-form.failed div.wpcf7-response-output,
 div.wpcf7 .wpcf7-form.invalid div.wpcf7-response-output,
 div.wpcf7 form.sent div.wpcf7-response-output {
 	/* display: none; */
 	margin: 0 0 10px;
-  border-color: transparent;
+	border-color: transparent;
+	line-height: 1.2;
 }
 
 form input.wpcf7-not-valid {
@@ -1857,6 +1880,74 @@ form input.wpcf7-not-valid {
 
 span.wpcf7-not-valid-tip {
 	display: none;
+}
+
+
+
+
+/* Контейнер всей строки */
+.wpcf7-list-item label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Скрываем дефолтный инпут */
+.wpcf7-list-item input[type="checkbox"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* Рисуем кастомный квадрат (чекбокс) */
+.wpcf7-list-item-label {
+    position: relative;
+    padding-left: 30px; /* Место под квадратик */
+}
+
+.wpcf7-list-item-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #868686; /* Цвет рамки */
+    border-radius: 3px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+/* Рисуем галочку (скрыта по умолчанию) */
+.wpcf7-list-item-label::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: all 0.2s ease;
+}
+
+/* Стили при клике (checked) */
+.wpcf7-list-item input[type="checkbox"]:checked + .wpcf7-list-item-label::before {
+    background-color: #000; /* Цвет фона при нажатии */
+    border-color: #000;
+}
+
+.wpcf7-list-item input[type="checkbox"]:checked + .wpcf7-list-item-label::after {
+    transform: rotate(45deg) scale(1); /* Показываем галочку */
+}
+
+/* Подсветка, если форма не отправляется (ошибка валидации CF7) */
+.wpcf7-not-valid .wpcf7-list-item-label::before {
+    border-color: #ff0000 !important;
 }
 
 @media (max-width: 1280px) {
@@ -2664,9 +2755,9 @@ span.wpcf7-not-valid-tip {
 	}
 
 	.catalog_box {
-    grid-template-columns: repeat(1, 1fr);
-    column-gap: 10px;
-  }
+		grid-template-columns: repeat(1, 1fr);
+		column-gap: 10px;
+	}
 }
 
 @media (max-width: 320px) {

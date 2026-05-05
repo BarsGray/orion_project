@@ -255,7 +255,7 @@ function show_products($args)
 			}
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
-				<a href="<?php the_permalink(); ?>">
+				<a>
 					<span class="catalog_item_img"><?php the_post_thumbnail('medium'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>

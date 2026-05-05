@@ -130,6 +130,17 @@ jQuery(function ($) {
 
 	allForms.forEach(form => {
 		const phoneInput = form.querySelector('input[type="tel"]');
+		const submitButton = form.querySelector('button[type="submit"]');
+		const checkbox = form.querySelector('input[type="checkbox"][name^="acceptance"]');
+
+		// деактивируем кнопку
+		submitButton.disabled = true;
+
+		checkbox.addEventListener('change', () => {
+			if (phoneInput.value.length == 18) {
+				submitButton.disabled = !checkbox.checked;
+			}
+		});
 
 		phoneInput.addEventListener('focus', () => {
 			if (!phoneInput.value) {
@@ -175,6 +186,13 @@ jQuery(function ($) {
 			}
 
 			e.target.value = formatted;
+
+			// делаетм кнопку активной, не активной
+			if (phoneInput.value.length == 18 && checkbox.checked) {
+				submitButton.disabled = false;
+			} else {
+				submitButton.disabled = true;
+			}
 		});
 
 		phoneInput.addEventListener('keydown', (e) => {
