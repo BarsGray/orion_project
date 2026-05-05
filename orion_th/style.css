@@ -1591,6 +1591,11 @@ p.form_title {
 	gap: 20px;
 }
 
+.form_box form p,
+.popup_box form p {
+	padding-bottom: 0;
+}
+
 .form_box form input,
 .popup_box form input {
 	padding: 16px;
@@ -2655,6 +2660,11 @@ span.wpcf7-not-valid-tip {
 	.form_box {
 		padding: 20px;
 	}
+
+	.catalog_box {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 10px;
+  }
 }
 
 @media (max-width: 320px) {
