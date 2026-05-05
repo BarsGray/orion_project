@@ -91,7 +91,13 @@
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
 		<?php  endif; ?>
-
+		
+			<div class="content">
+				<div class="container">
+					<?php the_content(); ?>
+				</div>
+			</div>
+			
 <?php
 show_map();
 get_footer();

@@ -6,6 +6,7 @@ show_title_box();
 <div class="content">
 	<div class="container">
 		<?php
+		the_field("text_before");
 		the_content();
 
 		if (is_page(109))
@@ -20,6 +21,7 @@ show_title_box();
 		if (is_page(41))
 			show_products(['post_type' => 'product', 'posts_per_page' => 24, 'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1]);
 		
+		the_field("text_after");
 		?>
 	</div>
 </div>

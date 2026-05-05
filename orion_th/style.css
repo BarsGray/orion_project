@@ -183,18 +183,18 @@ body {
 .content p {
 	font-size: 20px;
 	padding-bottom: 20px;
-	font-family: ;
+	line-height: 1.2;
 }
 
 .content ol,
 .content ul {
 	padding-left: 40px;
-	font-size: 22px;
+	font-size: 20px;
 }
 
 .content ol li,
 .content ul li {
-	font-family: "Tenor Sans";
+	/* font-family: "Tenor Sans"; */
 	margin-bottom: 10px;
 }
 
@@ -383,6 +383,7 @@ footer {
 	color: #000;
 }
 
+.content h1,
 .content h2,
 .content h3,
 .content h4,
@@ -399,6 +400,38 @@ footer {
 	margin-bottom: 20px;
 }
 
+.content h2 {
+	font-size: 40px;
+}
+.content h3 {
+	font-size: 38px;
+}
+.content h4 {
+	font-size: 36px;
+}
+.content h5 {
+	font-size: 34px;
+}
+.content h6 {
+	font-size: 32px;
+}
+.content .h2 {
+font-size: 40px;
+}
+.content .h3 {
+font-size: 38px;
+}
+.content .h4 {
+font-size: 36px;
+}
+.content .h5 {
+font-size: 34px;
+}
+.content .h6 {
+	font-size: 32px;
+}
+
+h1,
 h2,
 h3,
 h4,
@@ -2358,10 +2391,6 @@ span.wpcf7-not-valid-tip {
 		margin: 0;
 	}
 
-	.contacts_form_box {
-		flex-direction: column;
-	}
-
 	.contacts,
 	.form_box {
 		max-width: unset;
@@ -2371,11 +2400,7 @@ span.wpcf7-not-valid-tip {
 		max-width: unset;
 	}
 
-	.form_box {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 60px;
-	}
+
 }
 
 @media (max-width: 910px) {
@@ -2531,6 +2556,20 @@ span.wpcf7-not-valid-tip {
 
 	.gallery_works {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	/* .form_box {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 60px;
+	} */
+
+	.contacts_form_box {
+		flex-direction: column;
+	}
+	
+	.form_box {
+		display: block;
 	}
 }
 
@@ -2803,5 +2842,4 @@ span.wpcf7-not-valid-tip {
 		overflow: hidden;
 		margin: 0 -12px;
 	}
-
 }
