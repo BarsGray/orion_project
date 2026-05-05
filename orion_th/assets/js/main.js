@@ -178,10 +178,17 @@ jQuery(function ($) {
 
 	form.addEventListener('submit', (e) => {
 		if (phoneInput.value.length < 18) {
-			alert('Пожалуйста, введите номер телефона полностью');
+			// alert('Пожалуйста, введите номер телефона полностью');
 			e.preventDefault();
+			phoneInput.classList.add('wpcf7-not-valid');
+			e.stopImmediatePropagation();
+      return false;
+		} else {
+			phoneInput.classList.remove('wpcf7-not-valid');
 		}
-	});
+	}, true);
+	
+	
 
 
 

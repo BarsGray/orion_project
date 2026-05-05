@@ -1843,9 +1843,11 @@ header .burger_menu_btn.burger_menu_btn--disable {
 	background-color: #353535;
 }
 
-.wpcf7-response-output,
-.wpcf7 form.sent .wpcf7-response-output {
-	display: none;
+div.wpcf7 .wpcf7-form.invalid div.wpcf7-response-output,
+div.wpcf7 form.sent div.wpcf7-response-output {
+	/* display: none; */
+	margin: 0 0 10px;
+  border-color: transparent;
 }
 
 form input.wpcf7-not-valid {
