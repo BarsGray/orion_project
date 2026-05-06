@@ -215,12 +215,14 @@ function show_category_prod()
 		<ul class="catalog_tubs_row">
 		<?php
 		if (is_front_page()) : ?>
-			<li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li>
-			<?php foreach ($categories as $category): ?>
-				<li class="catalog_tub_item catalog_tub_item_mix" data-filter=".cat-<?php echo $category->slug; ?>">
+			<!-- <li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li> -->
+			<?php $count = 0;
+			foreach ($categories as $category): ?>
+				<li class="catalog_tub_item catalog_tub_item_mix <?php echo ($count == 0) ? 'active' : '' ?>" data-filter=".cat-<?php echo $category->slug; ?>">
 					<a href="#"><?php echo esc_html($category->name); ?></a>
 				</li>
-			<?php endforeach; ?>
+			<?php $count++;
+				endforeach; ?>
 		<?php else:
 			foreach ($categories as $category): ?>
 				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
@@ -244,8 +246,10 @@ function show_products($args)
 	$query = new WP_Query($args);
 
 	if ($query->have_posts()): ?>
-		<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
-		<?php while ($query->have_posts()): $query->the_post();
+		<?php  echo (!is_front_page()) ? '<div class="catalog_box">' : '' ?>
+
+		<?php
+		while ($query->have_posts()): $query->the_post();
 			$cats = get_the_terms(get_the_ID(), 'catalog');
 			$classes = '';
 			if (is_front_page()) {
@@ -263,7 +267,8 @@ function show_products($args)
 			</div>
 		<?php endwhile;
 		wp_reset_postdata(); ?>
-		</div>
+
+		<?php  echo (!is_front_page()) ? '</div>' : '' ?>
 	<?php
 		if (!is_front_page()) {
 			$next_link = ($query->max_num_pages) ? get_next_posts_page_link($query->max_num_pages) : 0;

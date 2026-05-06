@@ -1587,13 +1587,19 @@ p.contacts_titles {
 	padding-bottom: 0;
 }
 
-p.top_row_text,
-a.map_info_list_link,
-a.contacts_tel {
+.contacts_inner p.top_row_text,
+.contacts_inner a.map_info_list_link,
+.contacts_inner a.contacts_tel {
 	font-size: 16px;
 	color: #747474;
 	padding-bottom: 8px;
 	line-height: 1.4;
+	transition: all .2s ease-in-out;
+}
+
+.contacts_inner a.map_info_list_link:hover,
+.contacts_inner a.contacts_tel:hover {
+	color: #C37437;
 }
 
 .contacts_titles {
@@ -2211,9 +2217,9 @@ span.wpcf7-not-valid-tip {
 		font-size: 17px;
 	}
 
-	p.top_row_text,
-	a.map_info_list_link,
-	a.contacts_tel {
+	.contacts_inner p.top_row_text,
+	.contacts_inner a.map_info_list_link,
+	.contacts_inner a.contacts_tel {
 		font-size: 15px;
 	}
 

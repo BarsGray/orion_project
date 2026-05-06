@@ -41,6 +41,9 @@ jQuery(function ($) {
 			animation: {
 				duration: 400,
 				effects: 'fade scale(0.9) translateY(20px)'
+			},
+			load: {
+				filter: '.cat-angel'
 			}
 		});
 
@@ -229,6 +232,7 @@ jQuery(function ($) {
 
 	// ++++++++++++++++++++++++++++ loadMore gallery  ++++++++++++++++++++++++++++++++++++++++++++
 	const services_items = document.querySelectorAll('.gallery_works_item');
+	const galleryWorkBtn = document.querySelector('.gallery_works_btn');
 	let servicesItemsPreviose = 12;
 
 	let iShow = servicesItemsPreviose;
@@ -248,7 +252,7 @@ jQuery(function ($) {
 
 		galleryCounter();
 
-		document.querySelector('.gallery_works_btn').addEventListener('click', function (e) {
+		galleryWorkBtn.addEventListener('click', function (e) {
 			e.preventDefault();
 
 			if (iShow === services_items.length) {
@@ -256,9 +260,13 @@ jQuery(function ($) {
 			}
 			else if (iShow + servicesItemsPreviose > services_items.length) {
 				iShow += services_items.length - iShow;
+				galleryWorkBtn.style.display = 'none';
 			}
 			else {
 				iShow += servicesItemsPreviose;
+				if (iShow >= services_items.length) {
+					galleryWorkBtn.style.display = 'none';
+				}
 			}
 
 			galleryCounter();
