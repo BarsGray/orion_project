@@ -62,6 +62,13 @@
 					<div class="catalog_tubs_box">
 						<?php show_category_prod(); ?>
 					</div>
+
+					<?php
+
+						
+
+					?>
+
 					<?php show_products($args = ['post_type' => 'product', 'posts_per_page' => -1]); ?>
 				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
