@@ -62,33 +62,17 @@
 					<div class="catalog_tubs_box">
 						<?php show_category_prod(); ?>
 					</div>
-
-
 					<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
 					<?php
-
-						$categories = get_terms([
-								'taxonomy'   => 'catalog',
-								'hide_empty' => true,
-						]);
-
+						$categories = get_terms(['taxonomy'   => 'catalog','hide_empty' => true,]);
 						if (!empty($categories) && !is_wp_error($categories)) :
 							foreach ($categories as $cat):
-
-								$args = [
-									'post_type' => 'product',
-									'posts_per_page' => 12,
-									'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]
-								];
-
+								$args = ['post_type' => 'product','posts_per_page' => 12,'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
 								show_products($args);
 							endforeach;
 						endif;
-
 					?>
 					</div>
-
-					<?php //show_products($args = ['post_type' => 'product', 'posts_per_page' => -1]); ?>
 				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>

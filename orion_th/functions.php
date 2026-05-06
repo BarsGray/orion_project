@@ -206,16 +206,12 @@ function show_category_prod()
 {
 	$selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 
-	$categories = get_terms([
-		'taxonomy'   => 'catalog',
-		'hide_empty' => true,
-	]);
+	$categories = get_terms(['taxonomy' => 'catalog', 'hide_empty' => true,]);
 	?>
 		<button class="catalog_tubs_btn catalog_tubs_btn_prev"></button>
 		<ul class="catalog_tubs_row">
 		<?php
 		if (is_front_page()) : ?>
-			<!-- <li class="catalog_tub_item catalog_tub_item_mix active" data-filter="all"><a href="#">Все</a></li> -->
 			<?php $count = 0;
 			foreach ($categories as $category): ?>
 				<li class="catalog_tub_item catalog_tub_item_mix <?php echo ($count == 0) ? 'active' : '' ?>" data-filter=".cat-<?php echo $category->slug; ?>">
