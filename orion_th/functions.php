@@ -27,7 +27,7 @@ function show_contacty()
 			<p class="title_contacts main_title">Мы всегда готовы помочь и ответить на любые вопросы</p>
 			<div class="contacts_inner">
 				<div class="contacts_adresa">
-					<div class="contacts_titles">Адреса</div>
+					<p class="contacts_titles">Адреса</p>
 					<?php if (get_field('adres_1', FRONT_PAGE)): ?>
 						<div class="top_row_adress_1"><p class="top_row_text"><?php the_field('adres_1', FRONT_PAGE) ?></p></div>
 					<?php endif; ?>
@@ -36,7 +36,7 @@ function show_contacty()
 					<?php endif; ?>
 				</div>
 				<div class="contacts_tels">
-					<div class="contacts_titles">Телефоны</div>
+					<p class="contacts_titles">Телефоны</p>
 					<?php if (get_field('number_1', FRONT_PAGE)): ?>
 						<div class="top_row_contacts_tel_1">
 							<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_1', FRONT_PAGE) ?></a>
@@ -49,7 +49,7 @@ function show_contacty()
 					<?php endif; ?>
 				</div>
 				<div class="contacts_email">
-					<div class="contacts_titles">Электронная почта</div>
+					<p class="contacts_titles">Электронная почта</p>
 					<?php if (get_field('email', FRONT_PAGE)): ?>
 						<div class="map_info_list_item_inner">
 							<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a>
@@ -57,7 +57,7 @@ function show_contacty()
 					<?php endif; ?>
 				</div>
 				<div class="contacts_social">
-					<div class="contacts_titles">Социальные сети</div>
+					<p class="contacts_titles">Социальные сети</p>
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 						<div class="contacts_socials">
 							<?php if (get_field('vk_link', FRONT_PAGE)): ?>

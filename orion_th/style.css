@@ -403,30 +403,39 @@ footer {
 .content h2 {
 	font-size: 40px;
 }
+
 .content h3 {
 	font-size: 38px;
 }
+
 .content h4 {
 	font-size: 36px;
 }
+
 .content h5 {
 	font-size: 34px;
 }
+
 .content h6 {
 	font-size: 32px;
 }
+
 .content .h2 {
-font-size: 40px;
+	font-size: 40px;
 }
+
 .content .h3 {
-font-size: 38px;
+	font-size: 38px;
 }
+
 .content .h4 {
-font-size: 36px;
+	font-size: 36px;
 }
+
 .content .h5 {
-font-size: 34px;
+	font-size: 34px;
 }
+
 .content .h6 {
 	font-size: 32px;
 }
@@ -1535,8 +1544,13 @@ footer .footer_btn {
 	display: block;
 }
 
-.contacts_inner a,
-.contacts_inner p {
+p.contacts_titles {
+	padding-bottom: 0;
+}
+
+p.top_row_text,
+a.map_info_list_link,
+a.contacts_tel {
 	font-size: 16px;
 	color: #747474;
 	padding-bottom: 8px;
@@ -1920,67 +1934,71 @@ span.wpcf7-not-valid-tip {
 
 /* Контейнер всей строки */
 .wpcf7-list-item label {
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333;
+	display: flex;
+	align-items: flex-start;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #333;
 }
 
 /* Скрываем дефолтный инпут */
 .wpcf7-list-item input[type="checkbox"] {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
 }
 
 /* Рисуем кастомный квадрат (чекбокс) */
 .wpcf7-list-item-label {
-    position: relative;
-    padding-left: 30px; /* Место под квадратик */
+	position: relative;
+	padding-left: 30px;
+	/* Место под квадратик */
 }
 
 .wpcf7-list-item-label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 3px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #868686; /* Цвет рамки */
-    border-radius: 3px;
-    background: #fff;
-    transition: all 0.2s ease;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 3px;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #868686;
+	/* Цвет рамки */
+	border-radius: 3px;
+	background: #fff;
+	transition: all 0.2s ease;
 }
 
 /* Рисуем галочку (скрыта по умолчанию) */
 .wpcf7-list-item-label::after {
-    content: "";
-    position: absolute;
-    left: 6px;
-    top: 6px;
-    width: 6px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg) scale(0);
-    transition: all 0.2s ease;
+	content: "";
+	position: absolute;
+	left: 6px;
+	top: 6px;
+	width: 6px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg) scale(0);
+	transition: all 0.2s ease;
 }
 
 /* Стили при клике (checked) */
-.wpcf7-list-item input[type="checkbox"]:checked + .wpcf7-list-item-label::before {
-    background-color: #000; /* Цвет фона при нажатии */
-    border-color: #000;
+.wpcf7-list-item input[type="checkbox"]:checked+.wpcf7-list-item-label::before {
+	background-color: #000;
+	/* Цвет фона при нажатии */
+	border-color: #000;
 }
 
-.wpcf7-list-item input[type="checkbox"]:checked + .wpcf7-list-item-label::after {
-    transform: rotate(45deg) scale(1); /* Показываем галочку */
+.wpcf7-list-item input[type="checkbox"]:checked+.wpcf7-list-item-label::after {
+	transform: rotate(45deg) scale(1);
+	/* Показываем галочку */
 }
 
 /* Подсветка, если форма не отправляется (ошибка валидации CF7) */
 .wpcf7-not-valid .wpcf7-list-item-label::before {
-    border-color: #ff0000 !important;
+	border-color: #ff0000 !important;
 }
 
 @media (max-width: 1280px) {
@@ -2153,8 +2171,9 @@ span.wpcf7-not-valid-tip {
 		font-size: 17px;
 	}
 
-	.contacts_inner a,
-	.contacts_inner p {
+	p.top_row_text,
+	a.map_info_list_link,
+	a.contacts_tel {
 		font-size: 15px;
 	}
 
@@ -2567,7 +2586,7 @@ span.wpcf7-not-valid-tip {
 	.contacts_form_box {
 		flex-direction: column;
 	}
-	
+
 	.form_box {
 		display: block;
 	}
