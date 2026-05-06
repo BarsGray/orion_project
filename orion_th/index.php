@@ -94,9 +94,13 @@
 		
 			<div class="content">
 				<div class="container">
-					<?php the_content(); ?>
+					<div class="hide_text">
+						<?php the_content(); ?>
+					</div>
+					<a class="more">Подробнее</a>
 				</div>
 			</div>
+
 			
 <?php
 show_map();

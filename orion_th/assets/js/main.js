@@ -110,7 +110,6 @@ jQuery(function ($) {
 		menuButton.classList.toggle('burger_menu_btn--active');
 		headerMenu.classList.toggle('row_menu--visible');
 		overlay.classList.toggle('overlay--visible');
-
 	}
 
 	function overlayReset() {
@@ -267,7 +266,20 @@ jQuery(function ($) {
 	}
 
 
+	// ++++++++++++++++++++++++++++ show more content  ++++++++++++++++++++++++++++++++++++++++++++
 
+	const hideContainer = document.querySelector('.hide_text');
+	const btnMore = document.querySelector('.more');
+
+	btnMore.addEventListener('click', () => {
+		hideContainer.classList.toggle('active');
+
+		if (hideContainer.classList.contains('active')) {
+			btnMore.innerHTML = 'Cвернуть';
+		} else {
+			btnMore.innerHTML = 'Подробнее';
+		}
+	});
 
 
 
