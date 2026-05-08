@@ -256,6 +256,7 @@ function show_products($args)
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
 				<a>
+					<!-- <span class="catalog_item_img"><?php // the_post_thumbnail('full'); ?></span> -->
 					<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>

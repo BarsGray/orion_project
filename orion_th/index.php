@@ -67,7 +67,7 @@
 						$categories = get_terms(['taxonomy'   => 'catalog','hide_empty' => true,]);
 						if (!empty($categories) && !is_wp_error($categories)) :
 							foreach ($categories as $cat):
-								$args = ['post_type' => 'product','posts_per_page' => 12,'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
+								$args = ['post_type' => 'product','posts_per_page' => 10,'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
 								show_products($args);
 							endforeach;
 						endif;

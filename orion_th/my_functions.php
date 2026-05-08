@@ -1,22 +1,10 @@
-<?php
-/*
-Plugin Name: My Custom Functions
-*/
+<?php /* Plugin Name: My Custom Functions */
 
-if (!defined('ABSPATH')) {
-	exit;
-}
-
-if (!defined('_S_VERSION')) {
-	define('_S_VERSION', '1.0.6');
-}
-
-if (!defined('FRONT_PAGE')) {
-	define('FRONT_PAGE', get_option('page_on_front'));
-}
+if (!defined('ABSPATH')) { exit; }
+if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.6'); }
+if (!defined('FRONT_PAGE')) { define('FRONT_PAGE', get_option('page_on_front')); }
 
 add_theme_support('post-thumbnails');
-
 register_nav_menus();
 
 add_action('wp_enqueue_scripts', 'orion_th_scripts_style');
@@ -83,10 +71,7 @@ function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
 	}
 }
 
-function merge_numbers($num)
-{
-	return str_replace([' ', '-', '(', ')'], '', $num);
-}
+function merge_numbers($num) { return str_replace([' ', '-', '(', ')'], '', $num); }
 
 
 function register_orion_content()
