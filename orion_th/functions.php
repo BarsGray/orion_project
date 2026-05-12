@@ -6,11 +6,11 @@ function show_title_box()
   ?>
   <div class="title_box">
     <div class="container">
-      <p class="title main_title"><?php the_title(); ?></p>
+      <p class="title main_title"><?php echo (is_tax()) ? single_term_title() : the_title(); ?></p>
       <?php breadcrumbs(); ?>
     </div>
   </div>
-  <?php if (is_page(41)) : ?>
+  <?php if (is_page(41) || is_tax()) : ?>
 	<div class="catalog_tubs_box catalog_tubs_box_catalog">
 		<div class="container">
 			<?php show_category_prod(); ?>
@@ -204,7 +204,7 @@ function show_services()
 
 function show_category_prod()
 {
-	$selected_cat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
+	$selected_cat = get_queried_object()->slug;
 
 	$categories = get_terms(['taxonomy' => 'catalog', 'hide_empty' => true,]);
 	?>
@@ -222,7 +222,7 @@ function show_category_prod()
 		<?php else:
 			foreach ($categories as $category): ?>
 				<li class="catalog_tub_item<?php echo ($selected_cat == $category->slug) ? ' active' : ''; ?>">
-					<a href="<?php echo get_permalink() ?>?cat=<?php echo $category->slug; ?>"><?php echo esc_html($category->name); ?></a>
+					<a href="<?php echo get_term_link($category); ?>"><?php echo esc_html($category->name); ?></a>
 				</li>
 			<?php endforeach; ?>
 		<?php endif; ?>
@@ -256,7 +256,6 @@ function show_products($args)
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
 				<a>
-					<!-- <span class="catalog_item_img"><?php // the_post_thumbnail('full'); ?></span> -->
 					<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>

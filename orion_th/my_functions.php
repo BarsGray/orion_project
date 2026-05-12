@@ -58,6 +58,7 @@ function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
 	if(!is_search()){
 		$data_taxs=array(
 			'service' => 42,
+			'product' => 41,
 		);
 		foreach($data_taxs as $post_type=>$id_page){
 			if(isset($ptype->name) && $ptype->name==$post_type){
@@ -70,6 +71,7 @@ function add_tax_custom($false,$linkpatt,$sep,$ptype,$q_obj){
 		}
 	}
 }
+
 
 function merge_numbers($num) { return str_replace([' ', '-', '(', ')'], '', $num); }
 
@@ -88,13 +90,13 @@ function register_orion_content()
 
 	$post_args = array(
 		'labels' => $post_labels,
-		'public' => false,
+		'public' => true,
 		'show_ui' => true,
-		'has_archive' => 'catalog',
+		'has_archive' => 'product',
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-clipboard',
 		'supports' => array('title', 'editor', 'thumbnail'),
-		'rewrite' => array('slug' => 'catalog'),
+		'rewrite' => array('slug' => 'product'),
 		'show_in_rest' => true,
 		'capability_type' => 'post',
 		'taxonomies' => array('catalog'),
@@ -117,7 +119,7 @@ function register_orion_content()
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
-		'rewrite' => array('slug' => 'catalog-cat'),
+		'rewrite' => array('slug' => 'catalog'),
 		'show_in_rest' => true,
 	);
 
