@@ -1,7 +1,7 @@
 <footer>
 	<div class="container">
 		<div class="row_logo">
-			<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url') ?>/assets/img/logo.svg" alt=""></a>
+			<a class="" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url') ?>/img/logo.svg" alt=""></a>
 		</div>
 		<div class="row_menu">
 			<?php wp_nav_menu('menu=top_menu&container=nav&container_class=nav_menu&menu_class=main-menu');?>

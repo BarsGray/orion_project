@@ -8,7 +8,7 @@
 
 	<title><?php bloginfo('name'); ?></title>
 
-	<link rel="shortcut icon" href="<?php bloginfo('template_url') ?>/assets/img/sizesmall.svg" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php bloginfo('template_url') ?>/img/sizesmall.svg" type="image/x-icon">
 
 	<?php wp_head(); ?>
 </head>
@@ -40,10 +40,10 @@
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 						<div class="contacts_socials">
 							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/frame4382vk.svg" alt=""></a>
+								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/frame4382vk.svg" alt=""></a>
 							<?php endif; ?>
 							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/logo_MAX2.svg" alt=""></a>
+								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/logo_MAX2.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
@@ -53,7 +53,7 @@
 		<div class="menu_row">
 			<div class="container">
 				<div class="row_logo">
-					<a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url') ?>/assets/img/logo.svg" alt="Логотип"></a>
+					<a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url') ?>/img/logo.svg" alt="Логотип"></a>
 				</div>
 				<div class="row_menu">
 
@@ -87,10 +87,10 @@
 						<?php endif; ?>
 						<div class="contacts_socials">
 							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_vk.svg" alt=""></a>
+								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/mobile_vk.svg" alt=""></a>
 							<?php endif; ?>
 							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mobile_max.svg" alt=""></a>
+								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/mobile_max.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					</div>

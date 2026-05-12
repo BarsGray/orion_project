@@ -1,12 +1,13 @@
 <?php
 get_header();
 show_title_box();
+$term = get_queried_object();
 ?>
 
 <div class="content">
 	<div class="container">
 		<?php
-		the_field("text_before");
+		the_field("text_before", $term);
 		the_content();
 
 		if (have_posts()): ?>
@@ -39,7 +40,7 @@ show_title_box();
 			wp_pagenavi();
 		endif;
 
-		the_field("text_after");
+		the_field("text_after", $term);
 		?>
 	</div>
 </div>

@@ -8,15 +8,15 @@
 					<a href="<?php echo get_permalink(41); ?>" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 					<div class="header_advantages_row">
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/assets/img/shield.svg" alt="">
+							<img src="<?php bloginfo('template_url') ?>/img/shield.svg" alt="">
 							<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
 						</div>
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/assets/img/coins.svg" alt="">
+							<img src="<?php bloginfo('template_url') ?>/img/coins.svg" alt="">
 							<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
 						</div>
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/assets/img/money.svg" alt="">
+							<img src="<?php bloginfo('template_url') ?>/img/money.svg" alt="">
 							<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
 						</div>
 					</div>
@@ -28,27 +28,27 @@
 				<p class="services_title main_title">Наши услуги</p>
 				<div class="services_box">
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/granit.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/granit.svg" alt=""></div>
 						<p class="services_text">Гранитные памятники</p>
 					</div>
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/mramor.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/mramor.svg" alt=""></div>
 						<p class="services_text">Мраморные памятники</p>
 					</div>
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/kombi.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/kombi.svg" alt=""></div>
 						<p class="services_text">Комбинированные памятники</p>
 					</div>
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/memorial.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/memorial.svg" alt=""></div>
 						<p class="services_text">Мемориальные комплексы</p>
 					</div>
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/blago.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/blago.svg" alt=""></div>
 						<p class="services_text">Благоустройство захоронения</p>
 					</div>
 					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/gravi.svg" alt=""></div>
+						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/gravi.svg" alt=""></div>
 						<p class="services_text">Художественная гравировка</p>
 					</div>
 				</div>

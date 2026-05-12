@@ -103,8 +103,8 @@ a {
 	font-weight: 400;
 	font-style: normal;
 	src: local('Tenor Sans'),
-		url('assets/fonts/TenorSans.woff') format('woff'),
-		url('assets/fonts/TenorSans.woff2') format('woff2');
+		url('fonts/TenorSans.woff') format('woff'),
+		url('fonts/TenorSans.woff2') format('woff2');
 	font-display: swap;
 }
 
@@ -113,8 +113,8 @@ a {
 	font-weight: 400;
 	font-style: normal;
 	src: local('Roboto'),
-		url('assets/fonts/Roboto-Regular.woff') format('woff'),
-		url('assets/fonts/Roboto-Regular.woff2') format('woff2');
+		url('fonts/Roboto-Regular.woff') format('woff'),
+		url('fonts/Roboto-Regular.woff2') format('woff2');
 	font-display: swap;
 }
 
@@ -332,11 +332,11 @@ footer {
 }
 
 .wp-pagenavi a.nextpostslink::before {
-	background: url('assets/img/catflog_right_36_24_16.svg') no-repeat center center #F2F2F2;
+	background: url('img/catflog_right_36_24_16.svg') no-repeat center center #F2F2F2;
 }
 
 .wp-pagenavi a.previouspostslink::before {
-	background: url("assets/img/catalog_left_36_24_16.svg") center center no-repeat #F2F2F2;
+	background: url("img/catalog_left_36_24_16.svg") center center no-repeat #F2F2F2;
 }
 
 .overlay {
@@ -526,15 +526,15 @@ h6,
 
 .top_rowmobile_menu_info_adress_2::before,
 .mobile_menu_info_adress_1::before {
-	background: url('assets/img/marker.svg') no-repeat center center / cover;
+	background: url('img/marker.svg') no-repeat center center / cover;
 }
 
 .top_rowmobile_menu_info_contacts_tel_2::before {
-	background: url('assets/img/mobile.svg') no-repeat center center / cover;
+	background: url('img/mobile.svg') no-repeat center center / cover;
 }
 
 .top_rowmobile_menu_info_contacts_tel_1::before {
-	background: url('assets/img/phone.svg') no-repeat center center / cover;
+	background: url('img/phone.svg') no-repeat center center / cover;
 }
 
 
@@ -580,15 +580,15 @@ header .top_row_contacts_tel_2::before {
 
 header .top_row_adress_1::before,
 header .top_row_adress_2::before {
-	background: url('assets/img/marker.svg') no-repeat center center / cover;
+	background: url('img/marker.svg') no-repeat center center / cover;
 }
 
 header .top_row_contacts_tel_1::before {
-	background: url('assets/img/phone.svg') no-repeat center center / cover;
+	background: url('img/phone.svg') no-repeat center center / cover;
 }
 
 header .top_row_contacts_tel_2::before {
-	background: url('assets/img/mobile.svg') no-repeat center center / cover;
+	background: url('img/mobile.svg') no-repeat center center / cover;
 }
 
 header .top_row_place,
@@ -763,11 +763,11 @@ header .phone_mobile_btn::before {
 
 
 header .burger_menu_btn::before {
-	background: url('assets/img/burger_menu_btn.svg') no-repeat center center;
+	background: url('img/burger_menu_btn.svg') no-repeat center center;
 }
 
 header .phone_mobile_btn::before {
-	background: url('assets/img/phone_mobile.svg') no-repeat center center;
+	background: url('img/phone_mobile.svg') no-repeat center center;
 }
 
 header .burger_menu_btn {
@@ -784,7 +784,7 @@ header .burger_menu_btn--active {
 }
 
 header .burger_menu_btn--active::before {
-	background: url('assets/img/close_mobile.svg') no-repeat center center;
+	background: url('img/close_mobile.svg') no-repeat center center;
 }
 
 header .menu_row {
@@ -792,7 +792,7 @@ header .menu_row {
 }
 
 .bunner {
-	background: url("assets/img/header_img.jpg") center 30% / cover no-repeat;
+	background: url("img/header_img.jpg") center 30% / cover no-repeat;
 }
 
 .bunner .bottom_row_content_title {
@@ -1052,22 +1052,22 @@ section.catalog .catalog_tubs_btn_next:disabled {
 
 .catalog_tubs_box_catalog .catalog_tubs_btn_prev::before,
 section.catalog .catalog_tubs_btn_prev::before {
-	background: url('assets/img/catalog_left_36_24_16.svg') no-repeat center center;
+	background: url('img/catalog_left_36_24_16.svg') no-repeat center center;
 }
 
 .catalog_tubs_box_catalog .catalog_tubs_btn_prev:disabled::before,
 section.catalog .catalog_tubs_btn_prev:disabled::before {
-	background: url('assets/img/catalog_left_36_24_16_unactive.svg') no-repeat center center;
+	background: url('img/catalog_left_36_24_16_unactive.svg') no-repeat center center;
 }
 
 .catalog_tubs_box_catalog .catalog_tubs_btn_next::before,
 section.catalog .catalog_tubs_btn_next::before {
-	background: url('assets/img/catflog_right_36_24_16.svg') no-repeat center center;
+	background: url('img/catflog_right_36_24_16.svg') no-repeat center center;
 }
 
 .catalog_tubs_box_catalog .catalog_tubs_btn_next:disabled::before,
 section.catalog .catalog_tubs_btn_next:disabled::before {
-	background: url('assets/img/catflog_right_36_24_16_unactive.svg') no-repeat center center;
+	background: url('img/catflog_right_36_24_16_unactive.svg') no-repeat center center;
 }
 
 .catalog_box {
@@ -1410,7 +1410,7 @@ section.carusel .carusel__prev {
 }
 
 section.carusel .carusel__prev::before {
-	background: url('assets/img/arr_prev.svg');
+	background: url('img/arr_prev.svg');
 }
 
 section.carusel .carusel__next {
@@ -1418,7 +1418,7 @@ section.carusel .carusel__next {
 }
 
 section.carusel .carusel__next::before {
-	background: url('assets/img/arr_next.svg');
+	background: url('img/arr_next.svg');
 }
 
 section.carusel .carusel_title {
@@ -1535,19 +1535,19 @@ footer .footer_btn {
 }
 
 .section_map .map_info_list_item_place::after {
-	background: url('assets/img/marker_map.svg') no-repeat center center / cover;
+	background: url('img/marker_map.svg') no-repeat center center / cover;
 }
 
 .section_map .map_info_list_item_home_number::after {
-	background: url('assets/img/phone_map.svg') no-repeat center center / cover;
+	background: url('img/phone_map.svg') no-repeat center center / cover;
 }
 
 .section_map .map_info_list_item_mobile_number::after {
-	background: url('assets/img/mobile_map.svg') no-repeat center center / cover;
+	background: url('img/mobile_map.svg') no-repeat center center / cover;
 }
 
 .section_map .map_info_list_item_mail::after {
-	background: url('assets/img/mail_map.svg') no-repeat center center / cover;
+	background: url('img/mail_map.svg') no-repeat center center / cover;
 }
 
 .section_map .map_info_content_box {
@@ -1649,7 +1649,7 @@ p.contacts_titles {
 	background-color: #fff;
 	opacity: 0.7;
 	border-radius: 16px;
-	background-image: url('assets/img/close.svg');
+	background-image: url('img/close.svg');
 	background-size: 55%;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -1794,11 +1794,11 @@ p.form_title {
 }
 
 .popup_phone .top_row_contacts_tel_1::after {
-	background: url('assets/img/mobile.svg') no-repeat center center / cover;
+	background: url('img/mobile.svg') no-repeat center center / cover;
 }
 
 .popup_phone .top_row_contacts_tel_2::after {
-	background: url('assets/img/phone.svg') no-repeat center center / cover;
+	background: url('img/phone.svg') no-repeat center center / cover;
 }
 
 .popup_phone .fancybox-button {
@@ -1809,7 +1809,7 @@ p.form_title {
 	background-color: #282828;
 	opacity: 0.7;
 	border-radius: 12px;
-	background-image: url('assets/img/close_phone.svg');
+	background-image: url('img/close_phone.svg');
 	background-size: 55%;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -2145,7 +2145,7 @@ span.wpcf7-not-valid-tip {
 	}
 
 	.bunner .bottom_row {
-		background: url("assets/img/header_img_1000.jpg") center 30% / cover no-repeat;
+		background: url("img/header_img_1000.jpg") center 30% / cover no-repeat;
 	}
 
 	header .menu_row .container {
@@ -2538,7 +2538,7 @@ span.wpcf7-not-valid-tip {
 	}
 
 	.bunner .bottom_row {
-		background: url("assets/img/header_img_640.jpg") center 30% / cover no-repeat;
+		background: url("img/header_img_640.jpg") center 30% / cover no-repeat;
 	}
 
 	.bunner .bottom_row_content_text {
@@ -2811,7 +2811,7 @@ span.wpcf7-not-valid-tip {
 	}
 
 	.bunner .bottom_row {
-		background: url("assets/img/header_img_320.jpg") center 30% / cover no-repeat;
+		background: url("img/header_img_320.jpg") center 30% / cover no-repeat;
 	}
 
 	.catalog_item_name {

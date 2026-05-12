@@ -61,10 +61,10 @@ function show_contacty()
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 						<div class="contacts_socials">
 							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/frame4382vk.svg" alt=""></a>
+								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/frame4382vk.svg" alt=""></a>
 							<?php endif; ?>
 							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/assets/img/logo_MAX2.svg" alt=""></a>
+								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/logo_MAX2.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
@@ -135,10 +135,10 @@ function show_map()
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 						<div class="map_socials">
 							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/vk_map.svg" alt=""></a>
+								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/img/vk_map.svg" alt=""></a>
 							<?php endif; ?>
 							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/assets/img/max_map.svg" alt=""></a>
+								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/img/max_map.svg" alt=""></a>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
