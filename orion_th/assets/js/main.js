@@ -225,8 +225,10 @@ jQuery(function ($) {
 
 			if (hideContainer.classList.contains('active')) {
 				btnMore.innerHTML = 'Cвернуть';
+				btnMore.classList.add('active');
 			} else {
 				btnMore.innerHTML = 'Подробнее';
+				btnMore.classList.remove('active');
 			}
 		});
 	}

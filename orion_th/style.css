@@ -22,6 +22,13 @@ a{color:inherit;}
 @font-face {font-family: 'Tenor Sans';font-weight: 400;font-style: normal;src: local('Tenor Sans'),url('fonts/TenorSans.woff') format('woff'),url('fonts/TenorSans.woff2') format('woff2');font-display: swap;}
 @font-face {font-family: 'Roboto';font-weight: 400;font-style: normal;src: local('Roboto'),url('fonts/Roboto-Regular.woff') format('woff'),url('fonts/Roboto-Regular.woff2') format('woff2');font-display: swap;}
 
+.vk_link,.max_link {width: 24px;height: 24px;}
+.vk_link_map,.max_link_map {width: 32px;height: 32px;}
+.vk_link {background: url('img/frame4382vk.svg') no-repeat center center / 100%;}
+.max_link {background: url('img/logo_MAX2.svg') no-repeat center center / 100%;}
+.vk_link_map {background: url('img/vk_map.svg') no-repeat center center / 100%;}
+.max_link_map {background: url('img/max_map.svg') no-repeat center center / 100%;}
+
 .hide_text {max-height: 500px;height: fit-content;overflow: hidden;position: relative;margin-top: 100px;}
 .hide_text.active {max-height: 5000px;transition: all 1s ease-in-out;}
 .hide_text::after {
@@ -35,8 +42,21 @@ a{color:inherit;}
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #F2F2F2);
 }
 .hide_text.active::after {display: none;}
-.more {padding-top: 20px;display: block;transition: all .3s ease-in-out;cursor: pointer;}
-.more:hover {opacity: .5;}
+.more {padding-top: 20px;padding-right: 30px; display: block;transition: all .3s ease-in-out;cursor: pointer;color: #C37437;width: fit-content;position: relative;}
+.more::before {
+	content: '';
+	width: 18px;
+	height: 12px;
+	position: absolute;
+	top: 46%;
+	right: 0;
+	transform: translateY(50%);
+	background: url('img/more_arrow.svg') no-repeat center center / 100%;
+	transition: all .2s ease-in-out;
+}
+.more:hover {opacity: .7;}
+.more:hover::before {right: -2px;}
+.more.active::before {display: none;}
 .content img {max-width: 100%;max-height: 100%;width: auto;height: auto}
 img.attachment-post-thumbnail {display: block;margin: 0 auto 30px;}
 .content img.alignright {float: right;margin: 0 0 1em 1em;}
@@ -271,6 +291,10 @@ header .menu_row {background-color: #fff;}
 .bunner .bottom_row_content {max-width: 1100px;padding: 160px 0 44px;}
 .bunner .bottom_row_content_text {color: #fff;max-width: 660px;margin-bottom: 40px;line-height: 1.4;font-weight: 300;font-size: 20px;}
 .bunner .header_advantages_item {display: flex;align-items: center;gap: 16px;}
+.advantages_item_money,.advantages_item_coins,.advantages_item_shield {width: 56px;height: 56px;min-height: 56px;min-width: 56px;}
+.advantages_item_shield {background: url('img/shield.svg') no-repeat center center / 100%;}
+.advantages_item_coins {background: url('img/coins.svg') no-repeat center center / 100%;}
+.advantages_item_money {background: url('img/money.svg') no-repeat center center / 100%;}
 .bunner .header_advantages_row {display: flex;justify-content: space-between;padding-top: 127px;gap: 12px;}
 .bunner .header_advantages_item_text {font-size: 20px;color: #fff;line-height: 1.2;}
 .bunner .header_advantages_item_text span {display: block;}

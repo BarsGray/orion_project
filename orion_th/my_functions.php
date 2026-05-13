@@ -5,6 +5,7 @@ if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.0'); }
 if (!defined('FRONT_PAGE')) { define('FRONT_PAGE', get_option('page_on_front')); }
 
 add_theme_support('post-thumbnails');
+add_image_size( 'custom-gallery-thumb', 400, 400, true );
 register_nav_menus();
 
 add_action('wp_enqueue_scripts', 'orion_th_scripts_style');

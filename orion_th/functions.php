@@ -116,9 +116,9 @@ function show_map()
 				</div>
 			<?php endif; ?>
 			<div class="map_inner">
-				<script async
-					src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A293ef0d12dff9ee1fc34f4d334ac805b4a9289ad72c69c4738a8cb68ce61a50a&amp;lang=ru_RU&amp;scroll=true">
-					</script>
+				<?php if (get_field('map', FRONT_PAGE)): ?>
+					<?php echo get_field('map', FRONT_PAGE); ?>
+				<?php endif; ?>
 			</div>
 		</section>
   <?php
@@ -129,7 +129,7 @@ function show_works() {
 		<div class="gallery_works">
 			<?php foreach(get_field('gallery_works') as $item): ?>
 				<div class="gallery_works_item">
-					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
 			<a class="gallery_works_btn" href="#">Показать ещё</a>
@@ -268,14 +268,10 @@ function socials_show($args = '')
 	if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 		<div class="contacts_socials">
 			<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-				<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? '' : 'contacts_'; ?>socials_link">
-					<img class="" src="<?php bloginfo('template_url') ?>/img/<?php echo ($args === 'map') ? 'vk_map.svg' : 'frame4382vk.svg'; ?>" alt="vk">
-				</a>
+				<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? 'vk_link_map ' : 'vk_link contacts_'; ?>socials_link"></a>
 			<?php endif; ?>
 			<?php if (get_field('max_link', FRONT_PAGE)): ?>
-				<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? '' : 'contacts_'; ?>socials_link">
-					<img class="" src="<?php bloginfo('template_url') ?>/img/<?php echo ($args === 'map') ? 'max_map.svg' : 'logo_MAX2.svg'; ?>" alt="max">
-				</a>
+				<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? 'max_link_map ' : 'max_link contacts_'; ?>socials_link"></a>
 			<?php endif; ?>
 		</div>
 	<?php endif;

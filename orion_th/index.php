@@ -8,15 +8,15 @@
 					<a href="<?php echo get_permalink(41); ?>" class="bottom_row_content_link main_btn">Выбрать памятник</a>
 					<div class="header_advantages_row">
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/img/shield.svg" alt="">
+							<span class="advantages_item_shield"></span>
 							<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
 						</div>
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/img/coins.svg" alt="">
+							<span class="advantages_item_coins"></span>
 							<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
 						</div>
 						<div class="header_advantages_item">
-							<img src="<?php bloginfo('template_url') ?>/img/money.svg" alt="">
+							<span class="advantages_item_money"></span>
 							<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
 						</div>
 					</div>
