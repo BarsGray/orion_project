@@ -20,9 +20,15 @@ show_title_box();
 
 		if (is_page(41))
 			show_products(['post_type' => 'product', 'posts_per_page' => 25, 'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1]);
-		
-		the_field("text_after");
 		?>
+		<?php if (get_field('text_after')) : ?>
+			<div class="hide_text">
+				<?php the_field("text_after"); ?>
+			</div>	
+			<?php if (mb_strlen(get_field('text_after'), 'UTF-8') > 100) : ?>
+				<a class="more">Подробнее</a>
+			<?php endif; ?>
+		<?php endif; ?>
 	</div>
 </div>
 

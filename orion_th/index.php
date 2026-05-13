@@ -55,7 +55,6 @@
 				<a href="<?php echo get_permalink(42); ?>" class="services_main_btn main_btn">Узнать больше</a>
 			</div>
 		</section>
-
 		<section class="catalog">
 			<div class="container">
 				<p class="catalog_title main_title">Каталог</p>
@@ -76,7 +75,6 @@
 				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
 		</section>
-		
 		<?php if (get_field('gallery_works', 45)): ?>
 			<section class="carusel">
 				<div class="container carusel_container_top">
@@ -101,18 +99,10 @@
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
 		<?php  endif; ?>
-		
 			<div class="content">
 				<div class="container">
-					<div class="hide_text">
-						<?php the_content(); ?>
-					</div>
+					<div class="hide_text"><?php the_content(); ?></div>
 					<a class="more">Подробнее</a>
 				</div>
 			</div>
-
-			
-<?php
-show_map();
-get_footer();
-?>
+<?php show_map(); get_footer(); ?>

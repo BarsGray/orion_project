@@ -1,6 +1,4 @@
 <?php
-
-
 function show_title_box()
 {
   ?>
@@ -72,7 +70,6 @@ function show_contacty()
 			</div>
 		</div>
 		<div class="form">
-			
 			<div class="form_box">
 				<div class="top_box">
 					<p class="form_title">Оставить заявку</p>
@@ -80,10 +77,8 @@ function show_contacty()
 				</div>
 					<?php echo do_shortcode('[contact-form-7 id="5e383e4" title="Contact form"]'); ?>
 			</div>
-
 		</div>
 	</div>
-
 	<?php
 	show_map();
 }
@@ -153,7 +148,6 @@ function show_map()
   <?php
 }
 
-
 function show_works() {
 	if (get_field('gallery_works')): ?>
 		<div class="gallery_works">
@@ -167,8 +161,6 @@ function show_works() {
 	<?php
 	endif;
 }
-
-
 
 function show_services()
 {
@@ -235,24 +227,17 @@ function show_category_prod()
 
 function show_products($args)
 {
-
 	$cat_slug = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 	if (!empty($cat_slug)) $args['tax_query'] = [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat_slug )];
 
 	$query = new WP_Query($args);
+	if ($query->have_posts()):
+		echo (!is_front_page()) ? '<div class="catalog_box">' : '';
 
-	if ($query->have_posts()): ?>
-		<?php  echo (!is_front_page()) ? '<div class="catalog_box">' : '' ?>
-
-		<?php
 		while ($query->have_posts()): $query->the_post();
 			$cats = get_the_terms(get_the_ID(), 'catalog');
 			$classes = '';
-			if (is_front_page()) {
-				foreach ($cats as $cat) {
-					$classes .= ' cat-' . $cat->slug;
-				}
-			}
+			if (is_front_page()) {foreach ($cats as $cat) {$classes .= ' cat-' . $cat->slug;}}
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
 				<a>
@@ -264,8 +249,7 @@ function show_products($args)
 		<?php endwhile;
 		wp_reset_postdata(); ?>
 
-		<?php  echo (!is_front_page()) ? '</div>' : '' ?>
-	<?php
+		<?php  echo (!is_front_page()) ? '</div>' : '';
 		if (!is_front_page()) {
 			$next_link = ($query->max_num_pages) ? get_next_posts_page_link($query->max_num_pages) : 0;
 			if ($next_link): ?>
