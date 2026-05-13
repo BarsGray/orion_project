@@ -23,38 +23,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="services">
-			<div class="container">
-				<p class="services_title main_title">Наши услуги</p>
-				<div class="services_box">
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/granit.svg" alt=""></div>
-						<p class="services_text">Гранитные памятники</p>
-					</div>
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/mramor.svg" alt=""></div>
-						<p class="services_text">Мраморные памятники</p>
-					</div>
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/kombi.svg" alt=""></div>
-						<p class="services_text">Комбинированные памятники</p>
-					</div>
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/memorial.svg" alt=""></div>
-						<p class="services_text">Мемориальные комплексы</p>
-					</div>
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/blago.svg" alt=""></div>
-						<p class="services_text">Благоустройство захоронения</p>
-					</div>
-					<div class="services_item">
-						<div class="services_img"><img class="" src="<?php bloginfo('template_url') ?>/img/gravi.svg" alt=""></div>
-						<p class="services_text">Художественная гравировка</p>
-					</div>
-				</div>
-				<a href="<?php echo get_permalink(42); ?>" class="services_main_btn main_btn">Узнать больше</a>
-			</div>
-		</section>
+		<?php  show_services_on_front(); ?>
 		<section class="catalog">
 			<div class="container">
 				<p class="catalog_title main_title">Каталог</p>
@@ -99,7 +68,7 @@
 				<div class="swiper-pagination carusel__pagination"></div>
 			</section>
 		<?php  endif; ?>
-			<div class="content">
+			<div class="content content_front">
 				<div class="container">
 					<div class="hide_text"><?php the_content(); ?></div>
 					<a class="more">Подробнее</a>

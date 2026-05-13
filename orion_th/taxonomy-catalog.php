@@ -17,11 +17,11 @@ $term = get_queried_object();
 					// $cats = get_the_terms(get_the_ID(), 'catalog');
 				?>
 					<div class="catalog_item">
-						<a>
+						<a data-fancybox data-src="#popup_box" href="#">
 							<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 							<span class="catalog_item_name"><?php the_title(); ?></span>
 						</a>
-						<a data-fancybox data-src="#popup_box" href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
+						<a data-fancybox data-src="#popup_box" href="#" class="catalog_item_btn">Заказать</a>
 					</div>
 				<?php endwhile;
 			echo '</div>';

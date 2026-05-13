@@ -56,16 +56,7 @@ function show_contacty()
 				</div>
 				<div class="contacts_social">
 					<p class="contacts_titles">Социальные сети</p>
-					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
-						<div class="contacts_socials">
-							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/frame4382vk.svg" alt=""></a>
-							<?php endif; ?>
-							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/logo_MAX2.svg" alt=""></a>
-							<?php endif; ?>
-						</div>
-					<?php endif; ?>
+					<?php socials_show(); ?>
 				</div>
 			</div>
 		</div>
@@ -103,38 +94,23 @@ function show_map()
 						<?php endif; ?>
 						<?php if (get_field('number_1', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_home_number">
-								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>">
-										<?php the_field('number_1', FRONT_PAGE) ?>
-									</a>
-								</p>
+								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>"><?php the_field('number_1', FRONT_PAGE) ?></a></p>
 							</li>
 						<?php endif; ?>
 						<?php if (get_field('number_2', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_mobile_number">
-								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>">
-										<?php the_field('number_2', FRONT_PAGE) ?>
-									</a>
-								</p>
+								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>"><?php the_field('number_2', FRONT_PAGE) ?></a></p>
 							</li>
 						<?php endif; ?>
 						<?php if (get_field('email', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_mail">
-								<p class="map_info_list_item_inner">
-									<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a>
-								</p>
+								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a></p>
 							</li>
 						<?php endif; ?>
 					</ul>
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 						<div class="map_socials">
-							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/img/vk_map.svg" alt=""></a>
-							<?php endif; ?>
-							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="socials_link"><img src="<?php bloginfo('template_url') ?>/img/max_map.svg" alt=""></a>
-							<?php endif; ?>
+							<?php socials_show('map'); ?>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -190,7 +166,33 @@ function show_services()
 		wp_pagenavi(['query' => $query]);
 		wp_reset_postdata();
 	endif;
-	
+}
+
+function show_services_on_front()
+{
+	$query = new WP_Query([
+		'post_type' => 'service',
+		'posts_per_page' => 6,
+		'paged' => (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1)
+	]);
+	if ($query->have_posts()):
+	?>
+		<section class="services">
+			<div class="container">
+				<p class="services_title main_title">Наши услуги</p>
+				<div class="services_box">
+					<?php while ($query->have_posts()): $query->the_post(); ?>
+					<a href="<?php the_permalink(); ?>" class="services_item">
+						<span class="services_img"><img class="" src="<?php echo (get_field('ikonka_uslugi')) ? get_field('ikonka_uslugi')['url'] : bloginfo('template_url') . '/img/kombi.svg'; ?>" alt="icon"></span>
+						<span class="services_text"><?php the_title() ?></span>
+					</a>
+					<?php endwhile; ?>
+				</div>
+				<a href="<?php echo get_permalink(42); ?>" class="services_main_btn main_btn">Узнать больше</a>
+			</div>
+		</section>
+	<?php 
+	endif;
 }
 
 
@@ -224,7 +226,6 @@ function show_category_prod()
 }
 
 
-
 function show_products($args)
 {
 	$cat_slug = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
@@ -240,11 +241,11 @@ function show_products($args)
 			if (is_front_page()) {foreach ($cats as $cat) {$classes .= ' cat-' . $cat->slug;}}
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
-				<a>
+				<a data-fancybox data-src="#popup_box" href="#">
 					<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>
-				<a data-fancybox data-src="#popup_box" href="<?php the_permalink(); ?>" class="catalog_item_btn">Заказать</a>
+				<a data-fancybox data-src="#popup_box" href="#" class="catalog_item_btn">Заказать</a>
 			</div>
 		<?php endwhile;
 		wp_reset_postdata(); ?>
@@ -262,3 +263,20 @@ function show_products($args)
 }
 
 
+function socials_show($args = '')
+{
+	if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
+		<div class="contacts_socials">
+			<?php if (get_field('vk_link', FRONT_PAGE)): ?>
+				<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? '' : 'contacts_'; ?>socials_link">
+					<img class="" src="<?php bloginfo('template_url') ?>/img/<?php echo ($args === 'map') ? 'vk_map.svg' : 'frame4382vk.svg'; ?>" alt="vk">
+				</a>
+			<?php endif; ?>
+			<?php if (get_field('max_link', FRONT_PAGE)): ?>
+				<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? '' : 'contacts_'; ?>socials_link">
+					<img class="" src="<?php bloginfo('template_url') ?>/img/<?php echo ($args === 'map') ? 'max_map.svg' : 'logo_MAX2.svg'; ?>" alt="max">
+				</a>
+			<?php endif; ?>
+		</div>
+	<?php endif;
+}

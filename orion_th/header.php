@@ -37,16 +37,7 @@
 							<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_2', FRONT_PAGE) ?></a>
 						</div>
 					<?php endif; ?>
-					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
-						<div class="contacts_socials">
-							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/frame4382vk.svg" alt=""></a>
-							<?php endif; ?>
-							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/logo_MAX2.svg" alt=""></a>
-							<?php endif; ?>
-						</div>
-					<?php endif; ?>
+					<?php socials_show(); ?>
 				</div>
 			</div>
 		</div>
