@@ -6,10 +6,8 @@ $term = get_queried_object();
 
 <div class="content">
 	<div class="container">
+		<div class="user_content"><?php the_field("text_before", $term); the_content(); ?></div>
 		<?php
-		the_field("text_before", $term);
-		the_content();
-
 		if (have_posts()): ?>
 			<?php
 			echo '<div class="catalog_box">';
@@ -39,9 +37,9 @@ $term = get_queried_object();
 
 			wp_pagenavi();
 		endif;
-
-		the_field("text_after", $term);
+		
 		?>
+		<div class="user_content"><?php the_field("text_after", $term); ?></div>
 	</div>
 </div>
 

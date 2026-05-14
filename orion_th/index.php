@@ -70,8 +70,10 @@
 		<?php  endif; ?>
 			<div class="content content_front">
 				<div class="container">
-					<div class="hide_text"><?php the_content(); ?></div>
-					<a class="more">Подробнее</a>
+					<div class="user_content">
+						<div class="hide_text"><?php the_content(); ?></div>
+						<a class="more">Подробнее</a>
+					</div>
 				</div>
 			</div>
 <?php show_map(); get_footer(); ?>

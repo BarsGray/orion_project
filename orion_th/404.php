@@ -5,7 +5,8 @@ show_title_box();
 
 <div class="content">
 	<div class="container">
-		<?php the_content(); ?>
+		<h1>Ошибка 404!</h1>
+		<p>Страница не найдена... Вы можете вернуться на <a class="link_on" href="/">главную</a>.</p>
 	</div>
 </div>
 

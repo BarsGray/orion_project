@@ -13,9 +13,8 @@
 
 	<div class="content">
 		<div class="container">
+			<div class="user_content"><?php the_field("text_before", $qo); ?></div>
 			<?php
-			the_field("text_before", $qo);
-
 			if(have_posts()){
 				echo '<div class="services_page">';
 				while(have_posts()){ the_post();
@@ -36,8 +35,8 @@
 				wp_pagenavi();
 			} else echo '<p>Раздел не заполнен</p>';
 
-			the_field("text_after", $qo);
 			?>
+			<div class="user_content"><?php the_field("text_after", $qo); ?></div>
 		</div>
 	</div>
 

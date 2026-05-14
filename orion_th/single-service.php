@@ -5,7 +5,9 @@ show_title_box();
 
 <div class="content">
 	<div class="container">
-		<?php the_content(); ?>
+		<div class="user_content">
+			<?php the_content(); ?>
+		</div>
 	</div>
 </div>
 

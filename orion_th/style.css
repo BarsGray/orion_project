@@ -22,6 +22,10 @@ a{color:inherit;}
 @font-face {font-family: 'Tenor Sans';font-weight: 400;font-style: normal;src: local('Tenor Sans'),url('fonts/TenorSans.woff') format('woff'),url('fonts/TenorSans.woff2') format('woff2');font-display: swap;}
 @font-face {font-family: 'Roboto';font-weight: 400;font-style: normal;src: local('Roboto'),url('fonts/Roboto-Regular.woff') format('woff'),url('fonts/Roboto-Regular.woff2') format('woff2');font-display: swap;}
 
+.content .user_content a, .services_page_item_description a, .link_on {color: #C37437;}
+.content .user_content a:hover, .services_page_item_description a:hover, .link_on:hover {opacity: .7;}
+
+
 .vk_link,.max_link {width: 24px;height: 24px;}
 .vk_link_map,.max_link_map {width: 32px;height: 32px;}
 .vk_link {background: url('img/frame4382vk.svg') no-repeat center center / 100%;}

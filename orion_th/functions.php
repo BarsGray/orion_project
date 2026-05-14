@@ -10,6 +10,8 @@ function show_title_box()
 					$title = (get_field('alt_zag')) ? get_field('alt_zag') : single_term_title();
 				} elseif(is_category()) {
 					$title = (get_field('alt_zag')) ? get_field('alt_zag') : single_cat_title('', false);
+				} elseif(is_404()) {
+					$title = 'Ошибка 404!';
 				} else {
 					$title = (get_field('alt_zag')) ? get_field('alt_zag') : get_the_title();
 				}
