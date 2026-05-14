@@ -15,5 +15,12 @@ RewriteRule . /index.php [L]
 # END WordPress
 
 redirect 301 /category/uslugi /uslugi
-redirect 301 /product_cat/granitnyie-pamyatniki /services/granitnye-pamyatniki
+redirect 301 /product_cat/granitnyie-pamyatniki /services/granitnyie-pamyatniki
 redirect 301 /product_cat/mramornyie-pamyatniki /services/mramornyie-pamyatniki
+redirect 301 /product_cat/izgotovlenie-pamyatnikov-iz-murmanskogo-granita /services/izgotovlenie-pamyatnikov-iz-murmanskogo-granita
+redirect 301 /product_cat/3d-proektyi-pamyatnikov /services/3d-proektyi-pamyatnikov
+redirect 301 /product_cat/hudozhestvennaya-gravirovka /services/hudozhestvennaya-gravirovka
+redirect 301 /product_cat/blagoustroystvo-zahoroneniya /services/blagoustroystvo-zahoroneniya
+redirect 301 /product_cat/aksessuaryi-dlya-mogil /services/aksessuaryi-dlya-mogil
+redirect 301 /product_cat/ogradyi /services/ogradyi
+redirect 301 /product_cat/izgotovlenie-pamyatnikov-iz-murmanskogo-granita /services/izgotovlenie-pamyatnikov-iz-murmanskogo-granita

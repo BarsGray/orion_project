@@ -1,23 +1,23 @@
 jQuery(function ($) {
 
 	// ++++++++++++++++++++++++++++ tubs ++++++++++++++++++++++++++++++++++++++++++++
-	const tubs_row 	= document.querySelector('.catalog_tubs_row');
-	const btn_prev 	= document.querySelector('.catalog_tubs_btn_prev');
-	const btn_next 	= document.querySelector('.catalog_tubs_btn_next');
-	
+	const tubs_row = document.querySelector('.catalog_tubs_row');
+	const btn_prev = document.querySelector('.catalog_tubs_btn_prev');
+	const btn_next = document.querySelector('.catalog_tubs_btn_next');
+
 	if (tubs_row) {
 		const activeTab = tubs_row.querySelector('.active');
 
 		tubs_row.addEventListener('wheel', (e) => {
 			e.preventDefault();
 			const direction = e.deltaY > 0 ? 1 : -1;
-      const scrollStep = tubs_row.clientWidth - 200;
+			const scrollStep = tubs_row.clientWidth - 200;
 
 			tubs_row.scrollBy({ left: direction * scrollStep, behavior: 'smooth' });
 		}, { passive: false });
 
-		btn_prev.onclick = () => {tubs_row.scrollBy({ left: -tubs_row.clientWidth - 200, behavior: 'smooth' })};
-		btn_next.onclick = () => {tubs_row.scrollBy({ left: tubs_row.clientWidth - 200, behavior: 'smooth' })};
+		btn_prev.onclick = () => { tubs_row.scrollBy({ left: -tubs_row.clientWidth - 200, behavior: 'smooth' }) };
+		btn_next.onclick = () => { tubs_row.scrollBy({ left: tubs_row.clientWidth - 200, behavior: 'smooth' }) };
 
 		function updadteBtn() {
 			const scrollLeft = tubs_row.scrollLeft;
@@ -30,7 +30,7 @@ jQuery(function ($) {
 		tubs_row.addEventListener('scroll', updadteBtn);
 
 		updadteBtn();
-		
+
 		if (activeTab) { tubs_row.scrollBy({ left: activeTab.offsetLeft - 200, behavior: 'smooth' }) }
 	}
 
@@ -39,9 +39,9 @@ jQuery(function ($) {
 	if (containerEl) {
 
 		let mixer = mixitup(containerEl, {
-			selectors: {target: '.mix'},
-			animation: {duration: 400,effects: 'fade scale(0.9) translateY(20px)'},
-			load: {filter: '.cat-angel'}
+			selectors: { target: '.mix' },
+			animation: { duration: 400, effects: 'fade scale(0.9) translateY(20px)' },
+			load: { filter: '.cat-angel' }
 		});
 
 		$('.catalog_tub_item_mix').on('click', function (e) {
@@ -179,11 +179,16 @@ jQuery(function ($) {
 	// ++++++++++++++++++++++++++++ loadMore gallery  ++++++++++++++++++++++++++++++++++++++++++++
 	const services_items = document.querySelectorAll('.gallery_works_item');
 	const galleryWorkBtn = document.querySelector('.gallery_works_btn');
-	let servicesItemsPreviose = 12;
 
+	let servicesItemsPreviose = 12;
 	let iShow = servicesItemsPreviose;
 
 	if (!services_items.length == 0) {
+
+		if (services_items.length <= servicesItemsPreviose) {
+			galleryWorkBtn.style.display = 'none';
+			document.querySelector('.gallery_works').style.paddingBottom = 0;
+		}
 
 		function galleryCounter() {
 			for (let i = 0; i < iShow && i < services_items.length; i++) {
@@ -203,10 +208,14 @@ jQuery(function ($) {
 			else if (iShow + servicesItemsPreviose > services_items.length) {
 				iShow += services_items.length - iShow;
 				galleryWorkBtn.style.display = 'none';
+				document.querySelector('.gallery_works').style.paddingBottom = 0;
 			}
 			else {
 				iShow += servicesItemsPreviose;
-				if (iShow >= services_items.length) { galleryWorkBtn.style.display = 'none'; }
+				if (iShow >= services_items.length) {
+					galleryWorkBtn.style.display = 'none';
+					document.querySelector('.gallery_works').style.paddingBottom = 0;
+				}
 			}
 
 			galleryCounter();

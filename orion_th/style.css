@@ -24,6 +24,9 @@ a{color:inherit;}
 
 .content .user_content a, .services_page_item_description a, .link_on {color: #C37437;}
 .content .user_content a:hover, .services_page_item_description a:hover, .link_on:hover {opacity: .7;}
+.content .user_content a.gallery_works_btn {color: #000;}
+.content .user_content a.gallery_works_btn:hover{color: #fff;opacity: 1;}
+.content .user_content .gallery_works_item a:hover {opacity: 1;}
 
 
 .vk_link,.max_link {width: 24px;height: 24px;}
@@ -90,7 +93,7 @@ body {background-color: #fff;}
 .load_more_btn:hover {color: #fff;background-color: #C37437;border-color: #C37437;}
 html,body {height: 100%;margin: 0;}
 body {display: flex;flex-direction: column;min-height: 100vh;}
-.content {flex: 1 0 auto;padding: 60px 0;}
+.content {flex: 1 0 auto;padding: 60px 0 100px;}
 footer {flex: 0 0 auto;}
 .contacts_form_box {padding-bottom: 30px;}
 .content img {border-radius: 16px;}

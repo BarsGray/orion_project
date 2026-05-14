@@ -192,7 +192,8 @@ function show_services_on_front()
 	$query = new WP_Query([
 		'post_type' => 'service',
 		'posts_per_page' => 6,
-		'paged' => (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1)
+		'paged' => (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1),
+		'order'   => 'ASC'
 	]);
 	if ($query->have_posts()):
 	?>
