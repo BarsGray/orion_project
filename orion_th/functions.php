@@ -235,6 +235,7 @@ function show_products($args)
 {
 	$cat_slug = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
 	if (!empty($cat_slug)) $args['tax_query'] = [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat_slug )];
+	$args['order'] = 'ASC';
 
 	$query = new WP_Query($args);
 	if ($query->have_posts()):

@@ -2,6 +2,10 @@
 get_header();
 show_title_box();
 $term = get_queried_object();
+
+global $wp_query;
+$args = array_merge($wp_query->query_vars, array('orderby' => 'title','order'   => 'ASC'));
+query_posts($args);
 ?>
 
 <div class="content">
@@ -37,7 +41,7 @@ $term = get_queried_object();
 
 			wp_pagenavi();
 		endif;
-		
+		wp_reset_query();
 		?>
 		<div class="user_content"><?php the_field("text_after", $term); ?></div>
 	</div>
