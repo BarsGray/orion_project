@@ -174,7 +174,7 @@ footer {flex: 0 0 auto;}
 .content .h4 {font-size: 36px;}
 .content .h5 {font-size: 34px;}
 .content .h6 {font-size: 32px;}
-h1,h2,h3,h4,h5,h6,.h2,.h3,.h4,.h5,.h6,.main_title {font-size: 80px;font-weight: 400;font-family: "Tenor Sans";}
+h1,h2,h3,h4,h5,h6,.h2,.h3,.h4,.h5,.h6,.main_title {font-size: 50px;font-weight: 400;font-family: "Tenor Sans";}
 .mobile_menu_info {background-color: #282828;width: 100%;display: none;}
 .mobile_menu_info .contacts_tel_2,.mobile_menu_info .contacts_tel_1,
 .top_rowmobile_menu_info_contacts_tel_2,.top_rowmobile_menu_info_contacts_tel_1,.top_rowmobile_menu_info_adress_2,.mobile_menu_info_adress_1 {
@@ -306,7 +306,7 @@ header .burger_menu_btn--active {background-color: #C37437;border: 1px solid #C3
 header .burger_menu_btn--active::before {background: url('img/close_mobile.svg') no-repeat center center;}
 header .menu_row {background-color: #fff;}
 .bunner {background: url("img/header_img.jpg") center 30% / cover no-repeat;}
-.bunner .bottom_row_content_title {margin-bottom: 40px;color: #fff;}
+.bunner .bottom_row_content_title {margin-bottom: 40px;color: #fff; font-size: 80px;}
 .bunner .bottom_row_content {max-width: 1100px;padding: 160px 0 44px;}
 .bunner .bottom_row_content_text {color: #fff;max-width: 660px;margin-bottom: 40px;line-height: 1.4;font-weight: 300;font-size: 20px;}
 .bunner .header_advantages_item {display: flex;align-items: center;gap: 16px;}

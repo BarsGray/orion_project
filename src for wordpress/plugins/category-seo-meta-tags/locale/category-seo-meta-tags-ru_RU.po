@@ -1,0 +1,107 @@
+#Category SEO Meta Tags
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n+9)%10>3 ? 2 : 1;\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /work/translates/category-seo-meta-tags\n"
+
+msgid "CSMT Settings"
+msgstr "Настройки CSMT"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас не достаточно прав для доступа к этой странице."
+
+msgid "Category SEO Meta Tags Settings"
+msgstr "Настройки Category SEO Meta Tags"
+
+msgid "Category SEO Meta Tags Settings Updated"
+msgstr "Настройки Category SEO Meta Tags обновлены"
+
+msgid "Enable CSMT"
+msgstr "Включить CSMT"
+
+msgid "Category Title Format"
+msgstr "Формат заголовка категорий"
+
+msgid "Enter title tag format for category pages here"
+msgstr "Укажите здесь формат тега для рубрик"
+
+msgid "Category Paged Format"
+msgstr "Формат нумерации категорий"
+
+msgid "Enter format for paged pages. it will be appended in above format on paged pages"
+msgstr "Укажите здесь формат нумерации страниц. В таком формате будет генерироваться нумерация для страниц"
+
+msgid "Tag Title Format"
+msgstr "Формат заголовка меток"
+
+msgid "Enter title tag format for tag pages here"
+msgstr "Укажите здесь формат тега для меток"
+
+msgid "Tag Paged Format"
+msgstr "Формат нумерации меток"
+
+msgid "* indicates required"
+msgstr "* отмечает обязательное к заполнению"
+
+#: category-seo-meta-tags.php:289
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Category Meta Setting"
+msgstr "Настройка мета-данных рубрики"
+
+msgid "Category Title"
+msgstr "Заголовок рубрики"
+
+msgid "Enter category title tag here."
+msgstr "Укажите здесь значение тега для рубрики."
+
+msgid " (*required)"
+msgstr " (*обязательно)"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Enter category description text here."
+msgstr "Укажите здесь текст описания рубрики."
+
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+msgid "Enter category keywords here."
+msgstr "Укажите здесь ключевые слова рубрики."
+
+msgid "Tag Meta Setting"
+msgstr "Настройка мета-данных метки"
+
+msgid "Tag Title:"
+msgstr "Заголовок метки:"
+
+msgid "Enter tag title tag here."
+msgstr "Укажите здесь значение тега для метки."
+
+msgid "Description:"
+msgstr "Описание:"
+
+msgid "Enter tag description text here."
+msgstr "Укажите здесь текст описания для метки."
+
+msgid "Enter tag keywords here."
+msgstr "Укажите здесь ключевые слова для метки."
+
+msgid "Category SEO Meta Tags"
+msgstr "Настройки Category SEO Meta Tags"
+
+msgid "Enable Last-Modified"
+msgstr "Включить Last-Modified"
+
+msgid "Disable the output of meta tags in the category in the plugin All in one SEO"
+msgstr "Отключить вывод мета тегов в категории в плагине All In One SEO"

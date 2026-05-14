@@ -4,7 +4,17 @@ function show_title_box()
   ?>
   <div class="title_box">
     <div class="container">
-      <p class="title main_title"><?php echo (is_tax()) ? single_term_title() : the_title(); ?></p>
+			<?php
+				$title = '';
+				if (is_tax()) {
+					$title = (get_field('alt_zag')) ? get_field('alt_zag') : single_term_title();
+				} elseif(is_category()) {
+					$title = (get_field('alt_zag')) ? get_field('alt_zag') : single_cat_title('', false);
+				} else {
+					$title = (get_field('alt_zag')) ? get_field('alt_zag') : get_the_title();
+				}
+			?>
+      <h1 class="title main_title"><?php echo $title; ?></h1>
       <?php breadcrumbs(); ?>
     </div>
   </div>
