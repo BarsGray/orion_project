@@ -143,6 +143,20 @@ function show_works() {
 	endif;
 }
 
+function show_gellary_services() {
+	if (get_field('gellary_services')): ?>
+		<div class="gallery_works">
+			<?php foreach(get_field('gellary_services') as $item): ?>
+				<div class="gallery_works_item">
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+				</div>
+			<?php endforeach; ?>
+			<a class="gallery_works_btn" href="#">Показать ещё</a>
+		</div>
+	<?php
+	endif;
+}
+
 function show_services()
 {
 	$query = new WP_Query([

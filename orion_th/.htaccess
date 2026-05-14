@@ -14,5 +14,6 @@ RewriteRule . /index.php [L]
 
 # END WordPress
 
-
-#redirect 301 /123123123ontacty123 /contacty
+redirect 301 /category/uslugi /uslugi
+redirect 301 /product_cat/granitnyie-pamyatniki /services/granitnye-pamyatniki
+redirect 301 /product_cat/mramornyie-pamyatniki /services/mramornyie-pamyatniki
