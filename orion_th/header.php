@@ -28,14 +28,10 @@
 				</div>
 				<div class="top_row_contacts">
 					<?php if (get_field('number_1', FRONT_PAGE)): ?>
-						<div class="top_row_contacts_tel_1">
-							<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_1', FRONT_PAGE) ?></a>
-						</div>
+						<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_1"><?php the_field('number_1', FRONT_PAGE) ?></a>
 					<?php endif; ?>
 					<?php if (get_field('number_2', FRONT_PAGE)): ?>
-						<div class="top_row_contacts_tel_2">
-							<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_2', FRONT_PAGE) ?></a>
-						</div>
+						<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_2"><?php the_field('number_2', FRONT_PAGE) ?></a>
 					<?php endif; ?>
 					<?php socials_show(); ?>
 				</div>
@@ -53,18 +49,14 @@
 					<a href="#" data-fancybox data-src="#popup_box" class="header_btn top_btn">Получить консультацию</a>
 					<div class="mobile_menu_info">
 						<?php if (get_field('number_1', FRONT_PAGE)): ?>
-							<div class="top_rowmobile_menu_info_contacts_tel_2">
-								<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel">
-									<?php the_field('number_1', FRONT_PAGE) ?>
-								</a>
-							</div>
+							<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_2">
+								<?php the_field('number_1', FRONT_PAGE) ?>
+							</a>
 						<?php endif; ?>
 						<?php if (get_field('number_2', FRONT_PAGE)): ?>
-							<div class="top_rowmobile_menu_info_contacts_tel_1">
-								<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel">
-									<?php the_field('number_2', FRONT_PAGE) ?>
-								</a>
-							</div>
+							<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_1">
+								<?php the_field('number_2', FRONT_PAGE) ?>
+							</a>
 						<?php endif; ?>
 						<?php if (get_field('adres_1', FRONT_PAGE)): ?>
 							<div class="mobile_menu_info_adress_1">

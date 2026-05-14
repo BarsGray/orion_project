@@ -36,14 +36,10 @@ function show_contacty()
 				<div class="contacts_tels">
 					<p class="contacts_titles">Телефоны</p>
 					<?php if (get_field('number_1', FRONT_PAGE)): ?>
-						<div class="top_row_contacts_tel_1">
-							<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_1', FRONT_PAGE) ?></a>
-						</div>
+						<a href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_1"><?php the_field('number_1', FRONT_PAGE) ?></a>
 					<?php endif; ?>
 					<?php if (get_field('number_2', FRONT_PAGE)): ?>
-						<div class="top_row_contacts_tel_2">
-							<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel"><?php the_field('number_2', FRONT_PAGE) ?></a>
-						</div>
+						<a href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>" class="contacts_tel contacts_tel_2"><?php the_field('number_2', FRONT_PAGE) ?></a>
 					<?php endif; ?>
 				</div>
 				<div class="contacts_email">
@@ -94,18 +90,15 @@ function show_map()
 						<?php endif; ?>
 						<?php if (get_field('number_1', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_home_number">
-								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>"><?php the_field('number_1', FRONT_PAGE) ?></a></p>
-							</li>
+								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_1', FRONT_PAGE)); ?>"><?php the_field('number_1', FRONT_PAGE) ?></a></li>
 						<?php endif; ?>
 						<?php if (get_field('number_2', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_mobile_number">
-								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>"><?php the_field('number_2', FRONT_PAGE) ?></a></p>
-							</li>
+								<a class="map_info_list_link" href="tel:<?php merge_numbers(get_field('number_2', FRONT_PAGE)); ?>"><?php the_field('number_2', FRONT_PAGE) ?></a></li>
 						<?php endif; ?>
 						<?php if (get_field('email', FRONT_PAGE)): ?>
 							<li class="map_info_list_item map_info_list_item_mail">
-								<p class="map_info_list_item_inner"><a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a></p>
-							</li>
+								<a class="map_info_list_link" href="mailto:9507620621@mail.ru"><?php the_field('email', FRONT_PAGE) ?></a></li>
 						<?php endif; ?>
 					</ul>
 					<?php if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
