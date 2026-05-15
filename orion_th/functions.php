@@ -85,7 +85,7 @@ function show_contacty()
 function show_map()
 {
   ?>
-		<section class="section_map">
+		<div class="section_map">
 			<?php if(!is_page(109)) : ?>
 				<div class="map_info_content_box">
 					<p class="map_info_title main_title">Как нас найти</p>
@@ -125,7 +125,7 @@ function show_map()
 					<?php echo get_field('map', FRONT_PAGE); ?>
 				<?php endif; ?>
 			</div>
-		</section>
+		</div>
   <?php
 }
 
@@ -134,7 +134,7 @@ function show_works() {
 		<div class="gallery_works">
 			<?php foreach(get_field('gallery_works') as $item): ?>
 				<div class="gallery_works_item">
-					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
 			<a class="gallery_works_btn" href="#">Показать ещё</a>
@@ -148,7 +148,7 @@ function show_gellary_services() {
 		<div class="gallery_works">
 			<?php foreach(get_field('gellary_services') as $item): ?>
 				<div class="gallery_works_item">
-					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
 			<a class="gallery_works_btn" href="#">Показать ещё</a>
@@ -197,7 +197,7 @@ function show_services_on_front()
 	]);
 	if ($query->have_posts()):
 	?>
-		<section class="services">
+		<div class="section services">
 			<div class="container">
 				<p class="services_title main_title">Наши услуги</p>
 				<div class="services_box">
@@ -210,7 +210,7 @@ function show_services_on_front()
 				</div>
 				<a href="<?php echo get_permalink(42); ?>" class="services_main_btn main_btn">Узнать больше</a>
 			</div>
-		</section>
+		</div>
 	<?php 
 	endif;
 }

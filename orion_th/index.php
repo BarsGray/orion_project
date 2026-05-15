@@ -1,6 +1,6 @@
 <?php /* Template Name: Главная */ get_header(); ?>
 
-		<section class="bunner">
+		<div class="bunner">
 			<div class="container">
 				<div class="bottom_row_content">
 					<p class="bottom_row_content_title main_title">Изготовление памятников любой сложности</p>
@@ -22,9 +22,9 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 		<?php  show_services_on_front(); ?>
-		<section class="catalog">
+		<div class="catalog">
 			<div class="container">
 				<p class="catalog_title main_title">Каталог</p>
 					<div class="catalog_tubs_box">
@@ -43,9 +43,9 @@
 					</div>
 				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
 			</div>
-		</section>
+		</div>
 		<?php if (get_field('gallery_works', 45)): ?>
-			<section class="carusel">
+			<div class="carusel">
 				<div class="container carusel_container_top">
 					<p class="main_title carusel_title">Более 5000 памятников и мемориальных комплексов</p>
 					<div class="carusel__arrow carusel__prev"></div>
@@ -58,7 +58,7 @@
 							<?php foreach(get_field('gallery_works', 45) as $item): ?>
 								<?php if ($gallery_works_count > 9) break; ?>
 								<div class="swiper-slide carusel__slide">
-									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 								</div>
 								<?php $gallery_works_count++; ?>
 							<?php endforeach; ?>
@@ -66,7 +66,7 @@
 					</div>
 				</div>
 				<div class="swiper-pagination carusel__pagination"></div>
-			</section>
+			</div>
 		<?php  endif; ?>
 			<div class="content content_front">
 				<div class="container">
