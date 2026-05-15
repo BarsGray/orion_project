@@ -66,10 +66,10 @@ jQuery(function ($) {
 		pagination: { el: '.carusel__pagination', clickable: true, },
 		navigation: { nextEl: '.carusel__next', prevEl: '.carusel__prev', },
 		breakpoints: {
-			1350: { slidesPerView: 5.1, slidesPerGroup: 1, },
-			800: { slidesPerView: 3.5, slidesPerGroup: 1, },
-			540: { slidesPerView: 2.4, slidesPerGroup: 1, },
-			440: { slidesPerView: 1.6, slidesPerGroup: 1, },
+			1350: { slidesPerView: 4.1, slidesPerGroup: 1, },
+			800: { slidesPerView: 2.5, slidesPerGroup: 1, },
+			540: { slidesPerView: 1.6, slidesPerGroup: 1, },
+			440: { slidesPerView: 1.4, slidesPerGroup: 1, },
 			300: { centeredSlides: false, slidesPerView: 1, slidesPerGroup: 1 },
 		},
 	});

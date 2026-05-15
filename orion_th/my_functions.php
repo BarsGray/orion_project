@@ -1,8 +1,12 @@
 <?php /* Plugin Name: My Custom Functions */
 
 if (!defined('ABSPATH')) { exit; }
-if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.15'); }
+if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.17'); }
 if (!defined('FRONT_PAGE')) { define('FRONT_PAGE', get_option('page_on_front')); }
+
+add_filter('wp_speculation_rules_configuration',function(){return null;});
+add_filter('wp_img_tag_add_auto_sizes','__return_false');
+add_action('after_setup_theme', function() { add_theme_support( 'html5', [ 'script', 'style' ] ); } );
 
 add_theme_support('post-thumbnails');
 add_image_size( 'custom-gallery-thumb_4_4', 400, 400, true );

@@ -68,14 +68,7 @@
 								<div class="top_rowmobile_menu_info_text"><?php the_field('adres_2', FRONT_PAGE) ?></div>
 							</div>
 						<?php endif; ?>
-						<div class="contacts_socials">
-							<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/mobile_vk.svg" alt=""></a>
-							<?php endif; ?>
-							<?php if (get_field('max_link', FRONT_PAGE)): ?>
-								<a href="/" class="contacts_socials_link"><img class="" src="<?php bloginfo('template_url') ?>/img/mobile_max.svg" alt=""></a>
-							<?php endif; ?>
-						</div>
+						<?php socials_show('mobile'); ?>
 					</div>
 				</div>
 				<div class="mobile_box_btns">

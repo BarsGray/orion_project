@@ -21,7 +21,7 @@
 					?>
 						<div class="services_page_item">
 							<div class="services_page_item_img">
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('custom-gallery-thumb_4_3'); ?></a>
 							</div>
 							<div class="services_page_item_rigth">
 								<p class="services_page_item_name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>

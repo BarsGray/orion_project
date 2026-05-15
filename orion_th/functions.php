@@ -134,7 +134,7 @@ function show_works() {
 		<div class="gallery_works">
 			<?php foreach(get_field('gallery_works') as $item): ?>
 				<div class="gallery_works_item">
-					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_3']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
 			<a class="gallery_works_btn" href="#">Показать ещё</a>
@@ -148,7 +148,7 @@ function show_gellary_services() {
 		<div class="gallery_works">
 			<?php foreach(get_field('gellary_services') as $item): ?>
 				<div class="gallery_works_item">
-					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+					<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_3']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 				</div>
 			<?php endforeach; ?>
 			<a class="gallery_works_btn" href="#">Показать ещё</a>
@@ -171,7 +171,7 @@ function show_services()
 			<?php while ($query->have_posts()): $query->the_post(); ?>
 				<div class="services_page_item">
 					<div class="services_page_item_img">
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('custom-gallery-thumb_4_3'); ?></a>
 					</div>
 					<div class="services_page_item_rigth">
 						<p class="services_page_item_name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
@@ -289,10 +289,10 @@ function socials_show($args = '')
 	if (get_field('vk_link', FRONT_PAGE) || get_field('max_link', FRONT_PAGE)): ?>
 		<div class="contacts_socials">
 			<?php if (get_field('vk_link', FRONT_PAGE)): ?>
-				<a href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? 'vk_link_map ' : 'vk_link contacts_'; ?>socials_link"></a>
+				<a rel="nofollow" target="_blank" href="<?php the_field('vk_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map' || $args === 'mobile') ? 'vk_link_map ' : 'vk_link contacts_'; ?>socials_link"></a>
 			<?php endif; ?>
 			<?php if (get_field('max_link', FRONT_PAGE)): ?>
-				<a href="<?php the_field('max_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map') ? 'max_link_map ' : 'max_link contacts_'; ?>socials_link"></a>
+				<a rel="nofollow" target="_blank" href="<?php the_field('max_link', FRONT_PAGE) ?>" class="<?php echo ($args === 'map' || $args === 'mobile') ? 'max_link_map ' : 'max_link contacts_'; ?>socials_link"></a>
 			<?php endif; ?>
 		</div>
 	<?php endif;
