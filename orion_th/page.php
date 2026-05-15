@@ -5,9 +5,7 @@ show_title_box();
 
 <div class="content">
 	<div class="container">
-		<div class="user_content">
-			<?php the_field("text_before"); the_content();?>
-		</div>
+		<div class="user_content"><?php the_field("text_before"); the_content();?></div>
 		
 		<?php
 
@@ -26,9 +24,7 @@ show_title_box();
 
 		<div class="user_content">
 			<?php if (get_field('text_after')) : ?>
-				<div class="hide_text">
-					<?php the_field("text_after"); ?>
-				</div>	
+				<div class="hide_text"><?php the_field("text_after"); ?></div>	
 				<?php if (mb_strlen(get_field('text_after'), 'UTF-8') > 100) : ?>
 					<a class="more">Подробнее</a>
 				<?php endif; ?>
