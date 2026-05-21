@@ -262,7 +262,7 @@ function show_products($args)
 			if (is_front_page()) {foreach ($cats as $cat) {$classes .= ' cat-' . $cat->slug;}}
 		?>
 			<div class="catalog_item <?php echo (is_front_page()) ? 'mix' : '' ?><?php echo $classes; ?>">
-				<a data-fancybox data-src="#popup_box" href="#">
+				<a data-fancybox href="<?php echo get_the_post_thumbnail_url(null, 'full'); ?>">
 					<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 					<span class="catalog_item_name"><?php the_title(); ?></span>
 				</a>

@@ -19,7 +19,7 @@ query_posts($args);
 					// $cats = get_the_terms(get_the_ID(), 'catalog');
 				?>
 					<div class="catalog_item">
-						<a data-fancybox data-src="#popup_box" href="#">
+						<a data-fancybox href="<?php echo get_the_post_thumbnail_url(null, 'full'); ?>">
 							<span class="catalog_item_img"><?php the_post_thumbnail('full'); ?></span>
 							<span class="catalog_item_name"><?php the_title(); ?></span>
 						</a>

@@ -1,7 +1,7 @@
 <?php /* Plugin Name: My Custom Functions */
 
 if (!defined('ABSPATH')) { exit; }
-if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.18'); }
+if (!defined('_S_VERSION')) { define('_S_VERSION', '1.0.19'); }
 if (!defined('FRONT_PAGE')) { define('FRONT_PAGE', get_option('page_on_front')); }
 
 add_filter('wp_speculation_rules_configuration',function(){return null;});

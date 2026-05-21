@@ -173,7 +173,7 @@ jQuery(function ($) {
 
 	// ++++++++++++++++++++++++++++ fancybox gallery  ++++++++++++++++++++++++++++++++++++++++++++
 	$('[data-fancybox="gallery"]').fancybox({ arrows: false, infobar: false, buttons: [], clickContent: false, backFocus: false, loop: true, });
-
+	$('[data-fancybox]').fancybox( {buttons: []} );
 
 
 	// ++++++++++++++++++++++++++++ loadMore gallery  ++++++++++++++++++++++++++++++++++++++++++++

@@ -58,7 +58,7 @@
 							<?php foreach(get_field('gallery_works', 45) as $item): ?>
 								<?php if ($gallery_works_count > 9) break; ?>
 								<div class="swiper-slide carusel__slide">
-									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_3']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
 								</div>
 								<?php $gallery_works_count++; ?>
 							<?php endforeach; ?>
