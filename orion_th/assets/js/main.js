@@ -169,12 +169,9 @@ jQuery(function ($) {
 		}, true);
 	});
 
-
-
 	// ++++++++++++++++++++++++++++ fancybox gallery  ++++++++++++++++++++++++++++++++++++++++++++
 	$('[data-fancybox="gallery"]').fancybox({ arrows: false, infobar: false, buttons: [], clickContent: false, backFocus: false, loop: true, });
 	$('[data-fancybox]').fancybox( {buttons: []} );
-
 
 	// ++++++++++++++++++++++++++++ loadMore gallery  ++++++++++++++++++++++++++++++++++++++++++++
 	const services_items = document.querySelectorAll('.gallery_works_item');
