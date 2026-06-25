@@ -1,0 +1,79 @@
+<?php /* Template Name: Главная */ get_header(); ?>
+
+		<div class="section bunner">
+			<div class="container">
+				<div class="bottom_row_content">
+					<p class="bottom_row_content_title main_title">Изготовление памятников любой сложности</p>
+					<p class="bottom_row_content_text">Мемориальные комплексы, художественная гравировка, благоустройство захоронений. Более 15 лет опыта в Воронеже и области.</p>
+					<a href="<?php echo get_permalink(41); ?>" class="bottom_row_content_link main_btn">Выбрать памятник</a>
+					<div class="header_advantages_row">
+						<div class="header_advantages_item">
+							<span class="advantages_item_shield"></span>
+							<p class="header_advantages_item_text"><span>Гарантия</span>на памятник и установку</p>
+						</div>
+						<div class="header_advantages_item">
+							<span class="advantages_item_coins"></span>
+							<p class="header_advantages_item_text"><span>Рассрочка</span>на выгодных условиях</p>
+						</div>
+						<div class="header_advantages_item">
+							<span class="advantages_item_money"></span>
+							<p class="header_advantages_item_text"><span>Подбор</span>под ваш бюджет</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php  show_services_on_front(); ?>
+		<div class="section catalog">
+			<div class="container">
+				<p class="catalog_title main_title">Каталог</p>
+					<div class="catalog_tubs_box">
+						<?php show_category_prod(); ?>
+					</div>
+					<div class="catalog_box <?php echo (is_front_page()) ? 'catalog_box_mix' : '' ?>">
+					<?php
+						$categories = get_terms(['taxonomy'   => 'catalog','hide_empty' => true,]);
+						if (!empty($categories) && !is_wp_error($categories)) :
+							foreach ($categories as $cat):
+								$args = ['post_type' => 'product','posts_per_page' => 10,'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
+								show_products($args);
+							endforeach;
+						endif;
+					?>
+					</div>
+				<a href="<?php echo get_permalink(41); ?>" class="main_btn catalog_main_btn">Смотреть весь каталог</a>
+			</div>
+		</div>
+		<?php if (get_field('gallery_works', 45)): ?>
+			<div class="section carusel">
+				<div class="container carusel_container_top">
+					<p class="main_title carusel_title">Более 5000 памятников и мемориальных комплексов</p>
+					<div class="carusel__arrow carusel__prev"></div>
+					<div class="carusel__arrow carusel__next"></div>
+				</div>
+				<div class="carusel__slider_main_wrapper">
+					<div class="swiper carusel__slider-wrapper">
+						<div class="swiper-wrapper carusel__slider">
+							<?php $gallery_works_count = 0; ?>
+							<?php foreach(get_field('gallery_works', 45) as $item): ?>
+								<?php if ($gallery_works_count > 9) break; ?>
+								<div class="swiper-slide carusel__slide">
+									<a data-fancybox="gallery" href="<?php echo $item['url']; ?>"><img src="<?php echo $item['sizes']['custom-gallery-thumb_4_4']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+								</div>
+								<?php $gallery_works_count++; ?>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination carusel__pagination"></div>
+			</div>
+		<?php  endif; ?>
+			<div class="content content_front">
+				<div class="container">
+					<div class="user_content">
+						<div class="hide_text"><?php the_content(); ?></div>
+						<a class="more">Подробнее</a>
+					</div>
+				</div>
+			</div>
+<?php show_map(); get_footer(); ?>
