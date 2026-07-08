@@ -8,7 +8,19 @@
 			<a href="#" data-fancybox data-src="#popup_box" class="footer_btn top_btn">Получить консультацию</a>
 		</div>
 	</div>
+	<div class="container">
+		<div class="polit">
+			<?php echo the_privacy_policy_link(); ?>
+			<p><a href="<?php echo get_page_link(3880); ?>">Политика использования файлов cookie</a></p>
+			<p><a href="<?php echo get_page_link(3882); ?>">Согласие на обработку персональных данных</a></p>
+		</div>
+	</div>
 </footer>
+
+<?php
+	if(!isset($_COOKIE['gdpr_site']))
+		echo '<div class="gdpr"><p>Продолжая использовать наш веб-сайт, вы соглашаетесь на использование файлов cookie в соответствии с нашей <a href="'.get_privacy_policy_url().'" target="_blank">политикой конфиденциальности</a>.</p><a href="#">Хорошо</a></div>';
+?>
 
 <div id="popup_box" class="popup_box">
 	<div class="top_box">

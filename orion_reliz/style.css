@@ -805,7 +805,8 @@ span.wpcf7-not-valid-tip {display: none;}
 	color: #333;
 }
 .wpcf7-list-item input[type="checkbox"] {position: absolute;z-index: -1;opacity: 0;}
-.wpcf7-list-item-label {position: relative;padding-left: 30px;}
+.wpcf7-list-item-label {position: relative;padding-left: 30px;line-height: 1;}
+.wpcf7-list-item-label a{color: #C37437;}
 .wpcf7-list-item-label::before {
 	content: "";
 	position: absolute;
@@ -1084,4 +1085,49 @@ span.wpcf7-not-valid-tip {display: none;}
 	.gallery_works img {border-radius: 12px;}
 	.catalog_tubs_box .container {padding: 20px;}
 	.section.catalog .catalog_tubs_box {overflow: hidden;margin: 0 -12px;}
+}
+
+.gdpr{
+	font-size: 18px;
+	line-height:1.2;
+	position:fixed;
+	left:16px;
+	right:16px;
+	bottom:16px;
+	padding:16px;
+	font-size:14px;
+	line-height:16px;
+	max-width:350px;
+	background:white;
+	border:1px solid #C37437;
+	border-radius:12px;
+	z-index:10;
+}
+.gdpr > p > a{
+	color:#C37437;
+}
+.gdpr > a{
+	font-size: 18px;
+	line-height:1.2;
+	display:inline-block;
+	margin-top:8px;
+	border:1px solid #C37437;
+	background:#C37437;
+	color:white;
+	padding: 10px 24px;
+	border-radius: 12px;
+	transition:all 0.5s;
+}
+.gdpr > a:hover{
+	background:white;
+	color:#C37437;
+}
+
+.polit a{
+	font-size:14px;
+	line-height:1.3;
+	transition: all 0.5s;
+}
+.polit a:hover{
+	color: #C37437;
 }

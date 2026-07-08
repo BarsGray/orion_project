@@ -241,5 +241,11 @@ jQuery(function ($) {
 			}
 		});
 	}
+	
+	$('.gdpr > a').click(function(e){
+		e.preventDefault();
+		document.cookie='gdpr_site=gdpr;path=/;max-age=86400000';
+		$(this).closest('.gdpr').remove();
+	});
 
 });
