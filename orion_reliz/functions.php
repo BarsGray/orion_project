@@ -228,7 +228,7 @@ function show_category_prod()
 		if (is_front_page()) : ?>
 			<?php $count = 0;
 			foreach ($categories as $category): ?>
-				<li class="catalog_tub_item catalog_tub_item_mix <?php echo ($count == 0) ? 'active' : '' ?>" data-filter=".cat-<?php echo $category->slug; ?>">
+				<li class="catalog_tub_item catalog_tub_item_mix <?php echo ($count == 0) ? 'active' : '' ?>" data-cat_url="<?php echo get_term_link($category); ?>" data-filter=".cat-<?php echo $category->slug; ?>">
 					<a href="#"><?php echo esc_html($category->name); ?></a>
 				</li>
 			<?php $count++;

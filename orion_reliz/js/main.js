@@ -35,6 +35,9 @@ jQuery(function ($) {
 	}
 
 
+	let catUrl = $('.catalog_tub_item_mix.active').data('cat_url');
+	if (catUrl) {$('.catalog_main_btn').attr('href', catUrl);}
+	
 	let containerEl = document.querySelector('.catalog_box_mix');
 	if (containerEl) {
 
@@ -44,18 +47,21 @@ jQuery(function ($) {
 			load: { filter: '.cat-angel' }
 		});
 
+
+		
 		$('.catalog_tub_item_mix').on('click', function (e) {
 			e.preventDefault();
 
 			$('.catalog_tub_item_mix').removeClass('active');
 			$(this).addClass('active');
+			catUrl = $(this).data('cat_url');
+			$('.catalog_main_btn').attr('href', catUrl);
 
 			let filter = $(this).data('filter');
 
 			mixer.filter(filter);
 		});
 	}
-
 
 	// ++++++++++++++++++++++++++++ carusel ++++++++++++++++++++++++++++++++++++++++++++
 	const swiper = new Swiper('.swiper', {

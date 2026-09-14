@@ -35,9 +35,11 @@
 						$categories = get_terms(['taxonomy'   => 'catalog','hide_empty' => true,]);
 						if (!empty($categories) && !is_wp_error($categories)) :
 							foreach ($categories as $cat):
-								$args = ['post_type' => 'product','posts_per_page' => 10,'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
+								$args = ['post_type' => 'product','posts_per_page' => 20, 'tax_query' => [array('taxonomy' => 'catalog', 'field' => 'slug', 'terms' => $cat->slug)]];
 								show_products($args);
 							endforeach;
+							
+							// echo "<a href=".get_permalink(41)." class='main_btn catalog_main_btn'>Смотреть весь каталог категории</a>";
 						endif;
 					?>
 					</div>
