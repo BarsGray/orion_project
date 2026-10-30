@@ -27,7 +27,7 @@ a{color:inherit;}
 .content .user_content a.gallery_works_btn {color: #000;}
 .content .user_content a.gallery_works_btn:hover{color: #fff;opacity: 1;}
 .content .user_content .gallery_works_item a:hover {opacity: 1;}
-
+.content .user_content .over_table{overflow:auto;margin-bottom: 20px;}
 
 .vk_link,.max_link {width: 24px;height: 24px;}
 .vk_link_map,.max_link_map {width: 32px;height: 32px;}
@@ -76,9 +76,60 @@ img.attachment-post-thumbnail {display: block;margin: 0 auto 30px;}
 .content ul li {list-style: disc;}
 .content ol li {list-style: decimal;}
 .content ol {padding-inline-start: 40px;}
-.content ul,.content ol,.content p {font-size: 20px;padding-bottom: 20px;line-height: 1.2;}
+.content ul,.content ol,.content p {font-size: 20px;margin-bottom: 20px;line-height: 1.2;}
 .content ol,.content ul {padding-left: 40px;font-size: 20px;}
 .content ol li,.content ul li {margin-bottom: 10px;}
+
+table {
+    /* width: 100%; */
+    margin-bottom: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.45;
+}
+th,
+td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e8e8e8;
+}
+thead th,
+tbody tr:first-child td {
+    background: #f3f1ed;
+    color: #222;
+    font-weight: 600;
+}
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+tbody tr:hover {
+    background: #f5f2ee;
+}
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+/* @media (max-width: 600px) { */
+/* table { */
+/* width: 100% !important; */
+/* max-width: 100% !important; */
+/* table-layout: fixed; */
+/* font-size: 13px; */
+/* margin: 20px 0; */
+/* } */
+/* th, */
+/* td { */
+    /* padding: 9px 7px; */
+    /* overflow-wrap: break-word; */
+    /* word-break: normal; */
+/* } */
+/* } */
+
 body {background-color: #fff;}
 .wrapper {position: relative;}
 .load_more_btn {
@@ -662,8 +713,9 @@ p.contacts_titles {padding-bottom: 0;}
 .form_box .fancybox-button svg,.popup_box .fancybox-button svg {display: none;}
 .content {background-color: #F2F2F2;}
 p.form_title,.popup_title {font-size: 30px;font-family: "Tenor Sans";margin-bottom: 10px;}
-p.form_title {font-size: 50px;margin-bottom: 0;}
-.content p.form_text {margin-bottom: 0;}
+p.form_title {font-size: 50px;}
+.popup_box p.form_title {margin-bottom: 0;}
+/* .content p.form_text {margin-bottom: 0;} */
 .form_text,.popup_text {font-size: 16px;line-height: 1.4;margin-bottom: 20px;}
 .form_box form,.popup_box form {display: flex;flex-direction: column;gap: 20px;}
 .form_box form p,.popup_box form p {padding-bottom: 0;}
@@ -697,6 +749,7 @@ p.form_title {font-size: 50px;margin-bottom: 0;}
 	background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.25106 5.24408C7.5858 4.91864 8.12839 4.91864 8.46314 5.24408L12.7489 9.4108C13.0837 9.73624 13.0837 10.2638 12.7489 10.5892L8.46314 14.7559C8.12839 15.0814 7.5858 15.0814 7.25106 14.7559C6.91631 14.4305 6.91631 13.903 7.25106 13.5775L10.9308 10L7.25106 6.42248C6.91631 6.09704 6.91631 5.56952 7.25106 5.24408Z' fill='%23000'/%3e%3c/svg%3e") no-repeat center center / cover;
 	transition: opacity .2s ease-in-out;
 }
+.contacts_form_box .form_box form p {margin-bottom: 0;}
 .popup_box form button[disabled]::before,.form_box form button[disabled]::before {opacity: .4;}
 .popup_box form button[disabled],.form_box form button[disabled] {background-color: #D8D8D8;border-color: #D8D8D8;}
 .popup_phone {
@@ -917,7 +970,7 @@ span.wpcf7-not-valid-tip {display: none;}
 	.form_box form input {padding: 11px 16px;}
 	.form_box form button {padding: 11px 52px 11px 32px;}
 	.form_box form {gap: 12px;}
-	p.form_title {padding-bottom: 12px;}
+	.popup_box p.form_title {padding-bottom: 12px;}
 	.content p.form_text {font-size: 16px;}
 }
 @media (max-width: 1001px) {
@@ -1130,4 +1183,17 @@ span.wpcf7-not-valid-tip {display: none;}
 }
 .polit a:hover{
 	color: #C37437;
+}
+	
+.oglavlenie{
+	padding:20px 15px;
+	border:1px solid #c37437;
+	margin-bottom:20px;
+}
+.oglavlenie ol{
+	margin-bottom:0;
+}
+.oglavlenie .h5 {
+    font-size: 20px;
+    font-weight: 400;
 }
